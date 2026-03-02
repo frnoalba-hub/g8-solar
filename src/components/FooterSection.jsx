@@ -14,9 +14,9 @@ export default function FooterSection() {
           {/* Brand */}
           <div className="md:col-span-2">
             <img
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/b0baebb9c_Untitleddesign-Picsart-BackgroundRemover.png"
-              alt="G8 Solar LLC"
-              className="h-16 w-auto mb-4"
+             src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/c1a382000_Gemini_Generated_Image_5eixi75eixi75eix4.png"
+             alt="G8 Solar LLC"
+             className="h-20 w-auto mb-6"
             />
             <p className="text-white/40 text-sm leading-relaxed max-w-xs">
               Smart solar solutions for homes and businesses across California.
