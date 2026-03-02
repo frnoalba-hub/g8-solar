@@ -15,33 +15,21 @@ export default function PanelCleaningSection() {
           </p>
         </div>
 
-        {/* Before / After */}
-        <div className="grid md:grid-cols-2 gap-6 mb-14">
-          <div className="relative rounded-2xl overflow-hidden shadow-xl group">
+        {/* Before / After - Real G8 Solar Image */}
+        <div className="mb-14">
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-3xl mx-auto">
             <img
-              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
-              alt="Dirty solar panels - Before cleaning"
-              className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/6f1c6feb9_520953491_122097479000956477_4681214345456843616_n.jpg"
+              alt="Solar panel before and after cleaning - G8 Solar"
+              className="w-full object-cover rounded-2xl"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <span className="inline-block bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-2">BEFORE</span>
-              <p className="text-white font-bold text-lg">Dirty, Dusty Panels</p>
-              <p className="text-gray-300 text-sm">Up to 25% energy loss from dirt, dust & bird droppings</p>
+            <div className="absolute bottom-0 left-0 w-1/2 p-4 bg-gradient-to-t from-black/70 to-transparent rounded-bl-2xl">
+              <span className="inline-block bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-1">BEFORE</span>
+              <p className="text-white text-sm font-semibold">Dirty, dusty panels — up to 25% energy loss</p>
             </div>
-          </div>
-
-          <div className="relative rounded-2xl overflow-hidden shadow-xl group">
-            <img
-              src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80"
-              alt="Clean solar panels - After cleaning"
-              className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <span className="inline-block bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-2">AFTER</span>
-              <p className="text-white font-bold text-lg">Clean, Optimized Panels</p>
-              <p className="text-gray-300 text-sm">Full efficiency restored — maximum savings</p>
+            <div className="absolute bottom-0 right-0 w-1/2 p-4 bg-gradient-to-t from-black/70 to-transparent rounded-br-2xl text-right">
+              <span className="inline-block bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-1">AFTER</span>
+              <p className="text-white text-sm font-semibold">Clean panels — full efficiency restored</p>
             </div>
           </div>
         </div>
