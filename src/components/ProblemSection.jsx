@@ -3,7 +3,8 @@ import React from "react";
 const stats = [
 { value: "$0", label: "Down Financing" },
 { value: "30%", label: "Federal Tax Credit" },
-{ value: "25+", label: "Year Warranty" }];
+{ value: "25+", label: "Year Warranty" },
+{ value: "A+", label: "Rated by Customers" }];
 
 
 export default function ProblemSection() {
@@ -37,10 +38,6 @@ export default function ProblemSection() {
               alt="Solar installation" className="w-full h-full object-cover" />
 
 
-            </div>
-            <div className="absolute -bottom-5 -right-4 bg-[#0b1528] rounded-2xl shadow-xl p-5 border border-[#d4af37]/30">
-              <div className="text-2xl font-bold text-[#d4af37]">A+</div>
-              <div className="text-sm text-white/70">Rated by Customers</div>
             </div>
           </div>
         </div>
