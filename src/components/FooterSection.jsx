@@ -9,8 +9,8 @@ export default function FooterSection() {
       {/* Gold accent line */}
       <div className="h-px bg-gradient-to-r from-transparent via-[#d4af37]/60 to-transparent mb-16" />
 
-      <div className="max-w-6xl mx-auto px-5 sm:px-8">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-12">
+      <div className="max-w-full mx-auto px-5 sm:px-12 lg:px-20">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-20">
           {/* Brand */}
           <div className="flex-1">
             <img
