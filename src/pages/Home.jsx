@@ -19,15 +19,15 @@ export default function Home() {
     <div>
       <div className="font-sans">
         <HeroSection />
+        <SavingsCalculator />
+        <CaliforniaNewsSection />
+        <CaliforniaProgramsSection />
         <ProblemSection />
         <WhySolarSection />
         <ServicesSection />
         <HowItWorksSection />
-        <SavingsCalculator />
         <PanelCleaningSection />
         <InstallationGallery />
-        <CaliforniaNewsSection />
-        <CaliforniaProgramsSection />
         <LeadFormSection />
         <FAQSection />
         <CtaSection />
