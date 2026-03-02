@@ -38,20 +38,13 @@ export default function Layout({ children }) {
         scrolled ? "bg-white shadow-md py-3" : "bg-transparent py-5"
       }`}>
         <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
-          {/* Logo */}
-          <img
-            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/b0baebb9c_Untitleddesign-Picsart-BackgroundRemover.png"
-            alt="G8 Solar LLC"
-            className="h-12 w-auto"
-          />
-
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map(({ label, id }) => (
+          {/* Left Nav */}
+          <div className="hidden md:flex items-center gap-8 flex-1">
+            {navLinks.slice(0, 3).map(({ label, id }) => (
               <button
                 key={id}
                 onClick={() => scrollTo(id)}
-                className={`text-sm font-medium transition-colors hover:text-[#d4af37] ${
+                className={`text-base font-semibold transition-colors hover:text-[#d4af37] ${
                   scrolled ? "text-[#0b1528]" : "text-white drop-shadow"
                 }`}
               >
@@ -60,11 +53,33 @@ export default function Layout({ children }) {
             ))}
           </div>
 
-          {/* CTA + Mobile toggle */}
-          <div className="flex items-center gap-3">
+          {/* Logo Centered */}
+          <div className="flex-1 flex justify-center md:absolute md:left-1/2 md:-translate-x-1/2">
+            <img
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/b0baebb9c_Untitleddesign-Picsart-BackgroundRemover.png"
+              alt="G8 Solar LLC"
+              className="h-20 w-auto"
+            />
+          </div>
+
+          {/* Right Nav + CTA */}
+          <div className="flex items-center gap-6 flex-1 justify-end">
+            <div className="hidden md:flex items-center gap-8">
+              {navLinks.slice(3).map(({ label, id }) => (
+                <button
+                  key={id}
+                  onClick={() => scrollTo(id)}
+                  className={`text-base font-semibold transition-colors hover:text-[#d4af37] ${
+                    scrolled ? "text-[#0b1528]" : "text-white drop-shadow"
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
             <a
               href="tel:6614386350"
-              className={`hidden sm:flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-[#d4af37] ${
+              className={`hidden lg:flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-[#d4af37] ${
                 scrolled ? "text-[#0b1528]" : "text-white drop-shadow"
               }`}
             >
