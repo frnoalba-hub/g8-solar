@@ -20,7 +20,7 @@ export default function HeroSection() {
             minWidth: "100%",
             minHeight: "100%",
           }}
-          src="https://www.youtube.com/embed/Cw_3rABOxl8?autoplay=1&mute=1&loop=1&playlist=Cw_3rABOxl8&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
+          src="https://www.youtube.com/embed/Cw_3rABOxl8?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
           title="G8 Solar"
           frameBorder="0"
           allow="autoplay; encrypted-media"
