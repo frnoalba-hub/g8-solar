@@ -63,8 +63,9 @@ export default function FooterSection() {
             </div>
           </div>
           </div>
+          </div>
 
-        <div className="border-t border-white/10 pt-8 text-center">
+          <div className="border-t border-white/10 pt-8 text-center">
           <p className="text-white/25 text-xs leading-relaxed max-w-3xl mx-auto">
             © {new Date().getFullYear()} G8 Solar LLC. We partner with licensed, bonded, and insured local installers. Savings estimates vary by property. Actual results depend on usage, roof conditions, utility rates, and available incentives.
           </p>
