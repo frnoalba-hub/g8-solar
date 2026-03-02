@@ -130,8 +130,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-[#0b1528]/70 z-0" />
+
     </section>
   );
 }
