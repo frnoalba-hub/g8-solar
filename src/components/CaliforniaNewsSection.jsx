@@ -8,7 +8,7 @@ const news = [
     title: "California Extends Solar Incentives Through 2025",
     summary: "SGIP battery incentive program and net metering continue to offer generous compensation for solar energy exported to the grid.",
     color: "text-blue-400 bg-blue-500/10",
-    link: "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+    link: "https://www.cpuc.ca.gov/sgip",
   },
   {
     icon: Sun,
@@ -16,7 +16,7 @@ const news = [
     title: "California Leads the U.S. in Solar Installations",
     summary: "Over 1.5 million residential solar systems installed — producing enough power for millions of homes.",
     color: "text-amber-400 bg-amber-500/10",
-    link: "https://www.energy.ca.gov/data-reports/energy-almanac/california-electricity-data/california-solar-statistics",
+    link: "https://www.seia.org/state-solar-policy/california-solar",
   },
   {
     icon: Award,
@@ -24,7 +24,7 @@ const news = [
     title: "30% Federal Solar Tax Credit Through 2032",
     summary: "The Inflation Reduction Act locked in the 30% ITC, saving California homeowners thousands on installations.",
     color: "text-emerald-400 bg-emerald-500/10",
-    link: "https://www.energy.gov/eere/solar/homeowners-guide-federal-tax-credit-solar-photovoltaics",
+    link: "https://www.irs.gov/credits-deductions/residential-clean-energy-credit",
   },
 ];
 
