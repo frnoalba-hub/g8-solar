@@ -19,6 +19,8 @@ export default function Layout({ children }) {
   const navLinks = [
     { label: "About", id: "problem-section" },
     { label: "Services", id: "services-section" },
+    { label: "Installations", id: "installation-gallery" },
+    { label: "Programs", id: "california-programs" },
     { label: "How It Works", id: "how-it-works" },
     { label: "Calculator", id: "calculator" },
     { label: "FAQ", id: "faq-section" },
@@ -38,14 +40,14 @@ export default function Layout({ children }) {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? "bg-white shadow-md py-3" : "bg-transparent py-5"
       }`}>
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between gap-6">
           {/* Left Nav */}
-          <div className="hidden md:flex items-center gap-8 flex-1">
-            {navLinks.slice(0, 3).map(({ label, id }) => (
+          <div className="hidden lg:flex items-center gap-6 flex-1">
+            {navLinks.slice(0, 4).map(({ label, id }) => (
               <button
                 key={id}
                 onClick={() => scrollTo(id)}
-                className={`text-base font-semibold transition-colors hover:text-[#d4af37] ${
+                className={`text-sm font-semibold transition-colors hover:text-[#d4af37] ${
                   scrolled ? "text-[#0b1528]" : "text-white drop-shadow"
                 }`}
               >
@@ -60,13 +62,13 @@ export default function Layout({ children }) {
           </div>
 
           {/* Right Nav + CTA */}
-          <div className="flex items-center gap-6 flex-1 justify-end">
-            <div className="hidden md:flex items-center gap-8">
-              {navLinks.slice(3).map(({ label, id }) => (
+          <div className="flex items-center gap-4 flex-1 justify-end">
+            <div className="hidden lg:flex items-center gap-6">
+              {navLinks.slice(4).map(({ label, id }) => (
                 <button
                   key={id}
                   onClick={() => scrollTo(id)}
-                  className={`text-base font-semibold transition-colors hover:text-[#d4af37] ${
+                  className={`text-sm font-semibold transition-colors hover:text-[#d4af37] ${
                     scrolled ? "text-[#0b1528]" : "text-white drop-shadow"
                   }`}
                 >
@@ -76,7 +78,7 @@ export default function Layout({ children }) {
             </div>
             <a
               href="tel:6614386350"
-              className={`hidden lg:flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-[#d4af37] ${
+              className={`hidden md:flex items-center gap-1.5 text-xs font-medium transition-colors hover:text-[#d4af37] ${
                 scrolled ? "text-[#0b1528]" : "text-white drop-shadow"
               }`}
             >
@@ -85,7 +87,7 @@ export default function Layout({ children }) {
             </a>
             <button
               onClick={() => scrollTo("savings-form")}
-              className="bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-semibold text-sm px-5 py-2.5 rounded-full transition-all"
+              className="bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-bold text-xs px-6 py-3 rounded-full transition-all whitespace-nowrap"
             >
               Get a Quote
             </button>
