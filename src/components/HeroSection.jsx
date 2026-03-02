@@ -134,13 +134,13 @@ export default function HeroSection() {
 
       {/* Hero image at bottom */}
       <div className="relative z-10 w-full mt-auto">
-        <div className="relative h-56 sm:h-72 overflow-hidden">
+        <div className="relative h-56 sm:h-80 overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80"
             alt="Solar panels"
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#060e1c] via-[#060e1c]/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0b1528]/60 via-transparent to-transparent" />
         </div>
       </div>
     </section>
