@@ -1,13 +1,11 @@
 import React from "react";
-import { Instagram, Facebook, ArrowRight } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 
 export default function CtaSection() {
-  const scrollToForm = () => {
-    document.getElementById("savings-form")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const scrollToForm = () => document.getElementById("savings-form")?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section className="py-24 bg-[#0b1528] relative overflow-hidden">
+    <section className="relative py-28 overflow-hidden bg-[#0b1528]">
       <div className="absolute inset-0 opacity-10">
         <img
           src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6878725ae2384abaf6424082/476057763_520953491_122097479000956477_4681214345456843616_n.jpg"
@@ -15,34 +13,31 @@ export default function CtaSection() {
           className="w-full h-full object-cover"
         />
       </div>
+      {/* Gold accent line top */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent" />
+
       <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-8 text-center">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-          Ready to Take Control of Your Energy Costs?
+        <span className="text-[#d4af37] font-semibold text-xs tracking-widest uppercase mb-4 block">Take Action</span>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+          Ready to Take Control of<br className="hidden sm:block" /> Your Energy Costs?
         </h2>
         <p className="text-white/50 text-lg mb-10 max-w-xl mx-auto">
           Join homeowners across California already saving with G8 Solar. Get your free assessment today.
         </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
           <button
             onClick={scrollToForm}
-            className="group bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-semibold text-lg px-8 py-4 rounded-full transition-all flex items-center justify-center gap-2"
+            className="group bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-bold text-base px-8 py-4 rounded-full transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#d4af37]/20"
           >
             Request Free Assessment
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
           <a
             href="tel:6614386350"
-            className="border border-white/30 text-white hover:bg-white/10 font-medium text-lg px-8 py-4 rounded-full transition-all"
+            className="flex items-center justify-center gap-2 border border-white/20 hover:border-white/40 text-white font-medium text-base px-8 py-4 rounded-full transition-all"
           >
-            Call (661) 438-6350
-          </a>
-        </div>
-        <div className="flex justify-center gap-6">
-          <a href="https://www.instagram.com/G8.solar" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/40 hover:text-[#d4af37] transition-colors text-sm">
-            <Instagram className="w-5 h-5" /> @G8.solar
-          </a>
-          <a href="https://www.facebook.com/G8.solar" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/40 hover:text-[#d4af37] transition-colors text-sm">
-            <Facebook className="w-5 h-5" /> @G8.solar
+            <Phone className="w-4 h-4" />
+            (661) 438-6350
           </a>
         </div>
       </div>
