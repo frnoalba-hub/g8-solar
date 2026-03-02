@@ -1,84 +1,93 @@
-import React, { useState } from "react";
-import { Shield, Zap, CreditCard, Loader2 } from "lucide-react";
-import Header from "./Header";
-import { toast } from "sonner";
+import React from "react";
+import { Shield, Zap, CreditCard, ArrowDown, Phone } from "lucide-react";
 
 export default function HeroSection() {
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleEstimateClick = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      toast.success("Redirecting to secure quote form...", {
-        style: {
-          borderLeft: '6px solid #d4af37',
-          padding: '16px 24px',
-        }
-      });
-      document.getElementById("savings-form")?.scrollIntoView({ behavior: "smooth" });
-    }, 1500);
+  const scrollToForm = () => {
+    document.getElementById("savings-form")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="relative min-h-[600px] h-[80vh] md:h-screen flex items-center justify-center overflow-hidden">
-      <Header />
-      
-      {/* Static background image */}
-      <div className="absolute inset-0 w-full h-full z-0">
+    <section className="relative min-h-screen flex flex-col overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80"
-          alt="Solar panels on home"
+          alt="Solar panels"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-[#0b1528]/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0b1528]/80 via-[#0b1528]/70 to-[#0b1528]/90" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center mt-10 md:mt-20">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-extrabold text-white leading-[1.1] mb-6">
-          Stop Renting Your Power.<br />
-          <span className="text-[#d4af37]">Lock in Lower Rates</span><br className="hidden sm:block" /> with Smart Solar.
-        </h1>
+      {/* Top bar */}
+      <header className="relative z-20 flex justify-between items-center px-5 sm:px-8 lg:px-12 py-5">
+        <img
+          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/29e446680_generated_image.png"
+          alt="G8 Solar LLC"
+          className="h-12 sm:h-14 w-auto"
+        />
+        <nav className="hidden md:flex items-center gap-8">
+          <button onClick={() => document.getElementById("services-section")?.scrollIntoView({behavior:"smooth"})} className="text-white/80 hover:text-white text-sm font-medium transition-colors">Services</button>
+          <button onClick={() => document.getElementById("how-it-works")?.scrollIntoView({behavior:"smooth"})} className="text-white/80 hover:text-white text-sm font-medium transition-colors">How It Works</button>
+          <button onClick={() => document.getElementById("calculator")?.scrollIntoView({behavior:"smooth"})} className="text-white/80 hover:text-white text-sm font-medium transition-colors">Calculator</button>
+          <button onClick={() => document.getElementById("faq-section")?.scrollIntoView({behavior:"smooth"})} className="text-white/80 hover:text-white text-sm font-medium transition-colors">FAQ</button>
+        </nav>
+        <button
+          onClick={scrollToForm}
+          className="bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-semibold text-sm px-5 py-2.5 rounded-full transition-all hover:shadow-lg hover:shadow-[#d4af37]/20"
+        >
+          Get a Quote
+        </button>
+      </header>
 
-        <p className="text-lg sm:text-xl text-[#e0e0e0] max-w-2xl mx-auto mb-10 leading-relaxed">
-          Professional installations, custom designs, and immediate savings for homes and businesses.
-          Schedule a no-pressure assessment.
-        </p>
+      {/* Main content */}
+      <div className="relative z-10 flex-1 flex items-center justify-center px-5 sm:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 px-4 py-2 rounded-full text-sm font-medium mb-8">
+            <span className="w-2 h-2 bg-[#d4af37] rounded-full animate-pulse" />
+            Serving Southern California
+          </div>
 
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row justify-center gap-5 mb-10">
-          <button
-            onClick={handleEstimateClick}
-            disabled={isLoading}
-            className="bg-[#d4af37] hover:bg-[#f5cc50] text-[#0b1528] font-bold text-base md:text-lg px-6 md:px-8 min-h-[44px] py-3 rounded transition-all hover:-translate-y-[2px] flex items-center justify-center gap-2 w-full sm:w-auto"
-          >
-            {isLoading ? (
-              <Loader2 className="w-5 h-5 animate-spin" />
-            ) : (
-              <span>Get Your Free Savings Estimate</span>
-            )}
-          </button>
-          <a
-            href="tel:6614386350"
-            className="bg-transparent text-white border-2 border-white hover:bg-white hover:text-[#0b1528] font-bold text-base md:text-lg px-6 md:px-8 min-h-[44px] py-3 rounded transition-all flex items-center justify-center w-full sm:w-auto"
-          >
-            Call 661-438-6350
-          </a>
-        </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.08] tracking-tight mb-6">
+            Stop Renting <br className="hidden sm:block" />
+            Your Power
+          </h1>
 
-        {/* Trust bar */}
-        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 border-t border-white/20 pt-5">
-          {[
-            { icon: Zap, text: "Custom Energy Modeling" },
-            { icon: CreditCard, text: "Flexible Financing Options" },
-            { icon: Shield, text: "Licensed Install Partners" },
-          ].map(({ icon: Icon, text }) => (
-            <div key={text} className="flex items-center gap-2 text-white text-sm font-semibold">
-              <Icon className="w-4 h-4 text-[#d4af37]" />
-              <span>{text}</span>
-            </div>
-          ))}
+          <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+            Professional installations, custom designs, and immediate savings.
+            <br className="hidden sm:block" />
+            Get your free no-obligation assessment today.
+          </p>
+
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+            <button
+              onClick={scrollToForm}
+              className="group bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-semibold text-base px-8 py-4 rounded-full transition-all hover:shadow-xl hover:shadow-[#d4af37]/25 flex items-center justify-center gap-2"
+            >
+              Get Your Free Estimate
+              <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+            </button>
+            <a
+              href="tel:6614386350"
+              className="flex items-center justify-center gap-2 border border-white/30 text-white hover:bg-white/10 font-medium text-base px-8 py-4 rounded-full transition-all"
+            >
+              <Phone className="w-4 h-4" />
+              (661) 438-6350
+            </a>
+          </div>
+
+          {/* Trust badges */}
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
+            {[
+              { icon: Zap, text: "Custom Energy Modeling" },
+              { icon: CreditCard, text: "Flexible Financing" },
+              { icon: Shield, text: "Licensed Partners" },
+            ].map(({ icon: Icon, text }) => (
+              <div key={text} className="flex items-center gap-2 text-white/50 text-sm">
+                <Icon className="w-4 h-4 text-[#d4af37]" />
+                <span>{text}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

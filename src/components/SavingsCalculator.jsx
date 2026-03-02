@@ -43,11 +43,8 @@ export default function SavingsCalculator() {
     const co2Annual = (monthlyKwh * 12 * 0.000386).toFixed(1);
 
     return {
-      annualBill: annualBill.toFixed(0),
       systemSizeKw: systemSizeKw.toFixed(2),
-      systemCost: systemCostRaw.toFixed(0),
       federalCredit: federalCredit.toFixed(0),
-      netCost: netCost.toFixed(0),
       annualSavings: annualSavings.toFixed(0),
       paybackYears,
       lifetime25,
@@ -59,43 +56,41 @@ export default function SavingsCalculator() {
   const results = showResults ? calculate() : null;
 
   return (
-    <section id="calculator" className="py-20 bg-gradient-to-br from-[#f0f6ff] to-white dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+    <section id="calculator" className="py-24 bg-[#f8f9fc]">
+      <div className="max-w-4xl mx-auto px-5 sm:px-8">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-[#f5c518]/20 text-[#0a1628] dark:text-[#f5c518] px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 bg-[#d4af37]/10 text-[#d4af37] px-4 py-2 rounded-full text-sm font-semibold mb-4">
             <Calculator className="w-4 h-4" />
-            Free Savings Calculator
+            Savings Calculator
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1628] dark:text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0b1528] mb-4">
             How Much Could You Save?
           </h2>
-          <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
-            Get an instant estimate based on your location and current electric bill. Based on real EIA utility rate data.
+          <p className="text-gray-500 max-w-xl mx-auto">
+            Get an instant estimate based on your location and current electric bill.
           </p>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 mb-8">
+        <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 mb-8">
           <div className="grid sm:grid-cols-2 gap-6 mb-8">
             <div>
-              <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                Your State
-              </label>
+              <label className="block text-sm font-semibold text-[#0b1528] mb-2">Your State</label>
               <select
                 value={state}
                 onChange={(e) => { setState(e.target.value); setShowResults(false); }}
-                className="w-full border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#f5c518]"
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#d4af37] bg-white"
               >
                 {Object.entries(STATE_RATES).map(([code, { name }]) => (
                   <option key={code} value={code}>{name}</option>
                 ))}
               </select>
-              <p className="text-xs text-gray-400 mt-1">
+              <p className="text-xs text-gray-400 mt-1.5">
                 Avg rate: ${STATE_RATES[state].rate}/kWh · {STATE_RATES[state].sun} peak sun hrs/day
               </p>
             </div>
             <div>
-              <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                Monthly Electric Bill: <span className="text-[#f5c518]">${monthlyBill}</span>
+              <label className="block text-sm font-semibold text-[#0b1528] mb-2">
+                Monthly Bill: <span className="text-[#d4af37]">${monthlyBill}</span>
               </label>
               <input
                 type="range"
@@ -104,7 +99,7 @@ export default function SavingsCalculator() {
                 step={10}
                 value={monthlyBill}
                 onChange={(e) => { setMonthlyBill(Number(e.target.value)); setShowResults(false); }}
-                className="w-full accent-[#f5c518] mt-3"
+                className="w-full accent-[#d4af37] mt-3"
               />
               <div className="flex justify-between text-xs text-gray-400 mt-1">
                 <span>$50</span><span>$500</span><span>$1,000</span>
@@ -114,58 +109,58 @@ export default function SavingsCalculator() {
 
           <button
             onClick={() => setShowResults(true)}
-            className="w-full bg-[#f5c518] hover:bg-[#e0b015] text-[#0a1628] font-extrabold text-lg py-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:scale-[1.02]"
+            className="w-full bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-bold text-lg py-4 rounded-xl transition-all"
           >
-            Calculate My Solar Savings →
+            Calculate My Savings →
           </button>
         </div>
 
         {showResults && results && (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-            {[
-              { icon: DollarSign, label: "Monthly Savings", value: `$${results.monthlySavings}`, sub: "Est. after solar", color: "text-green-500" },
-              { icon: TrendingDown, label: "Annual Savings", value: `$${Number(results.annualSavings).toLocaleString()}`, sub: "Per year", color: "text-blue-500" },
-              { icon: Sun, label: "25-Year Net Gain", value: `$${Number(results.lifetime25).toLocaleString()}`, sub: "After system cost", color: "text-[#f5c518]" },
-              { icon: Leaf, label: "CO₂ Offset", value: `${results.co2Annual} tons`, sub: "Per year", color: "text-emerald-500" },
-            ].map(({ icon: Icon, label, value, sub, color }) => (
-              <div key={label} className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 text-center border border-gray-100 dark:border-gray-700">
-                <Icon className={`w-8 h-8 ${color} mx-auto mb-3`} />
-                <div className="text-2xl font-extrabold text-[#0a1628] dark:text-white">{value}</div>
-                <div className="text-sm font-semibold text-gray-700 dark:text-gray-300 mt-1">{label}</div>
-                <div className="text-xs text-gray-400 mt-0.5">{sub}</div>
-              </div>
-            ))}
-          </div>
-        )}
+          <>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              {[
+                { icon: DollarSign, label: "Monthly Savings", value: `$${results.monthlySavings}`, sub: "Est. after solar", color: "text-green-500" },
+                { icon: TrendingDown, label: "Annual Savings", value: `$${Number(results.annualSavings).toLocaleString()}`, sub: "Per year", color: "text-blue-500" },
+                { icon: Sun, label: "25-Year Gain", value: `$${Number(results.lifetime25).toLocaleString()}`, sub: "Net lifetime", color: "text-[#d4af37]" },
+                { icon: Leaf, label: "CO₂ Offset", value: `${results.co2Annual} tons`, sub: "Per year", color: "text-emerald-500" },
+              ].map(({ icon: Icon, label, value, sub, color }) => (
+                <div key={label} className="bg-white rounded-2xl p-6 text-center border border-gray-100">
+                  <Icon className={`w-7 h-7 ${color} mx-auto mb-3`} />
+                  <div className="text-2xl font-bold text-[#0b1528]">{value}</div>
+                  <div className="text-sm font-medium text-gray-600 mt-1">{label}</div>
+                  <div className="text-xs text-gray-400 mt-0.5">{sub}</div>
+                </div>
+              ))}
+            </div>
 
-        {showResults && results && (
-          <div className="bg-[#0a1628] dark:bg-gray-900 rounded-2xl p-6 text-white">
-            <div className="grid sm:grid-cols-3 gap-6 text-center mb-6">
-              <div>
-                <div className="text-gray-400 text-sm mb-1">Est. System Size</div>
-                <div className="text-2xl font-extrabold text-[#f5c518]">{results.systemSizeKw} kW</div>
+            <div className="bg-[#0b1528] rounded-3xl p-8 text-white">
+              <div className="grid sm:grid-cols-3 gap-6 text-center mb-6">
+                <div>
+                  <div className="text-white/50 text-sm mb-1">System Size</div>
+                  <div className="text-2xl font-bold text-[#d4af37]">{results.systemSizeKw} kW</div>
+                </div>
+                <div>
+                  <div className="text-white/50 text-sm mb-1">Federal Credit (30%)</div>
+                  <div className="text-2xl font-bold text-green-400">-${Number(results.federalCredit).toLocaleString()}</div>
+                </div>
+                <div>
+                  <div className="text-white/50 text-sm mb-1">Payback Period</div>
+                  <div className="text-2xl font-bold">{results.paybackYears} years</div>
+                </div>
               </div>
-              <div>
-                <div className="text-gray-400 text-sm mb-1">Federal Tax Credit (30%)</div>
-                <div className="text-2xl font-extrabold text-green-400">-${Number(results.federalCredit).toLocaleString()}</div>
-              </div>
-              <div>
-                <div className="text-gray-400 text-sm mb-1">Payback Period</div>
-                <div className="text-2xl font-extrabold text-white">{results.paybackYears} years</div>
+              <p className="text-center text-white/40 text-xs mb-4">
+                *Estimates based on EIA rates, 30% ITC, and 85% bill offset. Actual savings vary.
+              </p>
+              <div className="text-center">
+                <button
+                  onClick={() => document.getElementById("savings-form")?.scrollIntoView({ behavior: "smooth" })}
+                  className="bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-bold px-8 py-3 rounded-full transition-all"
+                >
+                  Get My Personalized Quote →
+                </button>
               </div>
             </div>
-            <p className="text-center text-gray-400 text-xs">
-              *Estimates based on EIA average rates, 30% ITC federal credit, and 85% bill offset. Actual savings vary. Schedule a free assessment for an exact quote.
-            </p>
-            <div className="text-center mt-4">
-              <button
-                onClick={() => document.getElementById("savings-form")?.scrollIntoView({ behavior: "smooth" })}
-                className="bg-[#f5c518] hover:bg-[#e0b015] text-[#0a1628] font-bold px-8 py-3 rounded-xl transition-all"
-              >
-                Get My Personalized Quote →
-              </button>
-            </div>
-          </div>
+          </>
         )}
       </div>
     </section>

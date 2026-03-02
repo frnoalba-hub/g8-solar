@@ -5,47 +5,48 @@ const steps = [
   {
     icon: ClipboardList,
     step: "01",
-    title: "Free Property Assessment & Energy Analysis",
+    title: "Free Assessment",
     desc: "We evaluate your property, energy usage, and roof to design the perfect system.",
   },
   {
     icon: Cpu,
     step: "02",
-    title: "Custom System Design & Financing Options",
+    title: "Custom Design",
     desc: "Get a tailored solar plan with flexible $0-down financing options that fit your budget.",
   },
   {
     icon: Wrench,
     step: "03",
-    title: "Professional Installation & Ongoing Support",
+    title: "Installation",
     desc: "Our licensed installer partners handle everything. We monitor performance long-term.",
   },
 ];
 
 export default function HowItWorksSection() {
   return (
-    <section className="py-20 bg-[#0a1628]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-            Simple. Transparent. Efficient.
+    <section id="how-it-works" className="py-24 bg-[#0b1528]">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8">
+        <div className="text-center mb-16">
+          <span className="text-[#d4af37] font-semibold text-sm tracking-wider uppercase mb-4 block">The Process</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+            Three Simple Steps
           </h2>
-          <div className="w-16 h-1 bg-[#f5c518] mx-auto rounded-full" />
         </div>
         <div className="grid md:grid-cols-3 gap-8">
-          {steps.map(({ icon: Icon, step, title, desc }) => (
-            <div key={step} className="relative text-center">
-              {/* connector line */}
-              <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-[#f5c518]/10 border-2 border-[#f5c518] flex items-center justify-center mb-4">
-                  <Icon className="w-7 h-7 text-[#f5c518]" />
+          {steps.map(({ icon: Icon, step, title, desc }, i) => (
+            <div key={step} className="relative text-center group">
+              {/* Connector line */}
+              {i < steps.length - 1 && (
+                <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-px bg-gradient-to-r from-[#d4af37]/40 to-transparent" />
+              )}
+              <div className="relative inline-flex items-center justify-center mb-6">
+                <div className="w-16 h-16 rounded-2xl bg-[#d4af37]/10 border border-[#d4af37]/30 flex items-center justify-center group-hover:bg-[#d4af37]/20 transition-colors">
+                  <Icon className="w-7 h-7 text-[#d4af37]" />
                 </div>
-                <div className="text-[#f5c518] font-black text-4xl opacity-20 absolute top-0 left-1/2 -translate-x-1/2 -mt-2 select-none">
-                  {step}
-                </div>
+                <span className="absolute -top-2 -right-2 w-6 h-6 bg-[#d4af37] rounded-full flex items-center justify-center text-[#0b1528] text-xs font-bold">{i + 1}</span>
               </div>
               <h3 className="text-white font-bold text-lg mb-3">{title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
+              <p className="text-white/50 text-sm leading-relaxed max-w-xs mx-auto">{desc}</p>
             </div>
           ))}
         </div>
