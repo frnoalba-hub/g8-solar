@@ -34,7 +34,7 @@ export default function ServicesSection() {
   };
 
   return (
-    <section className="py-20 bg-[#f7f9fc]">
+    <section id="services-section" className="py-20 bg-[#f7f9fc]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-14">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1628] mb-4">Our Solar Solutions</h2>
