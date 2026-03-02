@@ -42,7 +42,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden bg-[#060e1c]">
+    <section className="relative flex flex-col overflow-hidden bg-[#0b1528]">
       {/* Nav */}
       <header className="relative z-20 flex justify-between items-center px-5 sm:px-8 lg:px-12 py-5">
         <nav className="hidden md:flex items-center gap-8">
