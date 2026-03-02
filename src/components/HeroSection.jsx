@@ -69,9 +69,9 @@ export default function HeroSection() {
         />
 
         {/* Serving badge */}
-        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 px-4 py-2 rounded-full text-sm font-medium mt-2 mb-6">
-          <span className="w-2 h-2 bg-[#d4af37] rounded-full animate-pulse" />
-          Serving all of California
+        <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/40 text-white px-4 py-2 rounded-full text-sm font-bold mt-2 mb-6 shadow-md">
+          <span className="w-2 h-2 bg-[#d4af37] rounded-full animate-pulse shadow-sm" />
+          <span className="drop-shadow-md">Serving all of California</span>
         </div>
 
         {/* Headline */}
