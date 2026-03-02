@@ -29,11 +29,11 @@ export default function LeadFormSection() {
     <section id="savings-form" className="py-24 bg-[#f4f5f7] relative overflow-hidden">
       <div className="max-w-2xl mx-auto px-5 sm:px-8 relative z-10">
         <div className="text-center mb-10">
-          <span className="text-[#d4af37] font-semibold text-sm tracking-wider uppercase mb-4 block">Free Quote</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <span className="text-[#d4af37] font-semibold text-xs tracking-widest uppercase mb-3 block">Free Quote</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0b1528] mb-4">
             Get Your Savings Estimate
           </h2>
-          <p className="text-white/50">Fill in your info and we'll calculate your personalized estimate.</p>
+          <p className="text-gray-500">Fill in your info and we'll calculate your personalized estimate.</p>
         </div>
 
         <div className="bg-white rounded-3xl shadow-2xl p-8 sm:p-10">
