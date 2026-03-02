@@ -26,14 +26,14 @@ export default function HeroSection() {
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0b1528]/80 via-[#0b1528]/60 to-[#0b1528]/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0b1528]/70 via-[#0b1528]/50 to-[#0b1528]/70" />
 
       <div className="relative z-10 flex flex-col items-center text-center px-5 pt-32 pb-20">
         {/* Big Logo */}
         <img
-          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/255c9fb82_Gemini_Generated_Image_5eixi75eixi75eix2.png"
+          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/b0baebb9c_Untitleddesign-Picsart-BackgroundRemover.png"
           alt="G8 Solar LLC"
-          className="h-64 sm:h-80 lg:h-96 w-auto mb-6 drop-shadow-2xl"
+          className="h-56 sm:h-72 lg:h-[420px] w-auto mb-2 drop-shadow-2xl"
         />
 
         {/* Badge */}
