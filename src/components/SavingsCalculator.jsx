@@ -56,7 +56,7 @@ export default function SavingsCalculator() {
   const results = showResults ? calculate() : null;
 
   return (
-    <section id="calculator" className="py-24 bg-[#f8f9fc]">
+    <section id="calculator" className="py-24 bg-[#f4f5f7]">
       <div className="max-w-4xl mx-auto px-5 sm:px-8">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-[#d4af37]/10 text-[#d4af37] px-4 py-2 rounded-full text-sm font-semibold mb-4">

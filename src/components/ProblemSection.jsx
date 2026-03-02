@@ -9,7 +9,7 @@ export default function ProblemSection() {
   ];
 
   return (
-    <section id="problem-section" className="py-24 bg-white">
+    <section id="problem-section" className="py-24 bg-[#eef0f5]">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>

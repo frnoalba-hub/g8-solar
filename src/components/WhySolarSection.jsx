@@ -12,7 +12,7 @@ const benefits = [
 
 export default function WhySolarSection() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-[#f4f5f7]">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div className="text-center mb-16">
           <span className="text-[#d4af37] font-semibold text-sm tracking-wider uppercase mb-4 block">Benefits</span>
@@ -30,7 +30,7 @@ export default function WhySolarSection() {
             return (
               <div
                 key={title}
-                className="group p-6 rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all duration-300"
+                className="group p-6 rounded-2xl border border-gray-200 bg-white hover:shadow-lg transition-all duration-300"
               >
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${bgColor}`}>
                   <Icon className={`w-6 h-6 ${textColor}`} />

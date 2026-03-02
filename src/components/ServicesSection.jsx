@@ -34,7 +34,7 @@ export default function ServicesSection() {
   };
 
   return (
-    <section id="services-section" className="py-24 bg-[#f8f9fc]">
+    <section id="services-section" className="py-24 bg-[#eef0f5]">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div className="text-center mb-16">
           <span className="text-[#d4af37] font-semibold text-sm tracking-wider uppercase mb-4 block">What We Do</span>
