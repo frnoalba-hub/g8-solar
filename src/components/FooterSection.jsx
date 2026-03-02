@@ -10,9 +10,9 @@ export default function FooterSection() {
       <div className="h-px bg-gradient-to-r from-transparent via-[#d4af37]/60 to-transparent mb-16" />
 
       <div className="max-w-full mx-auto px-5 sm:px-12 lg:px-20">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-20">
+        <div className="flex flex-col md:flex-row items-start justify-between mb-12 gap-20">
           {/* Brand */}
-          <div className="flex-1">
+          <div className="flex-1 md:max-w-xs">
             <img
              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/c1a382000_Gemini_Generated_Image_5eixi75eixi75eix4.png"
              alt="G8 Solar LLC"
@@ -24,10 +24,10 @@ export default function FooterSection() {
             </p>
           </div>
 
-          {/* Contact, Follow & Links */}
-          <div className="grid grid-cols-3 gap-12 flex-1">
-          {/* Contact */}
-          <div>
+          {/* Contact, Follow & Links - Stacked Vertically */}
+          <div className="flex flex-col gap-10">
+            {/* Contact */}
+            <div>
             <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-5">Contact</h4>
             <div className="space-y-3">
               <a href="tel:6614386350" className="flex items-center gap-3 text-white/40 hover:text-[#d4af37] transition-colors text-sm">
@@ -40,10 +40,9 @@ export default function FooterSection() {
                 <Mail className="w-4 h-4" /> info@g8solar.com
               </a>
             </div>
-          </div>
 
-          {/* Social & Quick Nav */}
-          <div>
+            {/* Social & Quick Nav */}
+            <div>
             <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-5">Follow Us</h4>
             <div className="space-y-3">
               <a href="https://www.instagram.com/G8.solar" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/40 hover:text-[#d4af37] transition-colors text-sm">
@@ -61,9 +60,9 @@ export default function FooterSection() {
                 </button>
               ))}
             </div>
+            </div>
           </div>
-          </div>
-          </div>
+        </div>
 
           <div className="border-t border-white/10 pt-8 text-center">
           <p className="text-white/25 text-xs leading-relaxed max-w-3xl mx-auto">
