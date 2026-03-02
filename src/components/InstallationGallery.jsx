@@ -18,10 +18,7 @@ const photos = [
     src: "https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?w=800&q=80",
     label: "Ground Mount System",
   },
-  {
-    src: "https://images.unsplash.com/photo-1545208929-94c562a9c01a?w=800&q=80",
-    label: "Residential Array",
-  },
+
 ];
 
 export default function InstallationGallery() {
