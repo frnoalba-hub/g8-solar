@@ -20,38 +20,38 @@ export default function HeroSection() {
     <section
       className="relative min-h-screen flex flex-col justify-center overflow-hidden"
       style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1509391366360-12009a308569?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80')",
+        backgroundImage: "url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80')",
         backgroundSize: "cover",
-        backgroundPosition: "center top",
+        backgroundPosition: "center center",
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0b1528]/70 via-[#0b1528]/50 to-[#0b1528]/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0b1528]/85 via-[#0b1528]/65 to-[#0b1528]/85" />
 
-      <div className="relative z-10 flex flex-col items-center text-center px-5 pt-32 pb-20">
+      <div className="relative z-10 flex flex-col items-center text-center px-4 pt-24 pb-16">
         {/* Big Logo */}
         <img
-          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/b0baebb9c_Untitleddesign-Picsart-BackgroundRemover.png"
+          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/fec13fdc8_Gemini_Generated_Image_5eixi75eixi75eix1.png"
           alt="G8 Solar LLC"
-          className="h-56 sm:h-72 lg:h-[420px] w-auto mb-2 drop-shadow-2xl"
+          className="w-[90vw] max-w-2xl mb-6"
         />
 
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/20 text-white/90 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-8">
+        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/20 text-white/90 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-6">
           <span className="w-2 h-2 bg-[#d4af37] rounded-full animate-pulse" />
           Serving All of California
         </div>
 
         {/* Headline */}
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4 max-w-4xl">
+        <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-tight mb-3 max-w-4xl px-2">
           Stop Renting <span className="text-[#d4af37]">Your Power</span>
         </h1>
-        <p className="text-white/70 text-lg sm:text-xl max-w-xl mb-10">
+        <p className="text-white/70 text-base sm:text-xl max-w-xl mb-8 px-2">
           Custom solar solutions for California homeowners. Real savings. Zero pressure.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-14">
+        <div className="flex flex-col sm:flex-row gap-3 mb-10 w-full max-w-sm sm:max-w-none sm:w-auto">
           <button
             onClick={scrollToForm}
             className="bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-bold text-base px-8 py-4 rounded-full transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#d4af37]/30"
