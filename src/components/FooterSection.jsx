@@ -24,8 +24,8 @@ export default function FooterSection() {
             </p>
           </div>
 
-          {/* Contact, Follow & Links - Stacked Vertically */}
-          <div className="flex flex-col gap-10">
+          {/* Contact, Follow & Links - Side by Side */}
+          <div className="grid grid-cols-3 gap-12 flex-1">
             {/* Contact */}
             <div>
               <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-5">Contact</h4>
