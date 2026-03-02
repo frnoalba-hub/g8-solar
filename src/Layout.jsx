@@ -53,8 +53,10 @@ export default function Layout({ children }) {
             ))}
           </div>
 
-          {/* Logo Centered - hidden, replaced by hero */}
-          <div className="flex-1 flex justify-center md:absolute md:left-1/2 md:-translate-x-1/2" />
+          {/* Brand name on mobile */}
+          <div className="flex-1 flex justify-center md:absolute md:left-1/2 md:-translate-x-1/2">
+            <span className={`md:hidden text-base font-bold tracking-wide ${scrolled ? "text-[#0b1528]" : "text-white"}`}>G8 Solar</span>
+          </div>
 
           {/* Right Nav + CTA */}
           <div className="flex items-center gap-6 flex-1 justify-end">
