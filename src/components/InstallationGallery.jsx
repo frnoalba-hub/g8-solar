@@ -18,6 +18,18 @@ const photos = [
     src: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6878725ae2384abaf6424082/c098e7ef5_522219909_122097524990956477_4978393624519453083_n.jpg",
     label: "Maintenance & Cleaning",
   },
+  {
+    src: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/72644e2f6_523821052_122097473264956477_801889587701304817_n.jpg",
+    label: "Tesla Battery Storage",
+  },
+  {
+    src: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/6519b3fe7_519699786_122097527300956477_3580930224089726525_n.jpg",
+    label: "Enphase Battery & Inverter",
+  },
+  {
+    src: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/dfd8bf013_522492020_122097528488956477_8209884894321676853_n.jpg",
+    label: "Enphase Energy Storage",
+  },
 ];
 
 export default function InstallationGallery() {
