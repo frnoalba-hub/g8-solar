@@ -8,26 +8,14 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* YouTube video background */}
+      {/* Static background image */}
       <div className="absolute inset-0 w-full h-full z-0">
-        <iframe
-          className="absolute w-full h-full"
-          style={{
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%) scale(1.5)",
-            pointerEvents: "none",
-            minWidth: "100%",
-            minHeight: "100%",
-          }}
-          src="https://www.youtube.com/embed/Cw_3rABOxl8?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
-          title="G8 Solar"
-          frameBorder="0"
-          allow="autoplay; encrypted-media"
-          allowFullScreen
+        <img
+          src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&q=80"
+          alt="Solar panels on home"
+          className="w-full h-full object-cover"
         />
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-[#0a1628]/75" />
+        <div className="absolute inset-0 bg-[#0a1628]/78" />
       </div>
 
       {/* Content */}
@@ -37,7 +25,7 @@ export default function HeroSection() {
           <img
             src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6878725ae2384abaf6424082/0319480a3_1000037397.jpg"
             alt="G8 Solar LLC"
-            className="h-20 w-auto mx-auto"
+            className="h-20 w-auto mx-auto drop-shadow-lg"
           />
         </div>
 
