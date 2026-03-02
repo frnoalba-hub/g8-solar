@@ -63,7 +63,7 @@ export default function HeroSection() {
       {/* Logo centered */}
       <div className="relative z-10 flex flex-col items-center pt-6 pb-2 px-5">
         <img
-          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/7184a580e_Untitleddesign.png"
+          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/b0baebb9c_Untitleddesign-Picsart-BackgroundRemover.png"
           alt="G8 Solar LLC"
           className="w-56 sm:w-72 md:w-80 h-auto"
         />
