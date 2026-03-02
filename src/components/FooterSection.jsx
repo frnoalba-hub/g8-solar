@@ -10,13 +10,13 @@ export default function FooterSection() {
       <div className="h-px bg-gradient-to-r from-transparent via-[#d4af37]/60 to-transparent mb-16" />
 
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
-        <div className="grid md:grid-cols-4 gap-10 mb-12">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-12">
           {/* Brand */}
-          <div className="md:col-span-2">
+          <div className="flex-1">
             <img
              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/c1a382000_Gemini_Generated_Image_5eixi75eixi75eix4.png"
              alt="G8 Solar LLC"
-             className="h-20 w-auto mb-6"
+             className="h-32 w-auto mb-4"
             />
             <p className="text-white/40 text-sm leading-relaxed max-w-xs">
               Smart solar solutions for homes and businesses across California.
@@ -24,6 +24,8 @@ export default function FooterSection() {
             </p>
           </div>
 
+          {/* Contact, Follow & Links */}
+          <div className="grid grid-cols-3 gap-12 flex-1">
           {/* Contact */}
           <div>
             <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-5">Contact</h4>
@@ -60,7 +62,7 @@ export default function FooterSection() {
               ))}
             </div>
           </div>
-        </div>
+          </div>
 
         <div className="border-t border-white/10 pt-8 text-center">
           <p className="text-white/25 text-xs leading-relaxed max-w-3xl mx-auto">
