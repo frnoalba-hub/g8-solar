@@ -14,15 +14,10 @@ import FAQSection from "../components/FAQSection";
 import CtaSection from "../components/CtaSection";
 import FooterSection from "../components/FooterSection";
 import StickyCallBar from "../components/StickyCallBar";
-import DarkModeToggle from "../components/DarkModeToggle";
-
 export default function Home() {
-  const [dark, setDark] = useState(false);
-
   return (
-    <div className={dark ? "dark" : ""}>
-      <div className="font-sans bg-white dark:bg-gray-900 transition-colors duration-300">
-        <DarkModeToggle dark={dark} onToggle={() => setDark(!dark)} />
+    <div>
+      <div className="font-sans">
         <HeroSection />
         <ProblemSection />
         <WhySolarSection />
