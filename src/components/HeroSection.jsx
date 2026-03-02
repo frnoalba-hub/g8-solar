@@ -43,7 +43,7 @@ export default function HeroSection() {
         </div>
 
         {/* Headline */}
-        <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-tight mb-3 max-w-4xl px-2 -mt-8">
+        <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-tight mb-3 max-w-4xl px-2 -mt-16">
           Stop Renting <span className="text-[#d4af37]">Your Power</span>
         </h1>
         <p className="text-white/70 text-base sm:text-xl max-w-xl mb-8 px-2">
