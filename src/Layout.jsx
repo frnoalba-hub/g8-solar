@@ -19,8 +19,8 @@ export default function Layout({ children }) {
   const navLinks = [
     { label: "About", id: "problem-section" },
     { label: "Services", id: "services-section" },
-    { label: "Installations", id: "installation-gallery" },
-    { label: "Programs", id: "california-programs" },
+    { label: "Installations", id: "installation-portfolio" },
+    { label: "Programs", id: "programs-incentives" },
     { label: "How It Works", id: "how-it-works" },
     { label: "Calculator", id: "calculator" },
     { label: "FAQ", id: "faq-section" },

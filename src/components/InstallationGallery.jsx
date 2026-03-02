@@ -24,7 +24,7 @@ export default function InstallationGallery() {
   const [selected, setSelected] = useState(null);
 
   return (
-    <section className="py-24 bg-white">
+    <section id="installation-portfolio" className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div className="text-center mb-16">
           <span className="text-[#d4af37] font-semibold text-sm tracking-wider uppercase mb-4 block">Portfolio</span>
