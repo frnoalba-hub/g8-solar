@@ -8,9 +8,9 @@ export default function FooterSection() {
         <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
           <div>
             <img
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/ead028f0e_generated_image.png"
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/29e446680_generated_image.png"
               alt="G8 Solar LLC"
-              className="h-24 md:h-32 w-auto mb-4 rounded-lg"
+              className="h-16 md:h-20 w-auto mb-4"
             />
             <p className="text-gray-400 text-sm max-w-xs">
               Smart solar solutions for homes and businesses. Proudly serving Southern California.
