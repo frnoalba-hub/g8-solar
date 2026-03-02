@@ -23,7 +23,7 @@ export default function HeroSection() {
         {/* Logo */}
         <div className="mb-8">
           <img
-            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6878725ae2384abaf6424082/0319480a3_1000037397.jpg"
+            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/242b28e93_generated_image.png"
             alt="G8 Solar LLC"
             className="h-20 w-auto mx-auto drop-shadow-lg"
           />
