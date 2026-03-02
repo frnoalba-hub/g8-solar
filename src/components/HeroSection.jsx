@@ -33,7 +33,7 @@ export default function HeroSection() {
         <img
           src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/c1a382000_Gemini_Generated_Image_5eixi75eixi75eix4.png"
           alt="G8 Solar LLC"
-          className="w-[90vw] max-w-2xl -mb-48"
+          className="w-[90vw] max-w-2xl -mb-12 sm:-mb-48"
         />
 
         {/* Badge */}

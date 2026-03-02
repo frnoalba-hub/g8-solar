@@ -30,7 +30,8 @@ export default function Layout({ children }) {
         * { box-sizing: border-box; }
         body { margin: 0; padding: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; overflow-x: hidden; scrollbar-width: none; -ms-overflow-style: none; }
         body::-webkit-scrollbar { display: none; }
-        html { scroll-behavior: smooth; overflow-x: hidden; }
+        html { scroll-behavior: smooth; overflow-x: hidden; scrollbar-width: none; -ms-overflow-style: none; }
+        html::-webkit-scrollbar { display: none; }
       `}</style>
 
       {/* Sticky Navbar */}
