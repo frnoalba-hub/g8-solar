@@ -91,10 +91,10 @@ export default function HeroSection() {
                 <button
                   key={i}
                   onClick={() => setActiveTab(i)}
-                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold transition-all border ${
+                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold transition-all border backdrop-blur-sm ${
                     activeTab === i
-                      ? "bg-[#d4af37] text-[#0b1528] border-[#d4af37]"
-                      : "bg-white/5 text-white/70 border-white/10 hover:bg-white/10"
+                      ? "bg-[#d4af37] text-[#0b1528] border-[#d4af37] shadow-lg"
+                      : "bg-white/20 text-white border-white/30 hover:bg-white/30 drop-shadow-md"
                   }`}
                 >
                   <Icon className="w-3.5 h-3.5" />
@@ -104,8 +104,8 @@ export default function HeroSection() {
             })}
           </div>
 
-          <div className="bg-white/5 border border-white/10 rounded-2xl px-6 py-5 text-center min-h-[80px]">
-            <p className="text-white/80 text-sm sm:text-base leading-relaxed">
+          <div className="bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl px-6 py-5 text-center min-h-[80px] shadow-lg">
+            <p className="text-white text-sm sm:text-base leading-relaxed drop-shadow-md font-medium">
               {tabs[activeTab].content}
             </p>
           </div>
