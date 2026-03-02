@@ -47,8 +47,10 @@ export default function ServicesSection() {
               className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer"
               onClick={scrollToForm}
             >
-              <div className="h-44 overflow-hidden">
-                <img src={img} alt={title} className="w-full h-full object-cover" />
+              <div className="h-44 overflow-hidden bg-gray-100 flex items-center justify-center">
+                <div className="text-gray-300 text-center">
+                  <Icon className="w-12 h-12 mx-auto mb-2 text-gray-300" />
+                </div>
               </div>
               <div className="p-5">
                 <div className="w-10 h-10 bg-[#f5c518]/20 rounded-lg flex items-center justify-center mb-3">

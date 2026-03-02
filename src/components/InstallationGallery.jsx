@@ -3,6 +3,10 @@ import { X, ZoomIn } from "lucide-react";
 
 const photos = [
   {
+    src: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/81fa46356_image.png",
+    label: "G8 Solar Installation",
+  },
+  {
     src: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6878725ae2384abaf6424082/476057763_520953491_122097479000956477_4681214345456843616_n.jpg",
     label: "Residential Installation",
   },
@@ -21,10 +25,6 @@ const photos = [
   {
     src: "https://images.unsplash.com/photo-1545208929-94c562a9c01a?w=800&q=80",
     label: "Residential Array",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&q=80",
-    label: "Solar Field",
   },
 ];
 
