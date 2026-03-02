@@ -75,10 +75,10 @@ export default function HeroSection() {
         </div>
 
         {/* Headline */}
-        <h1 className="text-3xl sm:text-5xl font-bold text-white text-center leading-tight mb-2">
+        <h1 className="text-3xl sm:text-5xl font-bold text-white text-center leading-tight mb-2 drop-shadow-md">
           Stop Renting Your Power
         </h1>
-        <p className="text-white/60 text-base sm:text-lg text-center mb-8 max-w-xl">
+        <p className="text-white/90 text-base sm:text-lg text-center mb-8 max-w-xl drop-shadow-md font-medium">
           Custom solar solutions. Real savings. Zero pressure.
         </p>
 
