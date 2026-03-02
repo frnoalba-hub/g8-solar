@@ -26,10 +26,7 @@ export default function LeadFormSection() {
   };
 
   return (
-    <section id="savings-form" className="py-24 bg-[#0b1528] relative overflow-hidden">
-      {/* Subtle gradient orb */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#d4af37]/5 rounded-full blur-3xl" />
-      
+    <section id="savings-form" className="py-24 bg-[#f4f5f7] relative overflow-hidden">
       <div className="max-w-2xl mx-auto px-5 sm:px-8 relative z-10">
         <div className="text-center mb-10">
           <span className="text-[#d4af37] font-semibold text-sm tracking-wider uppercase mb-4 block">Free Quote</span>
