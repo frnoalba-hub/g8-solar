@@ -53,14 +53,8 @@ export default function Layout({ children }) {
             ))}
           </div>
 
-          {/* Logo Centered */}
-          <div className="flex-1 flex justify-center md:absolute md:left-1/2 md:-translate-x-1/2">
-            <img
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/b0baebb9c_Untitleddesign-Picsart-BackgroundRemover.png"
-              alt="G8 Solar LLC"
-              className="h-20 w-auto"
-            />
-          </div>
+          {/* Logo Centered - hidden, replaced by hero */}
+          <div className="flex-1 flex justify-center md:absolute md:left-1/2 md:-translate-x-1/2" />
 
           {/* Right Nav + CTA */}
           <div className="flex items-center gap-6 flex-1 justify-end">
