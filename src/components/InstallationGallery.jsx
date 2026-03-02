@@ -11,20 +11,20 @@ const photos = [
     label: "Residential Installation",
   },
   {
-    src: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=800&q=80",
-    label: "Rooftop Solar Array",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=80",
-    label: "Commercial Installation",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?w=800&q=80",
-    label: "Ground Mount System",
-  },
-  {
     src: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6878725ae2384abaf6424082/2dc7b5e1f_520290366_122097521804956477_3876412543612886338_n.jpg",
-    label: "Panel Close-up",
+    label: "Residential Solar",
+  },
+  {
+    src: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6878725ae2384abaf6424082/f39514e73_522671481_122097526730956477_7905363760210299423_n.jpg",
+    label: "Commercial Solar",
+  },
+  {
+    src: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6878725ae2384abaf6424082/94e8537cb_521175899_122097525410956477_3050851786154508164_n.jpg",
+    label: "Energy Modeling",
+  },
+  {
+    src: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6878725ae2384abaf6424082/c098e7ef5_522219909_122097524990956477_4978393624519453083_n.jpg",
+    label: "Maintenance & Cleaning",
   },
 ];
 

@@ -2,10 +2,10 @@ import React from "react";
 import { Home, Building2, BarChart3, Activity, ArrowRight } from "lucide-react";
 
 const services = [
-  { icon: Home, title: "Residential Solar", desc: "Turn your roof into an asset and reduce or eliminate your electric bill with a custom-designed system.", img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6878725ae2384abaf6424082/2dc7b5e1f_520290366_122097521804956477_3876412543612886338_n.jpg" },
-  { icon: Building2, title: "Commercial Solar", desc: "Lower operating costs and take advantage of available tax incentives for your business.", img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6878725ae2384abaf6424082/f39514e73_522671481_122097526730956477_7905363760210299423_n.jpg" },
-  { icon: BarChart3, title: "Energy Modeling", desc: "We analyze your usage patterns to maximize ROI and system efficiency before installation.", img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6878725ae2384abaf6424082/94e8537cb_521175899_122097525410956477_3050851786154508164_n.jpg" },
-  { icon: Activity, title: "Maintenance", desc: "Keep your system performing at peak output year-round with monitoring and panel cleaning.", img: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6878725ae2384abaf6424082/c098e7ef5_522219909_122097524990956477_4978393624519453083_n.jpg" },
+  { icon: Home, title: "Residential Solar", desc: "Turn your roof into an asset and reduce or eliminate your electric bill with a custom-designed system." },
+  { icon: Building2, title: "Commercial Solar", desc: "Lower operating costs and take advantage of available tax incentives for your business." },
+  { icon: BarChart3, title: "Energy Modeling", desc: "We analyze your usage patterns to maximize ROI and system efficiency before installation." },
+  { icon: Activity, title: "Maintenance", desc: "Keep your system performing at peak output year-round with monitoring and panel cleaning." },
 ];
 
 export default function ServicesSection() {
