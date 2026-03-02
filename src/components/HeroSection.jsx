@@ -46,10 +46,10 @@ export default function HeroSection() {
       {/* Nav */}
       <header className="relative z-20 flex justify-between items-center px-5 sm:px-8 lg:px-12 py-5">
         <nav className="hidden md:flex items-center gap-8">
-          <button onClick={() => document.getElementById("services-section")?.scrollIntoView({ behavior: "smooth" })} className="text-white/60 hover:text-white text-sm font-medium transition-colors">Services</button>
-          <button onClick={() => document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })} className="text-white/60 hover:text-white text-sm font-medium transition-colors">How It Works</button>
-          <button onClick={() => document.getElementById("calculator")?.scrollIntoView({ behavior: "smooth" })} className="text-white/60 hover:text-white text-sm font-medium transition-colors">Calculator</button>
-          <button onClick={() => document.getElementById("faq-section")?.scrollIntoView({ behavior: "smooth" })} className="text-white/60 hover:text-white text-sm font-medium transition-colors">FAQ</button>
+          <button onClick={() => document.getElementById("services-section")?.scrollIntoView({ behavior: "smooth" })} className="text-white hover:text-[#d4af37] text-sm font-bold transition-colors drop-shadow-md">Services</button>
+          <button onClick={() => document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })} className="text-white hover:text-[#d4af37] text-sm font-bold transition-colors drop-shadow-md">How It Works</button>
+          <button onClick={() => document.getElementById("calculator")?.scrollIntoView({ behavior: "smooth" })} className="text-white hover:text-[#d4af37] text-sm font-bold transition-colors drop-shadow-md">Calculator</button>
+          <button onClick={() => document.getElementById("faq-section")?.scrollIntoView({ behavior: "smooth" })} className="text-white hover:text-[#d4af37] text-sm font-bold transition-colors drop-shadow-md">FAQ</button>
         </nav>
         <div className="md:hidden" />
         <button
