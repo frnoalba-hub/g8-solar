@@ -40,14 +40,14 @@ export default function Layout({ children }) {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? "bg-white shadow-md py-3" : "bg-transparent py-5"
       }`}>
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between gap-6">
-          {/* Left Nav */}
-          <div className="hidden lg:flex items-center gap-6 flex-1">
-            {navLinks.slice(0, 4).map(({ label, id }) => (
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-center gap-10">
+          {/* All Nav Items */}
+          <div className="hidden lg:flex items-center gap-8">
+            {navLinks.map(({ label, id }) => (
               <button
                 key={id}
                 onClick={() => scrollTo(id)}
-                className={`text-sm font-semibold transition-colors hover:text-[#d4af37] ${
+                className={`text-base font-semibold transition-colors hover:text-[#d4af37] whitespace-nowrap ${
                   scrolled ? "text-[#0b1528]" : "text-white drop-shadow"
                 }`}
               >
@@ -57,37 +57,24 @@ export default function Layout({ children }) {
           </div>
 
           {/* Brand name on mobile */}
-          <div className="flex-1 flex justify-center md:absolute md:left-1/2 md:-translate-x-1/2">
-            <span className={`md:hidden text-base font-bold tracking-wide ${scrolled ? "text-[#0b1528]" : "text-white"}`}>G8 Solar</span>
+          <div className="lg:hidden flex-1 flex justify-center">
+            <span className={`text-base font-bold tracking-wide ${scrolled ? "text-[#0b1528]" : "text-white"}`}>G8 Solar</span>
           </div>
 
-          {/* Right Nav + CTA */}
-          <div className="flex items-center gap-4 flex-1 justify-end">
-            <div className="hidden lg:flex items-center gap-6">
-              {navLinks.slice(4).map(({ label, id }) => (
-                <button
-                  key={id}
-                  onClick={() => scrollTo(id)}
-                  className={`text-sm font-semibold transition-colors hover:text-[#d4af37] ${
-                    scrolled ? "text-[#0b1528]" : "text-white drop-shadow"
-                  }`}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
+          {/* Phone + CTA */}
+          <div className="flex items-center gap-4">
             <a
               href="tel:6614386350"
-              className={`hidden md:flex items-center gap-1.5 text-xs font-medium transition-colors hover:text-[#d4af37] ${
+              className={`hidden md:flex items-center gap-1.5 text-sm font-semibold transition-colors hover:text-[#d4af37] whitespace-nowrap ${
                 scrolled ? "text-[#0b1528]" : "text-white drop-shadow"
               }`}
             >
-              <Phone className="w-3.5 h-3.5" />
+              <Phone className="w-4 h-4" />
               (661) 438-6350
             </a>
             <button
               onClick={() => scrollTo("savings-form")}
-              className="bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-bold text-xs px-6 py-3 rounded-full transition-all whitespace-nowrap"
+              className="bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-bold text-sm px-7 py-3 rounded-full transition-all whitespace-nowrap"
             >
               Get a Quote
             </button>
