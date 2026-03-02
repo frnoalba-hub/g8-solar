@@ -31,7 +31,7 @@ export default function HeroSection() {
       <div className="relative z-10 flex flex-col items-center text-center px-4 pt-24 pb-16">
         {/* Big Logo */}
         <img
-          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/fec13fdc8_Gemini_Generated_Image_5eixi75eixi75eix1.png"
+          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/c1a382000_Gemini_Generated_Image_5eixi75eixi75eix4.png"
           alt="G8 Solar LLC"
           className="w-[90vw] max-w-2xl mb-0"
         />
