@@ -17,10 +17,10 @@ export default function CtaSection() {
       </div>
       <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-8 text-center">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-          Ready to Take Control?
+          Ready to Take Control of Your Energy Costs?
         </h2>
         <p className="text-white/50 text-lg mb-10 max-w-xl mx-auto">
-          Join hundreds of homeowners already saving with G8 Solar. Get your free assessment today.
+          Join homeowners across California already saving with G8 Solar. Get your free assessment today.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
           <button

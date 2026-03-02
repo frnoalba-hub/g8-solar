@@ -2,12 +2,12 @@ import React from "react";
 import { Home, TrendingUp, Leaf, Zap, Shield, Battery } from "lucide-react";
 
 const benefits = [
-  { icon: TrendingUp, title: "Increase Home Value", desc: "Homes with solar sell for 4.1% more — adding $10,000–$30,000+ in value.", color: "text-blue-500 bg-blue-50" },
-  { icon: Zap, title: "Lower Bills", desc: "Most California homeowners cut their electric bill by 70–100% after going solar.", color: "text-amber-500 bg-amber-50" },
-  { icon: Shield, title: "Rate Protection", desc: "Utility rates rise 5%+ annually. Solar locks in your energy cost for 25+ years.", color: "text-emerald-500 bg-emerald-50" },
-  { icon: Leaf, title: "Go Green", desc: "Offset 3–4 tons of CO₂ per year — equivalent to planting 100 trees annually.", color: "text-teal-500 bg-teal-50" },
+  { icon: TrendingUp, title: "Increase Home Value", desc: "Homes with solar can sell for around 4.1% more — often adding $10,000–$30,000+ in value.", color: "text-blue-500 bg-blue-50" },
+  { icon: Zap, title: "Lower Bills", desc: "Many California homeowners typically reduce electric bills by 50–90% after going solar.", color: "text-amber-500 bg-amber-50" },
+  { icon: Shield, title: "Rate Protection", desc: "Utility rates have risen by over 5% annually in recent years. Solar helps lock in your energy cost for 25+ years.", color: "text-emerald-500 bg-emerald-50" },
+  { icon: Leaf, title: "Go Green", desc: "A typical solar system can offset around 3–4 tons of CO₂ per year — roughly equivalent to planting 100 trees annually.", color: "text-teal-500 bg-teal-50" },
   { icon: Battery, title: "Energy Independence", desc: "Pair with battery storage to keep your lights on during outages.", color: "text-purple-500 bg-purple-50" },
-  { icon: Home, title: "$0 Down Financing", desc: "Start saving from day one. Many pay less monthly than their current bill.", color: "text-rose-500 bg-rose-50" },
+  { icon: Home, title: "$0 Down Financing", desc: "Start saving from day one. Many homeowners may pay less monthly than their current electric bill.", color: "text-rose-500 bg-rose-50" },
 ];
 
 export default function WhySolarSection() {

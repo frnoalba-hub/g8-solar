@@ -21,7 +21,7 @@ export default function CaliforniaProgramsSection() {
             Programs & Incentives
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto">
-            California homeowners have access to the best solar incentives in the nation.
+            California homeowners have access to some of the best solar incentives in the nation.
           </p>
         </div>
 

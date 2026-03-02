@@ -20,7 +20,7 @@ export default function ProblemSection() {
             <p className="text-gray-500 text-lg leading-relaxed mb-10">
               At G8 Solar, we design high-efficiency solar systems tailored to your exact consumption.
               From initial site assessment to long-term performance, we make the switch to clean energy
-              simple, reliable, and profitable.
+              simple, reliable, and cost-effective.
             </p>
             <div className="grid grid-cols-2 gap-4">
               {stats.map(({ value, label }) => (

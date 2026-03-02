@@ -44,7 +44,7 @@ export default function HeroSection() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 px-4 py-2 rounded-full text-sm font-medium mb-8">
             <span className="w-2 h-2 bg-[#d4af37] rounded-full animate-pulse" />
-            Serving Southern California
+            Serving all of California
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.08] tracking-tight mb-6">
@@ -53,9 +53,9 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-            Professional installations, custom designs, and immediate savings.
+            Professional installations, custom designs, and real savings.
             <br className="hidden sm:block" />
-            Get your free no-obligation assessment today.
+            Get your free, no-obligation assessment today.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">

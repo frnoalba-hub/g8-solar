@@ -13,7 +13,7 @@ export default function FooterSection() {
               className="h-14 w-auto mb-4"
             />
             <p className="text-white/40 text-sm leading-relaxed max-w-xs">
-              Smart solar solutions for homes and businesses. Proudly serving Southern California.
+              Smart solar solutions for homes and businesses. Proudly serving all of California.
             </p>
           </div>
           <div>
@@ -44,7 +44,7 @@ export default function FooterSection() {
         </div>
         <div className="border-t border-white/10 pt-8 text-center">
           <p className="text-white/30 text-xs">
-            © {new Date().getFullYear()} G8 Solar LLC. We partner with licensed, bonded, and insured local installers. Savings estimates vary by property.
+            © {new Date().getFullYear()} G8 Solar LLC. We partner with licensed, bonded, and insured local installers. Savings estimates vary by property and actual results depend on usage, roof conditions, utility rates, and incentives.
           </p>
         </div>
       </div>
