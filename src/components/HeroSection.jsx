@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Phone, ArrowDown, Zap, CreditCard, Shield, Sun, DollarSign, Home, Battery } from "lucide-react";
+import { Phone, ArrowDown, CreditCard, Shield, Sun, DollarSign, Home, Battery } from "lucide-react";
 
 const tabs = [
   {
@@ -84,7 +84,6 @@ export default function HeroSection() {
 
         {/* Info Tabs */}
         <div className="w-full max-w-3xl">
-          {/* Tab buttons */}
           <div className="flex flex-wrap justify-center gap-2 mb-5">
             {tabs.map((tab, i) => {
               const Icon = tab.icon;
@@ -105,7 +104,6 @@ export default function HeroSection() {
             })}
           </div>
 
-          {/* Tab content */}
           <div className="bg-white/5 border border-white/10 rounded-2xl px-6 py-5 text-center min-h-[80px]">
             <p className="text-white/80 text-sm sm:text-base leading-relaxed">
               {tabs[activeTab].content}
