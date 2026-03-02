@@ -25,7 +25,7 @@ export default function HeroSection() {
           <img
             src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/ead028f0e_generated_image.png"
             alt="G8 Solar LLC"
-            className="h-20 w-auto mx-auto drop-shadow-lg rounded-xl"
+            className="h-32 md:h-48 w-auto mx-auto drop-shadow-lg rounded-xl"
           />
         </div>
 
