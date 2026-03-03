@@ -6,6 +6,7 @@ import HowItWorksSection from "../components/HowItWorksSection";
 import WhySolarSection from "../components/WhySolarSection";
 import SavingsCalculator from "../components/SavingsCalculator";
 import PanelCleaningSection from "../components/PanelCleaningSection";
+import InstallationProcess from "../components/InstallationProcess";
 import InstallationGallery from "../components/InstallationGallery";
 import CaliforniaNewsSection from "../components/CaliforniaNewsSection";
 import CaliforniaProgramsSection from "../components/CaliforniaProgramsSection";
@@ -27,6 +28,7 @@ export default function Home() {
         <ServicesSection />
         <HowItWorksSection />
         <PanelCleaningSection />
+        <InstallationProcess />
         <InstallationGallery />
         <LeadFormSection />
         <FAQSection />
