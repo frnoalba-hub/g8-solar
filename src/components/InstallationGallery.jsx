@@ -15,12 +15,24 @@ const photos = [
     label: "Roof Installation",
   },
   {
+    src: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/0fc53960c_c2d3d515-f10e-4251-a8a6-0b15f2912c3d.jpeg",
+    label: "Shingle Roof Solar",
+  },
+  {
     src: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/72644e2f6_523821052_122097473264956477_801889587701304817_n.jpg",
     label: "Tesla Battery Storage",
   },
   {
     src: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/6519b3fe7_519699786_122097527300956477_3580930224089726525_n.jpg",
     label: "Enphase Battery & Inverter",
+  },
+  {
+    src: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/8be66ab18_78cdfa94-e7ad-46fa-a131-55a8edc12e15.jpeg",
+    label: "Tile Roof Rail Install",
+  },
+  {
+    src: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/ee0f37f05_f773bb6d-2783-41c6-92c9-52ae6e28bd15.jpeg",
+    label: "Tile Roof Panel Layout",
   },
   {
     src: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/dfd8bf013_522492020_122097528488956477_8209884894321676853_n.jpg",
