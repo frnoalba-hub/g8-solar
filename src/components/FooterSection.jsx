@@ -49,7 +49,7 @@ export default function FooterSection() {
                 <a href="https://www.instagram.com/G8.solar" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/40 hover:text-[#d4af37] transition-colors text-sm">
                   <Instagram className="w-4 h-4" /> @G8.solar
                 </a>
-                <a href="https://www.facebook.com/G8.solar" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/40 hover:text-[#d4af37] transition-colors text-sm">
+                <a href="https://www.facebook.com/G8SolarEnergy" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/40 hover:text-[#d4af37] transition-colors text-sm">
                   <Facebook className="w-4 h-4" /> @G8.solar
                 </a>
               </div>
