@@ -53,8 +53,8 @@ export default function FAQSection() {
 
         <div className="text-center mt-12">
           <p className="text-gray-500 mb-4">Still have questions?</p>
-          <a href="tel:6614386350" className="inline-block bg-[#0b1528] hover:bg-[#d4af37] text-white hover:text-[#0b1528] font-semibold px-8 py-3 rounded-full transition-all">
-            Call (661) 438-6350
+          <a href="tel:6264049357" className="inline-block bg-[#0b1528] hover:bg-[#d4af37] text-white hover:text-[#0b1528] font-semibold px-8 py-3 rounded-full transition-all">
+            Call (626) 404-9357
           </a>
         </div>
       </div>
