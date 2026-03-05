@@ -64,7 +64,7 @@ export default function Layout({ children }) {
           {/* Phone + CTA */}
           <div className="flex items-center gap-4">
             <a
-              href="tel:6614386350"
+              href="tel:6264049357"
               className={`hidden md:flex items-center gap-1.5 text-sm font-semibold transition-colors hover:text-[#d4af37] whitespace-nowrap ${
                 scrolled ? "text-[#0b1528]" : "text-white drop-shadow"
               }`}
