@@ -70,7 +70,7 @@ export default function Layout({ children }) {
               }`}
             >
               <Phone className="w-4 h-4" />
-              (661) 438-6350
+              (626) 404-9357
             </a>
             <button
               onClick={() => scrollTo("savings-form")}
