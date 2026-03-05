@@ -33,11 +33,11 @@ export default function CtaSection() {
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
           <a
-            href="tel:6614386350"
+            href="tel:6264049357"
             className="flex items-center justify-center gap-2 border border-white/20 hover:border-white/40 text-white font-medium text-base px-8 py-4 rounded-full transition-all"
           >
             <Phone className="w-4 h-4" />
-            (661) 438-6350
+            (626) 404-9357
           </a>
         </div>
       </div>
