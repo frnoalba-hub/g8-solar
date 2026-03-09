@@ -11,6 +11,7 @@ const formSchema = z.object({
   zip_code: z.string().min(5, "Valid ZIP code is required"),
   email: z.string().email("Valid email is required"),
   monthly_bill: z.string().min(1, "Please select your monthly bill range"),
+  message: z.string().optional(),
 });
 
 export default function LeadFormSection() {
@@ -65,6 +66,7 @@ export default function LeadFormSection() {
             email: data.email,
             zip_code: data.zip_code,
             monthly_bill: data.monthly_bill,
+            message: data.message || "No message provided",
             document_url: document_url || "None uploaded",
           }),
         }),
@@ -205,6 +207,18 @@ export default function LeadFormSection() {
                     {errors.monthly_bill.message}
                   </p>
                 )}
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-[#0b1528] mb-1.5">
+                  Message / Additional Notes (Optional)
+                </label>
+                <textarea
+                  {...register("message")}
+                  rows={4}
+                  placeholder="Tell us anything else about your home, questions you have, or the best time to reach you..."
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3.5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-transparent transition-all resize-none"
+                />
               </div>
 
               <div>
