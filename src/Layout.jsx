@@ -102,8 +102,8 @@ export default function Layout({ children }) {
                 {label}
               </button>
             ))}
-            <a href="tel:6614386350" className="flex items-center gap-2 text-[#0b1528] font-medium py-2">
-              <Phone className="w-4 h-4" /> (661) 438-6350
+            <a href="tel:6264049357" className="flex items-center gap-2 text-[#0b1528] font-medium py-2">
+              <Phone className="w-4 h-4" /> (626) 404-9357
             </a>
           </div>
         )}

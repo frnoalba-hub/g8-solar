@@ -19,7 +19,11 @@ export default function LeadFormSection() {
   const [file, setFile] = useState(null);
   const [uploadError, setUploadError] = useState("");
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: zodResolver(formSchema),
   });
 
@@ -55,68 +59,116 @@ export default function LeadFormSection() {
   };
 
   return (
-    <section id="savings-form" className="py-24 bg-[#f4f5f7] relative overflow-hidden">
+    <section
+      id="savings-form"
+      className="py-24 bg-[#f4f5f7] relative overflow-hidden"
+    >
       <div className="max-w-2xl mx-auto px-5 sm:px-8 relative z-10">
         <div className="text-center mb-10">
-          <span className="text-[#d4af37] font-semibold text-xs tracking-widest uppercase mb-3 block">Free Quote</span>
+          <span className="text-[#d4af37] font-semibold text-xs tracking-widest uppercase mb-3 block">
+            Free Quote
+          </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0b1528] mb-4">
             Get Your Savings Estimate
           </h2>
-          <p className="text-gray-500">Fill in your info and we'll calculate your personalized estimate.</p>
+          <p className="text-gray-500">
+            Fill in your info and we'll calculate your personalized estimate.
+          </p>
         </div>
 
         <div className="bg-white rounded-3xl shadow-2xl p-8 sm:p-10">
           {submitted ? (
             <div className="text-center py-10">
               <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-[#0b1528] mb-2">You're All Set!</h3>
-              <p className="text-gray-500">We'll be in touch shortly. Call us at <a href="tel:6614386350" className="text-[#0b1528] font-bold underline">661-438-6350</a>.</p>
+              <h3 className="text-2xl font-bold text-[#0b1528] mb-2">
+                You're All Set!
+              </h3>
+              <p className="text-gray-500">
+                We'll be in touch shortly. Call us at{" "}
+                <a
+                  href="tel:6264049357"
+                  className="text-[#0b1528] font-bold underline"
+                >
+                  626-404-9357
+                </a>
+                .
+              </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
               <div>
-                <label className="block text-sm font-semibold text-[#0b1528] mb-1.5">Full Name *</label>
+                <label className="block text-sm font-semibold text-[#0b1528] mb-1.5">
+                  Full Name *
+                </label>
                 <input
-                  type="text" {...register("full_name")}
+                  type="text"
+                  {...register("full_name")}
                   placeholder="John Smith"
                   className={`w-full border rounded-xl px-4 py-3.5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-transparent transition-all ${errors.full_name ? "border-red-500" : "border-gray-200"}`}
                 />
-                {errors.full_name && <p className="text-red-500 text-xs mt-1">{errors.full_name.message}</p>}
+                {errors.full_name && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.full_name.message}
+                  </p>
+                )}
               </div>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-semibold text-[#0b1528] mb-1.5">Phone *</label>
+                  <label className="block text-sm font-semibold text-[#0b1528] mb-1.5">
+                    Phone *
+                  </label>
                   <input
-                    type="tel" {...register("phone")}
+                    type="tel"
+                    {...register("phone")}
                     placeholder="(661) 000-0000"
                     className={`w-full border rounded-xl px-4 py-3.5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-transparent transition-all ${errors.phone ? "border-red-500" : "border-gray-200"}`}
                   />
-                  {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
+                  {errors.phone && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.phone.message}
+                    </p>
+                  )}
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-[#0b1528] mb-1.5">ZIP Code *</label>
+                  <label className="block text-sm font-semibold text-[#0b1528] mb-1.5">
+                    ZIP Code *
+                  </label>
                   <input
-                    type="text" {...register("zip_code")}
+                    type="text"
+                    {...register("zip_code")}
                     placeholder="93301"
                     className={`w-full border rounded-xl px-4 py-3.5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-transparent transition-all ${errors.zip_code ? "border-red-500" : "border-gray-200"}`}
                   />
-                  {errors.zip_code && <p className="text-red-500 text-xs mt-1">{errors.zip_code.message}</p>}
+                  {errors.zip_code && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.zip_code.message}
+                    </p>
+                  )}
                 </div>
               </div>
-              
+
               <div>
-                <label className="block text-sm font-semibold text-[#0b1528] mb-1.5">Email *</label>
+                <label className="block text-sm font-semibold text-[#0b1528] mb-1.5">
+                  Email *
+                </label>
                 <input
-                  type="email" {...register("email")}
+                  type="email"
+                  {...register("email")}
                   placeholder="john@email.com"
                   className={`w-full border rounded-xl px-4 py-3.5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-transparent transition-all ${errors.email ? "border-red-500" : "border-gray-200"}`}
                 />
-                {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+                {errors.email && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.email.message}
+                  </p>
+                )}
               </div>
-              
+
               <div>
-                <label className="block text-sm font-semibold text-[#0b1528] mb-1.5">Monthly Electric Bill *</label>
+                <label className="block text-sm font-semibold text-[#0b1528] mb-1.5">
+                  Monthly Electric Bill *
+                </label>
                 <select
                   {...register("monthly_bill")}
                   className={`w-full border rounded-xl px-4 py-3.5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-transparent bg-white transition-all ${errors.monthly_bill ? "border-red-500" : "border-gray-200"}`}
@@ -127,24 +179,42 @@ export default function LeadFormSection() {
                   <option value="$300–$500">$300–$500</option>
                   <option value="Over $500">Over $500</option>
                 </select>
-                {errors.monthly_bill && <p className="text-red-500 text-xs mt-1">{errors.monthly_bill.message}</p>}
+                {errors.monthly_bill && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.monthly_bill.message}
+                  </p>
+                )}
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-[#0b1528] mb-1.5">Upload Site Photo or Bill (Optional)</label>
+                <label className="block text-sm font-semibold text-[#0b1528] mb-1.5">
+                  Upload Site Photo or Bill (Optional)
+                </label>
                 <div className="flex items-center gap-3">
                   <label className="flex items-center justify-center gap-2 px-4 py-3 border border-gray-200 border-dashed rounded-xl cursor-pointer hover:bg-gray-50 transition-colors w-full">
                     <UploadCloud className="w-5 h-5 text-gray-400" />
-                    <span className="text-sm text-gray-600 truncate">{file ? file.name : "Choose a file..."}</span>
-                    <input type="file" className="hidden" accept="image/*,.pdf" onChange={handleFileChange} />
+                    <span className="text-sm text-gray-600 truncate">
+                      {file ? file.name : "Choose a file..."}
+                    </span>
+                    <input
+                      type="file"
+                      className="hidden"
+                      accept="image/*,.pdf"
+                      onChange={handleFileChange}
+                    />
                   </label>
                 </div>
-                {uploadError && <p className="text-red-500 text-xs mt-1">{uploadError}</p>}
-                <p className="text-xs text-gray-400 mt-1.5">Max size 10MB. Images or PDF.</p>
+                {uploadError && (
+                  <p className="text-red-500 text-xs mt-1">{uploadError}</p>
+                )}
+                <p className="text-xs text-gray-400 mt-1.5">
+                  Max size 10MB. Images or PDF.
+                </p>
               </div>
 
               <button
-                type="submit" disabled={loading}
+                type="submit"
+                disabled={loading}
                 className="w-full bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-bold text-lg py-4 rounded-xl transition-all disabled:opacity-70 flex justify-center items-center gap-2"
               >
                 {loading ? (
@@ -152,9 +222,11 @@ export default function LeadFormSection() {
                     <div className="w-5 h-5 border-2 border-[#0b1528] border-t-transparent rounded-full animate-spin"></div>
                     Submitting...
                   </>
-                ) : "Get My Free Estimate →"}
+                ) : (
+                  "Get My Free Estimate →"
+                )}
               </button>
-              
+
               <div className="flex items-center justify-center gap-2 text-gray-400 text-sm">
                 <Shield className="w-4 h-4" />
                 Zero-pressure consultation. No obligation.
