@@ -48,7 +48,27 @@ export default function LeadFormSection() {
         const res = await base44.integrations.Core.UploadFile({ file });
         document_url = res.file_url;
       }
-      await base44.entities.Lead.create({ ...data, document_url });
+
+      // Save to base44 AND send email notification simultaneously
+      await Promise.all([
+        base44.entities.Lead.create({ ...data, document_url }),
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            access_key: "f094b447-8ba6-4179-b547-a3e7f94101f7",
+            subject: `🔆 New Solar Lead – ${data.full_name}`,
+            from_name: "G8 Solar Website",
+            name: data.full_name,
+            phone: data.phone,
+            email: data.email,
+            zip_code: data.zip_code,
+            monthly_bill: data.monthly_bill,
+            document_url: document_url || "None uploaded",
+          }),
+        }),
+      ]);
+
       setSubmitted(true);
     } catch (error) {
       console.error("Error submitting form:", error);
