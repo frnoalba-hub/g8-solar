@@ -57,6 +57,7 @@ export default function LeadFormSection() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             access_key: "f094b447-8ba6-4179-b547-a3e7f94101f7",
+            to: "frno.alba@gmail.com,g8.solarinc@gmail.com",
             subject: `🔆 New Solar Lead – ${data.full_name}`,
             from_name: "G8 Solar Website",
             name: data.full_name,
