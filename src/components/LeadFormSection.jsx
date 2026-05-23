@@ -14,6 +14,41 @@ const formSchema = z.object({
   message: z.string().optional(),
 });
 
+const WEB3FORMS_ACCESS_KEY =
+  import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "f094b447-8ba6-4179-b547-a3e7f94101f7";
+
+async function sendLeadEmail(data, document_url) {
+  const response = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: `New Solar Lead – ${data.full_name}`,
+      from_name: "G8 Solar Website",
+      name: data.full_name,
+      phone: data.phone,
+      email: data.email,
+      zip_code: data.zip_code,
+      monthly_bill: data.monthly_bill,
+      message: data.message || "No message provided",
+      document_url: document_url || "None uploaded",
+    }),
+  });
+
+  const result = await response.json().catch(() => ({}));
+  if (!response.ok || !result.success) {
+    throw new Error(result.message || "Email delivery failed. Please call us at 626-404-9357.");
+  }
+}
+
+async function saveLeadToBase44(data, document_url) {
+  try {
+    await base44.entities.Lead.create({ ...data, document_url });
+  } catch (error) {
+    console.warn("Base44 lead save failed (email already sent):", error);
+  }
+}
+
 export default function LeadFormSection() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -44,38 +79,33 @@ export default function LeadFormSection() {
   const onSubmit = async (data) => {
     setLoading(true);
     try {
-      let document_url = undefined;
+      let document_url;
       if (file) {
-        const res = await base44.integrations.Core.UploadFile({ file });
-        document_url = res.file_url;
+        try {
+          const res = await base44.integrations.Core.UploadFile({ file });
+          document_url = res.file_url;
+        } catch (uploadError) {
+          console.warn("File upload failed; submitting lead without attachment:", uploadError);
+        }
       }
 
-      // Save to base44 AND send email notification simultaneously
-      await Promise.all([
-        base44.entities.Lead.create({ ...data, document_url }),
-        fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            access_key: "f094b447-8ba6-4179-b547-a3e7f94101f7",
-            to: "frno.alba@gmail.com,g8.solarinc@gmail.com",
-            subject: `🔆 New Solar Lead – ${data.full_name}`,
-            from_name: "G8 Solar Website",
-            name: data.full_name,
-            phone: data.phone,
-            email: data.email,
-            zip_code: data.zip_code,
-            monthly_bill: data.monthly_bill,
-            message: data.message || "No message provided",
-            document_url: document_url || "None uploaded",
-          }),
-        }),
-      ]);
+      await sendLeadEmail(data, document_url);
+      await saveLeadToBase44(data, document_url);
+
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "generate_lead", {
+          event_category: "conversion",
+          value: 1,
+        });
+      }
 
       setSubmitted(true);
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("An error occurred while submitting. Please try again.");
+      alert(
+        error?.message ||
+          "An error occurred while submitting. Please try again or call 626-404-9357.",
+      );
     } finally {
       setLoading(false);
     }
