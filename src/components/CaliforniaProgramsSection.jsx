@@ -13,7 +13,7 @@ export default function CaliforniaProgramsSection() {
   const [open, setOpen] = useState(null);
 
   return (
-    <section id="programs-incentives" className="py-24 bg-white">
+    <section id="programs-incentives" className="py-24 bg-[#f4f5f7]">
       <div className="max-w-4xl mx-auto px-5 sm:px-8">
         <div className="text-center mb-16">
           <span className="text-[#d4af37] font-semibold text-sm tracking-wider uppercase mb-4 block">Incentives</span>

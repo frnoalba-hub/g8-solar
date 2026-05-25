@@ -24,12 +24,12 @@ export default function FAQSection() {
   const [open, setOpen] = useState(null);
 
   return (
-    <section id="faq-section" className="py-24 bg-white">
+    <section id="faq-section" className="py-24 bg-[#0b1528]">
       <div className="max-w-3xl mx-auto px-5 sm:px-8">
         <div className="text-center mb-16">
           <span className="text-[#d4af37] font-semibold text-xs tracking-widest uppercase mb-3 block">FAQ</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0b1528] mb-4">Common Questions</h2>
-          <p className="text-gray-500">Everything you need to know about going solar.</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Common Questions</h2>
+          <p className="text-white/50">Everything you need to know about going solar.</p>
         </div>
 
         <div className="space-y-3">
@@ -39,19 +39,19 @@ export default function FAQSection() {
               <div
                 key={i}
                 className={`rounded-2xl border overflow-hidden transition-all duration-200 ${
-                  isOpen ? "border-[#d4af37]/40 shadow-md" : "border-gray-200"
+                  isOpen ? "border-[#d4af37]/40 shadow-md" : "border-white/10"
                 }`}
               >
                 <button
-                  className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left bg-white hover:bg-gray-50 transition-colors"
+                  className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left bg-white/5 hover:bg-white/10 transition-colors"
                   onClick={() => setOpen(isOpen ? null : i)}
                 >
-                  <span className="font-semibold text-[#0b1528] text-sm sm:text-base leading-snug">{faq.q}</span>
+                  <span className="font-semibold text-white text-sm sm:text-base leading-snug">{faq.q}</span>
                   <ChevronDown className={`w-5 h-5 flex-shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180 text-[#d4af37]" : "text-gray-400"}`} />
                 </button>
                 <div className={`overflow-hidden transition-all duration-200 ${isOpen ? "max-h-96" : "max-h-0"}`}>
-                  <div className="bg-white px-5 sm:px-6 pb-5">
-                    <p className="text-gray-500 text-sm leading-relaxed">{faq.a}</p>
+                  <div className="bg-white/5 px-5 sm:px-6 pb-5">
+                    <p className="text-white/50 text-sm leading-relaxed">{faq.a}</p>
                   </div>
                 </div>
               </div>
@@ -60,8 +60,8 @@ export default function FAQSection() {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-gray-500 mb-4">Still have questions?</p>
-          <a href="tel:6264049357" className="inline-block bg-[#0b1528] hover:bg-[#d4af37] text-white hover:text-[#0b1528] font-semibold px-8 py-3 rounded-full transition-all">
+          <p className="text-white/50 mb-4">Still have questions?</p>
+          <a href="tel:6264049357" className="inline-block bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-semibold px-8 py-3 rounded-full transition-all">
             Call (626) 404-9357
           </a>
         </div>

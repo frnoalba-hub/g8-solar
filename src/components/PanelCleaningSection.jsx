@@ -10,14 +10,14 @@ export default function PanelCleaningSection() {
   ];
 
   return (
-    <section className="py-24 bg-[#f8f9fc]">
+    <section className="py-24 bg-[#0b1528]">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div className="text-center mb-16">
           <span className="text-[#d4af37] font-semibold text-sm tracking-wider uppercase mb-4 block">Maintenance</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0b1528] mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             Keep Your Panels <span className="text-[#d4af37]">Clean</span>
           </h2>
-          <p className="text-gray-500 max-w-xl mx-auto">
+          <p className="text-white/50 max-w-xl mx-auto">
             Dirty panels can lose 15–25% efficiency. Regular cleaning protects your investment.
           </p>
         </div>
@@ -62,10 +62,10 @@ export default function PanelCleaningSection() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {tips.map(({ icon: Icon, color, title, desc }) => (
-            <div key={title} className="bg-white rounded-2xl p-6 border border-gray-100">
+            <div key={title} className="bg-white/5 rounded-2xl p-6 border border-white/10">
               <Icon className={`w-7 h-7 ${color} mb-4`} />
-              <h3 className="font-bold text-[#0b1528] mb-2">{title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+              <h3 className="font-bold text-white mb-2">{title}</h3>
+              <p className="text-white/50 text-sm leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>

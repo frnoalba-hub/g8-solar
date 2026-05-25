@@ -44,14 +44,14 @@ export default function InstallationGallery() {
   const [selected, setSelected] = useState(null);
 
   return (
-    <section id="installation-portfolio" className="py-24 bg-white">
+    <section id="installation-portfolio" className="py-24 bg-[#0f1a2e]">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div className="text-center mb-16">
           <span className="text-[#d4af37] font-semibold text-sm tracking-wider uppercase mb-4 block">Portfolio</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0b1528] mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             Our Installations
           </h2>
-          <p className="text-gray-500 max-w-xl mx-auto">
+          <p className="text-white/50 max-w-xl mx-auto">
             Professional-grade work on every job. Browse our completed projects.
           </p>
         </div>
