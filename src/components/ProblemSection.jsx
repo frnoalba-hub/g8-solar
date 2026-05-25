@@ -21,7 +21,7 @@ export default function ProblemSection() {
               so you maximize savings, not just panels on a roof.
             </p>
             <p className="text-gray-600 text-lg leading-relaxed mb-10">
-              From the first assessment to 25 years of monitoring, we treat your roof
+              From the first assessment to 10 years of monitoring, we treat your roof
               like our own investment. That's how we've earned a 4.9-star rating from
               hundreds of California homeowners.
             </p>
