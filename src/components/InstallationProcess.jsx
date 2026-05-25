@@ -70,14 +70,14 @@ const steps = [
 
 export default function InstallationProcess() {
   return (
-    <section className="py-24 bg-[#f4f5f7]">
+    <section className="py-24 bg-gradient-to-br from-[#0f1a2e] to-[#0b1528]">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div className="text-center mb-16">
           <span className="text-[#d4af37] font-semibold text-sm tracking-wider uppercase mb-4 block">Behind the Scenes</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0b1528] mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             Our Installation Process
           </h2>
-          <p className="text-gray-500 max-w-xl mx-auto">
+          <p className="text-gray-400 max-w-xl mx-auto">
             From roof assessment to final panel placement — see how we do it right, every time.
           </p>
         </div>
@@ -95,9 +95,10 @@ export default function InstallationProcess() {
                     <Icon className="w-6 h-6 text-[#d4af37]" />
                   </div>
                   <span className="text-[#d4af37] font-bold text-sm uppercase tracking-wider">Step {step}</span>
+
                 </div>
-                <h3 className="text-2xl font-bold text-[#0b1528] mb-3">{title}</h3>
-                <p className="text-gray-500 leading-relaxed text-lg">{description}</p>
+                <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
+                <p className="text-gray-400 leading-relaxed text-lg">{description}</p>
               </div>
 
               {/* Images Side */}
