@@ -1,104 +1,112 @@
-import React, { useState } from "react";
-import { Phone, ArrowDown, CreditCard, Shield, Sun, DollarSign, Battery } from "lucide-react";
+import React from "react";
+import { Phone, ArrowRight, Star } from "lucide-react";
 
-const tabs = [
-  { icon: DollarSign, label: "30% Tax Credit", content: "The federal Investment Tax Credit (ITC) gives you 30% of your total solar system cost back as a tax credit — thousands of dollars back in your pocket." },
-  { icon: CreditCard, label: "$0 Down", content: "Go solar with zero money down. Flexible financing so you start saving from day one with no upfront costs." },
-  { icon: Sun, label: "Lower Bills", content: "Most homeowners cut their electric bill by 70–100%. Lock in a predictable low rate and stop overpaying the utility company." },
-  { icon: Battery, label: "Battery Backup", content: "Keep the lights on during outages with home battery storage. Store your solar energy and use it when you need it most." },
-  { icon: Shield, label: "25-Year Warranty", content: "Our solar panels come with a 25-year performance warranty — 25+ years of reliable, clean energy with peace of mind." },
+const trustStats = [
+  { value: "5,000+", label: "Panels installed" },
+  { value: "4.9★", label: "Customer rating" },
+  { value: "25yr", label: "Warranty" },
+  { value: "$0", label: "Down financing" },
 ];
 
 export default function HeroSection() {
-  const [activeTab, setActiveTab] = useState(0);
-
   const scrollToForm = () => {
     document.getElementById("savings-form")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col overflow-hidden"
       style={{
         backgroundImage: "url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80')",
         backgroundSize: "cover",
         backgroundPosition: "center center",
       }}
     >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0b1528]/85 via-[#0b1528]/65 to-[#0b1528]/85" />
+      {/* Dramatic cinematic overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0b1528]/95 via-[#0b1528]/55 to-[#0b1528]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0b1528]/70 via-transparent to-transparent" />
 
-      <div className="relative z-10 flex flex-col items-center text-center px-4 pt-24 pb-16">
-        {/* Big Logo */}
-        <img
-          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/c1a382000_Gemini_Generated_Image_5eixi75eixi75eix4.png"
-          alt="G8 Solar LLC"
-          className="w-[90vw] max-w-2xl -mb-12 sm:-mb-48"
-        />
+      {/* Main content — left-aligned, editorial */}
+      <div className="relative z-10 flex-1 flex items-center pt-28 pb-12">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 w-full">
+          <div className="max-w-3xl">
 
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/20 text-white/90 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-6">
-          <span className="w-2 h-2 bg-[#d4af37] rounded-full animate-pulse" />
-          Serving All of California
-        </div>
+            {/* Eyebrow */}
+            <div className="inline-flex items-center gap-2 text-white/70 text-xs tracking-[0.2em] uppercase font-semibold mb-8">
+              <span className="w-8 h-px bg-[#d4af37]" />
+              California's Trusted Solar Installer
+            </div>
 
-        {/* Headline */}
-        <h1 className="text-4xl sm:text-6xl lg:text-8xl text-white leading-tight mb-3 max-w-4xl px-2" style={{ fontFamily: 'DM Serif Display, Georgia, serif', fontWeight: 400 }}>
-          Stop Renting <em className="text-[#d4af37] not-italic">Your Power</em>
-        </h1>
-        <p className="text-white/70 text-base sm:text-xl max-w-xl mb-8 px-2">
-          Custom solar solutions for California homeowners. Real savings. Zero pressure.
-        </p>
+            {/* Headline */}
+            <h1
+              className="text-white text-5xl sm:text-7xl lg:text-[110px] leading-[0.95] mb-6 tracking-tight"
+              style={{ fontFamily: 'DM Serif Display, Georgia, serif', fontWeight: 400 }}
+            >
+              Stop renting<br />
+              your power.
+            </h1>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 mb-10 w-full max-w-sm sm:max-w-none sm:w-auto">
-          <button
-            onClick={scrollToForm}
-            className="bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-bold text-base px-8 py-4 rounded-full transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#d4af37]/30"
-          >
-            Get Your Free Estimate
-            <ArrowDown className="w-4 h-4" />
-          </button>
-          <a
-            href="tel:6264049357"
-            className="flex items-center justify-center gap-2 border border-white/30 hover:border-white/60 text-white font-medium text-base px-8 py-4 rounded-full transition-all"
-          >
-            <Phone className="w-4 h-4" />
-            (626) 404-9357
-          </a>
-        </div>
+            {/* Italic accent line */}
+            <p
+              className="text-[#d4af37] text-xl sm:text-2xl mb-8 italic"
+              style={{ fontFamily: 'DM Serif Display, Georgia, serif' }}
+            >
+              Own the sunlight on your roof.
+            </p>
 
-        {/* Feature Tabs */}
-        <div className="w-full max-w-2xl">
-          <div className="flex flex-wrap justify-center gap-2 mb-4">
-            {tabs.map((tab, i) => {
-              const Icon = tab.icon;
-              return (
-                <button
-                  key={i}
-                  onClick={() => setActiveTab(i)}
-                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold transition-all border ${
-                    activeTab === i
-                      ? "bg-[#d4af37] text-[#0b1528] border-[#d4af37]"
-                      : "bg-white/10 text-white/80 border-white/20 hover:bg-white/20"
-                  }`}
-                >
-                  <Icon className="w-3.5 h-3.5" />
-                  {tab.label}
-                </button>
-              );
-            })}
-          </div>
-          <div className="bg-white/10 backdrop-blur border border-white/20 rounded-2xl px-6 py-4 min-h-[64px]">
-            <p className="text-white/90 text-sm leading-relaxed">{tabs[activeTab].content}</p>
+            {/* Subhead */}
+            <p className="text-white/70 text-base sm:text-lg max-w-xl mb-10 leading-relaxed">
+              Custom-designed solar systems for California homeowners. Cut your bill up to 90%, lock in your rate for 25+ years, and start with $0 down.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-3 mb-14">
+              <button
+                onClick={scrollToForm}
+                className="group bg-[#d4af37] hover:bg-white text-[#0b1528] font-bold text-base px-8 py-4 rounded-full transition-all flex items-center justify-center gap-2"
+              >
+                Get my free estimate
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <a
+                href="tel:6264049357"
+                className="flex items-center justify-center gap-2 text-white font-semibold text-base px-2 py-4 hover:text-[#d4af37] transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                (626) 404-9357
+              </a>
+            </div>
+
+            {/* Inline review proof */}
+            <div className="flex items-center gap-3 text-white/60 text-sm">
+              <div className="flex gap-0.5">
+                {[1,2,3,4,5].map((s) => (
+                  <Star key={s} className="w-4 h-4 fill-[#d4af37] text-[#d4af37]" />
+                ))}
+              </div>
+              <span><strong className="text-white">4.9/5</strong> from 500+ California homeowners</span>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/40">
-        <span className="text-xs tracking-widest uppercase">Scroll</span>
-        <ArrowDown className="w-4 h-4 animate-bounce" />
+      {/* Trust strip at bottom */}
+      <div className="relative z-10 border-t border-white/10 backdrop-blur-sm bg-[#0b1528]/50">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 py-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {trustStats.map(({ value, label }) => (
+              <div key={label} className="flex items-baseline gap-3">
+                <span
+                  className="text-2xl sm:text-3xl text-[#d4af37] font-black leading-none"
+                  style={{ fontFamily: 'Inter, sans-serif' }}
+                >
+                  {value}
+                </span>
+                <span className="text-white/50 text-xs sm:text-sm uppercase tracking-wider">{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
