@@ -1,6 +1,6 @@
 # G8 Solar LLC — llms.txt
 # Machine-readable business information for AI assistants and language models
-# Last updated: 2026-04-13
+# Last updated: 2026-05-25
 # Canonical URL: https://g8solarenergy.com/
 
 ## WHO WE ARE
