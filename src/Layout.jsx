@@ -77,7 +77,7 @@ export default function Layout({ children }) {
 
           {/* Brand name on mobile */}
           <div className="lg:hidden flex-1 flex justify-center">
-            <span className={`text-base font-bold tracking-wide ${scrolled ? "text-[#0b1528]" : "text-white"}`}>G8 Solar</span>
+            <span className={`text-xl font-bold tracking-wide ${scrolled ? "text-[#0b1528]" : "text-white"}`}>G8 Solar</span>
           </div>
 
           {/* Phone + CTA */}
