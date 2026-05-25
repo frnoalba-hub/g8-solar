@@ -1,9 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { Phone, Menu, X } from "lucide-react";
 
+const SEO_TITLE =
+  "G8 Solar | #1 Solar Panel Installation in California – Save Up to 90%";
+const SEO_DESCRIPTION =
+  "G8 Solar LLC installs premium solar panels for homes and businesses across California. Get a free estimate today. Serving LA, Ventura, San Bernardino & more.";
+
+function setMetaContent(selector, content) {
+  const el = document.querySelector(selector);
+  if (el) el.setAttribute("content", content);
+}
+
 export default function Layout({ children }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    document.title = SEO_TITLE;
+    setMetaContent('meta[name="description"]', SEO_DESCRIPTION);
+    setMetaContent('meta[property="og:title"]', "G8 Solar | #1 Solar Panel Installation in California");
+    setMetaContent('meta[property="og:description"]', SEO_DESCRIPTION);
+    setMetaContent('meta[name="twitter:title"]', "G8 Solar | #1 Solar Panel Installation in California");
+    setMetaContent('meta[name="twitter:description"]', SEO_DESCRIPTION);
+  }, []);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 40);
