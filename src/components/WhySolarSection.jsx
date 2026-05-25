@@ -4,7 +4,7 @@ const stats = [
   { number: "90%", label: "Average bill reduction for CA homeowners", sup: "up to" },
   { number: "$10k+", label: "Added home resale value with solar", sup: "avg." },
   { number: "30%", label: "Federal tax credit — available through 2032", sup: "ITC" },
-  { number: "25yr", label: "Panel performance warranty, guaranteed", sup: "" },
+  { number: "10yr", label: "Panel performance warranty, guaranteed", sup: "" },
 ];
 
 const secondaryPoints = [

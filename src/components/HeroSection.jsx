@@ -4,7 +4,7 @@ import { Phone, ArrowRight, Star } from "lucide-react";
 const trustStats = [
   { value: "5,000+", label: "Panels installed" },
   { value: "4.9★", label: "Customer rating" },
-  { value: "25yr", label: "Warranty" },
+  { value: "10yr", label: "Warranty" },
   { value: "$0", label: "Down financing" },
 ];
 
