@@ -1,6 +1,7 @@
 import React from "react";
 import HeroSection from "../components/HeroSection";
 import ProblemSection from "../components/ProblemSection";
+import ResultsSection from "../components/ResultsSection";
 import ServicesSection from "../components/ServicesSection";
 import HowItWorksSection from "../components/HowItWorksSection";
 import WhySolarSection from "../components/WhySolarSection";
@@ -24,6 +25,7 @@ export default function Home() {
         <CaliforniaNewsSection />
         <CaliforniaProgramsSection />
         <ProblemSection />
+        <ResultsSection />
         <WhySolarSection />
         <ServicesSection />
         <HowItWorksSection />
