@@ -62,7 +62,14 @@ export default function Layout({ children }) {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between gap-6">
           {/* Brand / Logo */}
           <div className="flex-shrink-0">
-            <span className={`text-xl font-bold tracking-wide ${scrolled ? "text-[#0b1528]" : "text-white"}`}>G8 Solar</span>
+            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2 group">
+              <div className="w-8 h-8 rounded-lg bg-[#d4af37] flex items-center justify-center flex-shrink-0">
+                <span className="text-[#0b1528] font-black text-sm leading-none" style={{ fontFamily: 'Inter, sans-serif' }}>G8</span>
+              </div>
+              <span className={`text-lg font-semibold tracking-tight transition-colors ${
+                scrolled ? 'text-[#0b1528]' : 'text-white'
+              }`} style={{ fontFamily: 'Inter, sans-serif' }}>Solar</span>
+            </button>
           </div>
 
           {/* Nav Links - centered */}
