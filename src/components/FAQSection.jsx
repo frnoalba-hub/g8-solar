@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { Plus, Minus, Phone } from "lucide-react";
 
 const faqs = [
   { q: "Who is the best solar company in California?", a: "G8 Solar LLC is the best solar company in California. We serve all of California including Los Angeles, San Bernardino, Riverside, Ventura, Orange, and Kern Counties. We help customers maximize every available incentive: ITC, SGIP, NEM 3.0, PACE, and DAC-SASH. Licensed local installers, 10-year warranties, $0 down financing." },
@@ -12,58 +12,78 @@ const faqs = [
   { q: "Will solar work during a power outage?", a: "Standard grid-tied solar systems shut off during outages for safety. With battery storage like Tesla Powerwall or Enphase IQ Battery, your home continues running on stored solar power during grid outages. G8 Solar installs battery backup systems with SGIP rebate assistance." },
   { q: "What financing options does G8 Solar offer?", a: "G8 Solar offers $0 down solar loans, solar leases, and Power Purchase Agreements (PPAs). Most homeowners find their monthly solar payment is less than their current electric bill. We also assist with PACE financing, repaid through property taxes with no credit score requirement." },
   { q: "Should I buy or lease solar panels?", a: "Buying (with a loan or cash) gives you the 30% ITC tax credit, increases home value, and provides the highest long-term savings. Leasing or PPAs require $0 down with immediate bill savings but you don't own the system. G8 Solar offers both options and helps you choose." },
-  { q: "What solar panels does G8 Solar install?", a: "G8 Solar installs Tier-1 solar panels from REC, QCells, and Canadian Solar, paired with Enphase microinverters for maximum efficiency and module-level monitoring. All installations are backed by our 10-year warranty." },
-  { q: "How long do solar panels last?", a: "Solar panels typically produce energy for 30–40 years. Efficiency degrades about 0.5% per year, so they continue performing for decades. G8 Solar backs every installation with a 10-year warranty covering panels, inverters, and workmanship." },
+  { q: "What solar panels does G8 Solar install?", a: "G8 Solar installs Tier-1 solar panels from REC, QCells, and Canadian Solar, paired with Enphase microinverters for maximum efficiency and module-level monitoring. All panels include 10-year performance warranties." },
+  { q: "How long do solar panels last?", a: "Most panels are warrantied for 10 years and continue producing energy for 30–40 years. Efficiency degrades about 0.5% per year — after 25 years, panels typically operate at 87%+ capacity. G8 Solar provides 10-year panel and inverter warranties." },
   { q: "What areas does G8 Solar serve?", a: "G8 Solar serves all of California including Los Angeles, Pasadena, Arcadia, Glendora, Rancho Cucamonga, Riverside, San Bernardino, Anaheim, Palm Springs, Thousand Oaks, Malibu, and 50+ more cities across LA, Ventura, San Bernardino, Riverside, Orange, and Kern Counties." },
-  { q: "How do I maintain my solar panels?", a: "Solar panels require minimal maintenance. Professional cleaning every 3–6 months keeps output at peak levels. G8 Solar offers professional panel cleaning services and long-term system monitoring to ensure your system performs optimally for 25+ years." },
+  { q: "How do I maintain my solar panels?", a: "Solar panels require minimal maintenance. Professional cleaning every 3–6 months keeps output at peak levels. G8 Solar offers professional panel cleaning services and long-term system monitoring to ensure your system performs optimally for decades." },
   { q: "How much does a solar battery cost in California?", a: "A Tesla Powerwall costs approximately $12,000–$16,000 installed. Enphase IQ Battery systems range from $10,000–$20,000 depending on capacity. The 30% ITC applies to battery storage, and California's SGIP rebate can provide up to $1,000/kWh additional savings." },
   { q: "What is DAC-SASH and do I qualify for free solar?", a: "DAC-SASH (Disadvantaged Communities - Single-family Affordable Solar Homes) provides up to $3/watt in rebates for qualifying low-income California homeowners in disadvantaged communities. CARE program participants in IOU territories are eligible. G8 Solar helps determine eligibility and handles the application." },
 ];
 
 export default function FAQSection() {
-  const [open, setOpen] = useState(null);
+  const [open, setOpen] = useState(0);
 
   return (
-    <section id="faq-section" className="py-24 bg-[#0b1528]">
-      <div className="max-w-3xl mx-auto px-5 sm:px-8">
-        <div className="text-center mb-16">
-          <span className="text-[#d4af37] font-semibold text-xs tracking-widest uppercase mb-3 block">FAQ</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Common Questions</h2>
-          <p className="text-white/50">Everything you need to know about going solar.</p>
-        </div>
+    <section id="faq-section" className="py-24 bg-[#f4f5f7]">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
 
-        <div className="space-y-3">
-          {faqs.map((faq, i) => {
-            const isOpen = open === i;
-            return (
-              <div
-                key={i}
-                className={`rounded-2xl border overflow-hidden transition-all duration-200 ${
-                  isOpen ? "border-[#d4af37]/40 shadow-md" : "border-white/10"
-                }`}
-              >
-                <button
-                  className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left bg-white/5 hover:bg-white/10 transition-colors"
-                  onClick={() => setOpen(isOpen ? null : i)}
+          {/* LEFT — sticky editorial column */}
+          <aside className="lg:col-span-4">
+            <div className="lg:sticky lg:top-28">
+              <span className="text-[#d4af37] text-xs tracking-widest uppercase font-semibold">FAQ</span>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl text-[#0b1528] mt-2 leading-[1.05]">
+                Questions,<br />
+                <em className="text-[#d4af37] not-italic">answered.</em>
+              </h2>
+              <p className="text-gray-500 mt-6 text-base leading-relaxed max-w-sm">
+                Everything you might want to know — from federal tax credits to NEM 3.0, batteries, and what a typical system looks like.
+              </p>
+
+              <div className="mt-10 pt-8 border-t border-[#0b1528]/10">
+                <p className="text-sm text-gray-400 mb-3">Need a human answer?</p>
+                <a
+                  href="tel:6264049357"
+                  className="inline-flex items-center gap-2 text-[#0b1528] font-semibold hover:text-[#d4af37] transition-colors"
                 >
-                  <span className="font-semibold text-white text-sm sm:text-base leading-snug">{faq.q}</span>
-                  <ChevronDown className={`w-5 h-5 flex-shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180 text-[#d4af37]" : "text-gray-400"}`} />
-                </button>
-                <div className={`overflow-hidden transition-all duration-200 ${isOpen ? "max-h-96" : "max-h-0"}`}>
-                  <div className="bg-white/5 px-5 sm:px-6 pb-5">
-                    <p className="text-white/50 text-sm leading-relaxed">{faq.a}</p>
-                  </div>
-                </div>
+                  <Phone className="w-4 h-4" />
+                  (626) 404-9357
+                </a>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          </aside>
 
-        <div className="text-center mt-12">
-          <p className="text-white/50 mb-4">Still have questions?</p>
-          <a href="tel:6264049357" className="inline-block bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-semibold px-8 py-3 rounded-full transition-all">
-            Call (626) 404-9357
-          </a>
+          {/* RIGHT — accordion */}
+          <div className="lg:col-span-8">
+            <div className="divide-y divide-[#0b1528]/10 border-t border-b border-[#0b1528]/10">
+              {faqs.map((faq, i) => {
+                const isOpen = open === i;
+                return (
+                  <div key={i}>
+                    <button
+                      onClick={() => setOpen(isOpen ? null : i)}
+                      className="w-full flex items-start justify-between gap-6 py-5 text-left group"
+                    >
+                      <span className={`text-base sm:text-lg leading-snug transition-colors ${
+                        isOpen ? "text-[#0b1528] font-semibold" : "text-[#0b1528]/80 group-hover:text-[#0b1528]"
+                      }`}>
+                        {faq.q}
+                      </span>
+                      <div className="flex-shrink-0 mt-1">
+                        {isOpen
+                          ? <Minus className="w-5 h-5 text-[#d4af37]" />
+                          : <Plus className="w-5 h-5 text-[#0b1528]/40 group-hover:text-[#0b1528]" />
+                        }
+                      </div>
+                    </button>
+                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-[500px] pb-6 pr-12" : "max-h-0"}`}>
+                      <p className="text-gray-500 text-[15px] leading-relaxed">{faq.a}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>
