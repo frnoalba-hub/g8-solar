@@ -5,9 +5,6 @@ const partners = [
   { name: "Enphase", subtitle: "Authorized Installer", style: { letterSpacing: "0.02em", fontWeight: 600 } },
   { name: "REC", subtitle: "Solar Panels", style: { letterSpacing: "0.15em", fontWeight: 800 } },
   { name: "Q CELLS", subtitle: "Premium Panels", style: { letterSpacing: "0.12em", fontWeight: 700 } },
-  { name: "NABCEP", subtitle: "Certified Professional", style: { letterSpacing: "0.18em", fontWeight: 700 } },
-  { name: "CSLB", subtitle: "Licensed #C-46", style: { letterSpacing: "0.2em", fontWeight: 700 } },
-  { name: "BBB", subtitle: "A+ Accredited", style: { letterSpacing: "0.2em", fontWeight: 800 } },
 ];
 
 export default function PartnersStrip() {
@@ -30,7 +27,7 @@ export default function PartnersStrip() {
         </div>
 
         {/* Partner wordmark grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-px bg-gray-100 rounded-2xl overflow-hidden">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100 rounded-2xl overflow-hidden">
           {partners.map(({ name, subtitle, style }) => (
             <div
               key={name}
