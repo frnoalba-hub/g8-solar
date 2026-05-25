@@ -1,38 +1,69 @@
 import React from "react";
-import { Home, Building2, BarChart3, Activity, ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const services = [
-  { icon: Home, title: "Residential Solar", desc: "Turn your roof into an asset and reduce or eliminate your electric bill with a custom-designed system." },
-  { icon: Building2, title: "Commercial Solar", desc: "Lower operating costs and take advantage of available tax incentives for your business." },
-  { icon: BarChart3, title: "Energy Modeling", desc: "We analyze your usage patterns to maximize ROI and system efficiency before installation." },
-  { icon: Activity, title: "Maintenance", desc: "Keep your system performing at peak output year-round with monitoring and panel cleaning." },
+  {
+    num: "01",
+    title: "Residential Solar",
+    desc: "Turn your roof into an asset. We design custom systems sized for your exact usage — so you stop overpaying the utility company.",
+    tag: "Most Popular",
+  },
+  {
+    num: "02",
+    title: "Commercial Solar",
+    desc: "Lower operating costs and maximize tax incentives — ITC, MACRS depreciation, and more — for your business or property.",
+    tag: null,
+  },
+  {
+    num: "03",
+    title: "Battery Storage",
+    desc: "Keep the lights on during outages. Pair solar with Tesla Powerwall or Enphase IQ Battery and qualify for SGIP rebates.",
+    tag: null,
+  },
+  {
+    num: "04",
+    title: "Maintenance & Cleaning",
+    desc: "Dirty panels lose 15–25% efficiency. Our cleaning and monitoring service keeps your system producing at peak output year-round.",
+    tag: null,
+  },
 ];
 
 export default function ServicesSection() {
   const scrollToForm = () => document.getElementById("savings-form")?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section id="services-section" className="py-24 bg-gradient-to-br from-[#0b1528] to-[#0f1a2e]">
+    <section id="services-section" className="py-24 bg-[#0f1a2e]">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
-        <div className="text-center mb-16">
-          <span className="text-[#d4af37] font-semibold text-xs tracking-widest uppercase mb-3 block">What We Do</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">Our Solar Solutions</h2>
+
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
+          <div>
+            <span className="text-[#d4af37] text-xs tracking-widest uppercase font-semibold">What We Do</span>
+            <h2 className="text-4xl sm:text-5xl text-white mt-2">Our Solar Solutions</h2>
+          </div>
+          <button
+            onClick={scrollToForm}
+            className="self-start lg:self-auto inline-flex items-center gap-2 bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-bold px-6 py-3 rounded-full transition-all text-sm"
+          >
+            Get a Free Estimate <ArrowUpRight className="w-4 h-4" />
+          </button>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map(({ icon: Icon, title, desc }) => (
+
+        <div className="divide-y divide-white/10">
+          {services.map(({ num, title, desc, tag }, i) => (
             <div
-              key={title}
+              key={num}
               onClick={scrollToForm}
-              className="group bg-[#1a2847] rounded-2xl border border-[#d4af37]/20 hover:border-[#d4af37]/50 hover:shadow-xl hover:shadow-[#d4af37]/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer p-6"
+              className="group flex flex-col sm:flex-row sm:items-center gap-4 py-8 cursor-pointer hover:pl-3 transition-all duration-300"
             >
-              <div className="w-12 h-12 bg-[#d4af37]/15 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-[#d4af37]/25 transition-all duration-300">
-                <Icon className="w-6 h-6 text-[#d4af37]" />
+              <span className="text-white/20 font-black text-4xl w-16 flex-shrink-0 group-hover:text-[#d4af37]/40 transition-colors" style={{ fontFamily: 'Inter, sans-serif' }}>{num}</span>
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-2">
+                  <h3 className="text-white text-xl group-hover:text-[#d4af37] transition-colors">{title}</h3>
+                  {tag && <span className="text-[10px] font-bold uppercase tracking-wider bg-[#d4af37]/15 text-[#d4af37] px-2 py-0.5 rounded-full">{tag}</span>}
+                </div>
+                <p className="text-white/40 text-sm leading-relaxed max-w-lg">{desc}</p>
               </div>
-              <h3 className="text-white font-bold text-lg mb-2 group-hover:text-[#d4af37] transition-colors">{title}</h3>
-              <p className="text-gray-300 text-sm leading-relaxed mb-4">{desc}</p>
-              <span className="inline-flex items-center gap-1 text-[#d4af37] text-sm font-semibold group-hover:gap-2 transition-all">
-                Learn more <ArrowRight className="w-4 h-4" />
-              </span>
+              <ArrowUpRight className="w-5 h-5 text-white/20 group-hover:text-[#d4af37] transition-colors flex-shrink-0 hidden sm:block" />
             </div>
           ))}
         </div>
