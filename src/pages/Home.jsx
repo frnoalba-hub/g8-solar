@@ -2,6 +2,7 @@ import React from "react";
 import HeroSection from "../components/HeroSection";
 import ProblemSection from "../components/ProblemSection";
 import ResultsSection from "../components/ResultsSection";
+import PartnersStrip from "../components/PartnersStrip";
 import ServicesSection from "../components/ServicesSection";
 import HowItWorksSection from "../components/HowItWorksSection";
 import WhySolarSection from "../components/WhySolarSection";
@@ -25,6 +26,7 @@ export default function Home() {
         <CaliforniaNewsSection />
         <CaliforniaProgramsSection />
         <ProblemSection />
+        <PartnersStrip />
         <ResultsSection />
         <WhySolarSection />
         <ServicesSection />
