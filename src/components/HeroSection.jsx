@@ -56,7 +56,7 @@ export default function HeroSection() {
 
             {/* Subhead */}
             <p className="text-white/70 text-base sm:text-lg max-w-xl mb-10 leading-relaxed">
-              Custom-designed solar systems for California homeowners. Cut your bill up to 90%, lock in your rate for 25+ years, and start with $0 down.
+              Custom-designed solar systems for California homeowners. Cut your bill up to 90%, lock in your rate for decades, and start with $0 down.
             </p>
 
             {/* CTAs */}
