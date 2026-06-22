@@ -29,7 +29,8 @@ export default function Layout({ children }) {
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", handler);
+    handler();
+    window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
@@ -61,11 +62,11 @@ export default function Layout({ children }) {
 
       {/* Sticky Navbar */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-md py-3" : "bg-transparent py-5"
+        scrolled ? "bg-white shadow-md py-3" : "bg-transparent py-4 sm:py-5"
       }`}>
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between lg:justify-center relative gap-6">
-          {/* Brand / Logo — mobile & tablet only; hero logo covers desktop */}
-          <div className="flex-shrink-0 lg:hidden transition-all duration-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between lg:justify-center relative gap-3">
+          {/* Brand / Logo — mobile & tablet only; stays in top-left pocket, scales on scroll */}
+          <div className="flex-shrink-0 lg:hidden min-w-0">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="flex items-center group"
@@ -74,8 +75,12 @@ export default function Layout({ children }) {
               <img
                 src={LOGO_URL}
                 alt="G8 Solar LLC"
-                className={`h-10 sm:h-12 w-auto transition-all duration-300 ${
-                  scrolled ? "" : "drop-shadow-md brightness-110"
+                fetchPriority="high"
+                decoding="async"
+                className={`w-auto object-contain transition-all duration-500 ease-out origin-left ${
+                  scrolled
+                    ? "h-14 max-w-[11rem] sm:max-w-[12rem]"
+                    : "h-[4.75rem] sm:h-20 max-w-[15rem] sm:max-w-[17rem] drop-shadow-md brightness-110"
                 }`}
               />
             </button>
@@ -97,7 +102,7 @@ export default function Layout({ children }) {
           </div>
 
           {/* Phone + CTA */}
-          <div className="flex items-center gap-4 lg:absolute lg:right-5 xl:right-8 transition-all duration-300">
+          <div className="flex flex-shrink-0 items-center gap-2 sm:gap-4 lg:absolute lg:right-5 xl:right-8 transition-all duration-300">
             <a
               href="tel:6264049357"
               className={`hidden md:flex items-center gap-1.5 text-sm font-semibold transition-colors hover:text-[#d4af37] whitespace-nowrap ${
@@ -109,7 +114,7 @@ export default function Layout({ children }) {
             </a>
             <button
               onClick={() => scrollTo("savings-form")}
-              className="bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-bold text-sm px-7 py-3 rounded-full transition-all whitespace-nowrap"
+              className="bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-bold text-xs sm:text-sm px-4 sm:px-7 py-2.5 sm:py-3 rounded-full transition-all whitespace-nowrap"
             >
               Get a Quote
             </button>

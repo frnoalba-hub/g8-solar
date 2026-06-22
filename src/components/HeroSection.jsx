@@ -28,16 +28,7 @@ export default function HeroSection() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0b1528]/85 via-[#0b1528]/65 to-[#0b1528]/85" />
 
-      <div className="relative z-10 flex flex-col items-center text-center px-4 pt-24 pb-16">
-        {/* Big Logo */}
-        <img
-          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/c1a382000_Gemini_Generated_Image_5eixi75eixi75eix4.png"
-          alt="G8 Solar LLC"
-          fetchPriority="high"
-          decoding="async"
-          className="w-[90vw] max-w-2xl -mb-12 sm:-mb-48"
-        />
-
+      <div className="relative z-10 flex flex-col items-center text-center px-4 pt-28 pb-16 lg:pt-32">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/20 text-white/90 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-6">
           <span className="w-2 h-2 bg-[#d4af37] rounded-full animate-pulse" />
