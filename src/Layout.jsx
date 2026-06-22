@@ -14,6 +14,32 @@ function setMetaContent(selector, content) {
   if (el) el.setAttribute("content", content);
 }
 
+function NavLogo({ scrolled, compact = false }) {
+  return (
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className={`flex items-center group transition-all duration-300 ${
+        scrolled ? "rounded-lg bg-[#0b1528] px-2 py-1 shadow-sm" : ""
+      }`}
+      aria-label="G8 Solar home"
+    >
+      <img
+        src={LOGO_URL}
+        alt="G8 Solar LLC"
+        fetchPriority="high"
+        decoding="async"
+        className={`w-auto object-contain transition-all duration-500 ease-out origin-left ${
+          scrolled
+            ? compact
+              ? "h-11 max-w-[9rem]"
+              : "h-[4.375rem] max-w-[13.75rem] sm:max-w-[15rem]"
+            : "h-[5.9375rem] sm:h-[6.25rem] max-w-[18.75rem] sm:max-w-[21.25rem] drop-shadow-md brightness-110"
+        }`}
+      />
+    </button>
+  );
+}
+
 export default function Layout({ children }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -65,26 +91,17 @@ export default function Layout({ children }) {
         scrolled ? "bg-white shadow-md py-3" : "bg-transparent py-4 sm:py-5"
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between lg:justify-center relative gap-3">
-          {/* Brand / Logo — mobile & tablet only; stays in top-left pocket, scales on scroll */}
+          {/* Brand / Logo — mobile & tablet; dark pill on white scrolled nav */}
           <div className="flex-shrink-0 lg:hidden min-w-0">
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="flex items-center group"
-              aria-label="G8 Solar home"
-            >
-              <img
-                src={LOGO_URL}
-                alt="G8 Solar LLC"
-                fetchPriority="high"
-                decoding="async"
-                className={`w-auto object-contain transition-all duration-500 ease-out origin-left ${
-                  scrolled
-                    ? "h-[4.375rem] max-w-[13.75rem] sm:max-w-[15rem]"
-                    : "h-[5.9375rem] sm:h-[6.25rem] max-w-[18.75rem] sm:max-w-[21.25rem] drop-shadow-md brightness-110"
-                }`}
-              />
-            </button>
+            <NavLogo scrolled={scrolled} />
           </div>
+
+          {/* Desktop sticky logo — appears once nav background turns white */}
+          {scrolled && (
+            <div className="hidden lg:flex absolute left-5 xl:left-8 flex-shrink-0">
+              <NavLogo scrolled compact />
+            </div>
+          )}
 
           {/* Nav Links - centered on desktop */}
           <div className="hidden lg:flex items-center gap-6 xl:gap-8">
