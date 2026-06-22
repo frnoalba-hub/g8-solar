@@ -63,9 +63,9 @@ export default function Layout({ children }) {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? "bg-white shadow-md py-3" : "bg-transparent py-5"
       }`}>
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between gap-6">
-          {/* Brand / Logo */}
-          <div className="flex-shrink-0">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between lg:justify-center relative gap-6">
+          {/* Brand / Logo — mobile & tablet only; hero logo covers desktop */}
+          <div className="flex-shrink-0 lg:hidden transition-all duration-300">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="flex items-center group"
@@ -74,14 +74,14 @@ export default function Layout({ children }) {
               <img
                 src={LOGO_URL}
                 alt="G8 Solar LLC"
-                className={`h-10 sm:h-12 w-auto transition-all ${
+                className={`h-10 sm:h-12 w-auto transition-all duration-300 ${
                   scrolled ? "" : "drop-shadow-md brightness-110"
                 }`}
               />
             </button>
           </div>
 
-          {/* Nav Links - centered */}
+          {/* Nav Links - centered on desktop */}
           <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map(({ label, id }) => (
               <button
@@ -97,7 +97,7 @@ export default function Layout({ children }) {
           </div>
 
           {/* Phone + CTA */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 lg:absolute lg:right-5 xl:right-8 transition-all duration-300">
             <a
               href="tel:6264049357"
               className={`hidden md:flex items-center gap-1.5 text-sm font-semibold transition-colors hover:text-[#d4af37] whitespace-nowrap ${
