@@ -1,54 +1,75 @@
 import React from "react";
 import { Droplets, TrendingDown, AlertTriangle, CheckCircle } from "lucide-react";
 
-const tips = [
-  { icon: AlertTriangle, color: "text-red-400", title: "Dust & Pollen", desc: "California's dry climate means panels accumulate dust fast. Clean every 3–6 months." },
-  { icon: TrendingDown, color: "text-orange-400", title: "25% Output Loss", desc: "Soiled panels can lose over a quarter of their generating capacity during peak summer." },
-  { icon: Droplets, color: "text-blue-400", title: "Simple Care", desc: "A soft brush and garden hose is all it takes. No harsh chemicals needed." },
-  { icon: CheckCircle, color: "text-green-400", title: "Pro Cleaning", desc: "G8 Solar offers professional cleaning to keep your system at peak performance." },
-];
-
 export default function PanelCleaningSection() {
+  const tips = [
+    { icon: AlertTriangle, color: "text-red-500", title: "Dust & Pollen", desc: "California's dry climate means panels accumulate dust fast. Clean every 3–6 months." },
+    { icon: TrendingDown, color: "text-orange-500", title: "25% Output Loss", desc: "Soiled panels can lose over a quarter of their generating capacity during peak summer." },
+    { icon: Droplets, color: "text-blue-500", title: "Simple Care", desc: "A soft brush and garden hose is all it takes. No harsh chemicals needed." },
+    { icon: CheckCircle, color: "text-green-500", title: "Pro Cleaning", desc: "G8 Solar offers professional cleaning to keep your system at peak performance." },
+  ];
+
   return (
-    <section className="py-24 bg-[#0b1528]">
+    <section className="py-24 bg-[#f8f9fc]">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        <div className="text-center mb-16">
+          <span className="text-[#d4af37] font-semibold text-sm tracking-wider uppercase mb-4 block">Maintenance</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0b1528] mb-4">
+            Keep Your Panels <span className="text-[#d4af37]">Clean</span>
+          </h2>
+          <p className="text-gray-500 max-w-xl mx-auto">
+            Dirty panels can lose 15–25% efficiency. Regular cleaning protects your investment.
+          </p>
+        </div>
 
-        <div className="grid lg:grid-cols-12 gap-12 items-center mb-16">
-          <div className="lg:col-span-7">
-            <span className="text-[#d4af37] text-xs tracking-widest uppercase font-semibold">Maintenance</span>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl text-white mt-2 leading-[1.05]">
-              Dirty panels lose<br />
-              <em className="text-[#d4af37] not-italic">25% of their output.</em>
-            </h2>
-            <p className="text-white/50 mt-6 text-lg leading-relaxed max-w-lg">
-              Regular cleaning protects your investment. We handle it for you, or show you how to do it yourself in 20 minutes.
-            </p>
-          </div>
-
-          <div className="lg:col-span-5">
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/5]">
-              <img
-                src="https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80"
-                alt="Clean solar panels"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0b1528] via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="inline-block bg-[#d4af37] text-[#0b1528] text-xs font-bold px-3 py-1 rounded-full mb-3">PEAK PERFORMANCE</div>
-                <p className="text-white text-2xl leading-tight" style={{ fontFamily: 'DM Serif Display, Georgia, serif' }}>
-                  Clean panels = full savings.
-                </p>
+        {/* Before / After */}
+        <div className="mb-16 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="relative rounded-2xl overflow-hidden group">
+              <div className="h-72 overflow-hidden">
+                <img
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/6f1c6feb9_520953491_122097479000956477_4681214345456843616_n.jpg"
+                  alt="Solar panels before professional cleaning"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: "left center", transform: "scaleX(2)", transformOrigin: "left center" }}
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <span className="inline-block bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-2">BEFORE</span>
+                <p className="text-white font-bold">Dirty Panels</p>
+                <p className="text-white/60 text-sm">Up to 25% energy loss</p>
+              </div>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden group">
+              <div className="h-72 overflow-hidden">
+                <img
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/6f1c6feb9_520953491_122097479000956477_4681214345456843616_n.jpg"
+                  alt="Solar panels after professional cleaning"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: "right center", transform: "scaleX(2)", transformOrigin: "right center" }}
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <span className="inline-block bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-2">AFTER</span>
+                <p className="text-white font-bold">Clean Panels</p>
+                <p className="text-white/60 text-sm">Full efficiency restored</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {tips.map(({ icon: Icon, color, title, desc }) => (
-            <div key={title} className="bg-[#0b1528] p-6 hover:bg-[#0f1a2e] transition-colors">
-              <Icon className={`w-6 h-6 ${color} mb-4`} />
-              <h3 className="font-semibold text-white mb-2 text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>{title}</h3>
-              <p className="text-white/50 text-sm leading-relaxed">{desc}</p>
+            <div key={title} className="bg-white rounded-2xl p-6 border border-gray-100">
+              <Icon className={`w-7 h-7 ${color} mb-4`} />
+              <h3 className="font-bold text-[#0b1528] mb-2">{title}</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>

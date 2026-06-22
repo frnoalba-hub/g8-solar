@@ -1,66 +1,54 @@
 import React from "react";
-import { Quote } from "lucide-react";
+
+const stats = [
+  { value: "$0", label: "Down Financing Options" },
+  { value: "30%", label: "Federal ITC Support" },
+  { value: "25", label: "Year Equipment Warranties" },
+  { value: "CA", label: "Focused Service Area" },
+];
 
 export default function ProblemSection() {
   return (
-    <section id="problem-section" className="py-24 bg-white">
+    <section id="problem-section" className="py-24 bg-gradient-to-br from-[#0f1a2e] to-[#0b1528]">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-
-          {/* Left: editorial copy */}
-          <div className="lg:col-span-7">
-            <span className="text-[#d4af37] text-xs tracking-widest uppercase font-semibold">About G8 Solar</span>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl text-[#0b1528] mt-2 leading-[1.05] mb-8">
-              We design solar<br />
-              <em className="text-[#d4af37] not-italic">that actually pays off.</em>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span className="text-[#d4af37] font-semibold text-xs tracking-widest uppercase mb-3 block">About G8 Solar</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+              Built for California Energy Costs
             </h2>
-
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              Most solar companies sell you a generic system and disappear. We don't.
-              Every G8 Solar install is custom-engineered to your home's exact usage —
-              so you maximize savings, not just panels on a roof.
+            <p className="text-gray-300 text-lg leading-relaxed mb-10">
+              G8 Solar helps homeowners and businesses cut utility bills with custom solar and battery systems.
+              From system design and permitting to installation and support, we handle the full project so you
+              can switch with confidence.
             </p>
-            <p className="text-gray-600 text-lg leading-relaxed mb-10">
-              From the first assessment to 10 years of monitoring, we treat your roof
-              like our own investment. That's how we've earned a 4.9-star rating from
-              hundreds of California homeowners.
-            </p>
-
-            {/* Founder quote */}
-            <div className="border-l-2 border-[#d4af37] pl-6 py-2">
-              <Quote className="w-6 h-6 text-[#d4af37]/40 mb-3" />
-              <p
-                className="text-[#0b1528] text-xl leading-relaxed mb-3 italic"
-                style={{ fontFamily: 'DM Serif Display, Georgia, serif' }}
-              >
-                "We don't sell panels. We deliver decades of energy independence — engineered, installed, and guaranteed."
-              </p>
-              <p className="text-gray-500 text-sm font-semibold tracking-wider uppercase">— The G8 Solar Team</p>
-            </div>
-          </div>
-
-          {/* Right: image */}
-          <div className="lg:col-span-5">
-            <div className="relative">
-              <div className="rounded-3xl overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                  alt="Solar installation by G8 Solar"
-                  className="w-full h-[500px] object-cover"
-                />
-              </div>
-              {/* Floating credibility card */}
-              <div className="absolute -bottom-6 -left-6 sm:-left-10 bg-[#0b1528] text-white rounded-2xl p-6 shadow-2xl max-w-[240px]">
-                <div className="text-4xl text-[#d4af37] font-black leading-none mb-2" style={{ fontFamily: 'Inter, sans-serif' }}>
-                  500+
+            <div className="grid grid-cols-2 gap-4">
+              {stats.map(({ value, label }) => (
+                <div
+                  key={label}
+                  className="bg-[#1a2847] rounded-2xl p-5 text-center border border-[#d4af37]/20 hover:border-[#d4af37]/50 transition-all duration-300"
+                >
+                  <div className="text-3xl font-extrabold text-[#d4af37] mb-1">{value}</div>
+                  <div className="text-sm text-gray-300 font-medium">{label}</div>
                 </div>
-                <p className="text-white/70 text-sm leading-snug">
-                  California homes powered by G8 Solar since launch.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
 
+          <div className="relative">
+            <div className="rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+              <img
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/72e39f92c_522219909_122097524990956477_4978393624519453083_n.jpg"
+                alt="G8 Solar installation team working on a California rooftop"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover aspect-[4/3]"
+              />
+            </div>
+            <p className="text-gray-400 text-xs mt-4 text-center">
+              Real installation work from recent G8 Solar projects in California.
+            </p>
+          </div>
         </div>
       </div>
     </section>

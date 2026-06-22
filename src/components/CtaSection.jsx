@@ -1,65 +1,47 @@
 import React from "react";
-import { ArrowUpRight, Phone } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 
 export default function CtaSection() {
   const scrollToForm = () => document.getElementById("savings-form")?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section className="relative overflow-hidden bg-[#0b1528]">
-      {/* Background photo */}
-      <div className="absolute inset-0">
+    <section className="relative py-28 overflow-hidden bg-[#0b1528]">
+      <div className="absolute inset-0 opacity-10">
         <img
-          src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6878725ae2384abaf6424082/476057763_520953491_122097479000956477_4681214345456843616_n.jpg"
           alt=""
-          className="w-full h-full object-cover opacity-25"
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0b1528] via-[#0b1528]/85 to-[#0b1528]/70" />
       </div>
+      {/* Gold accent line top */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 py-28 sm:py-36">
-
-        {/* Top decorative line + label */}
-        <div className="flex items-center gap-4 mb-12">
-          <div className="h-px w-12 bg-[#d4af37]" />
-          <span className="text-[#d4af37] text-xs tracking-widest uppercase font-semibold">The next step</span>
-        </div>
-
-        {/* Editorial headline — extra large, mixed weight */}
-        <h2 className="text-5xl sm:text-7xl lg:text-8xl text-white leading-[0.95] max-w-4xl">
-          Stop renting<br />
-          your electricity.<br />
-          <em className="text-[#d4af37] not-italic">Start owning it.</em>
+      <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-8 text-center">
+        <span className="text-[#d4af37] font-semibold text-xs tracking-widest uppercase mb-4 block">Take Action</span>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+          Ready to Take Control of<br className="hidden sm:block" /> Your Energy Costs?
         </h2>
-
-        {/* Sub copy */}
-        <p className="text-white/50 text-lg sm:text-xl max-w-xl mt-10 leading-relaxed">
-          One free assessment. Custom design. $0 down. The savings start the day your system turns on.
+        <p className="text-white/50 text-lg mb-10 max-w-xl mx-auto">
+          Join homeowners across California already saving with G8 Solar. Get your free assessment today.
         </p>
-
-        {/* CTAs */}
-        <div className="mt-12 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
           <button
             onClick={scrollToForm}
-            className="group inline-flex items-center gap-3 bg-[#d4af37] hover:bg-white text-[#0b1528] font-bold text-base px-8 py-4 rounded-full transition-all"
+            className="group bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-bold text-base px-8 py-4 rounded-full transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#d4af37]/20"
           >
-            Request my free assessment
-            <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            Request Free Assessment
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
           <a
             href="tel:6264049357"
-            className="inline-flex items-center gap-2 text-white/70 hover:text-[#d4af37] font-medium text-base px-2 py-4 transition-colors"
+            className="flex items-center justify-center gap-2 border border-white/20 hover:border-white/40 text-white font-medium text-base px-8 py-4 rounded-full transition-all"
           >
             <Phone className="w-4 h-4" />
-            or call (626) 404-9357
+            (626) 404-9357
           </a>
-        </div>
-
-        {/* Bottom proof strip */}
-        <div className="mt-20 pt-10 border-t border-white/10 flex flex-wrap gap-x-12 gap-y-4 text-sm text-white/40">
-          <span><span className="text-white font-semibold">500+</span> California installs</span>
-          <span><span className="text-white font-semibold">4.9★</span> customer rating</span>
-          <span><span className="text-white font-semibold">$0</span> down financing</span>
-          <span><span className="text-white font-semibold">10-year</span> warranty</span>
         </div>
       </div>
     </section>
