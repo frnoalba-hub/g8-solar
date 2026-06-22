@@ -79,8 +79,8 @@ export default function Layout({ children }) {
                 decoding="async"
                 className={`w-auto object-contain transition-all duration-500 ease-out origin-left ${
                   scrolled
-                    ? "h-14 max-w-[11rem] sm:max-w-[12rem]"
-                    : "h-[4.75rem] sm:h-20 max-w-[15rem] sm:max-w-[17rem] drop-shadow-md brightness-110"
+                    ? "h-[4.375rem] max-w-[13.75rem] sm:max-w-[15rem]"
+                    : "h-[5.9375rem] sm:h-[6.25rem] max-w-[18.75rem] sm:max-w-[21.25rem] drop-shadow-md brightness-110"
                 }`}
               />
             </button>
