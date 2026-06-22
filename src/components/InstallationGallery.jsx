@@ -66,6 +66,8 @@ export default function InstallationGallery() {
               <img
                 src={photo.src}
                 alt={photo.label}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-[#0b1528]/0 group-hover:bg-[#0b1528]/60 transition-all duration-300 flex items-center justify-center">

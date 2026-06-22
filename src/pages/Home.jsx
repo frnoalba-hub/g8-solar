@@ -12,6 +12,7 @@ import InstallationProcess from "../components/InstallationProcess";
 import InstallationGallery from "../components/InstallationGallery";
 import CaliforniaNewsSection from "../components/CaliforniaNewsSection";
 import CaliforniaProgramsSection from "../components/CaliforniaProgramsSection";
+import ServiceAreasSection from "../components/ServiceAreasSection";
 import LeadFormSection from "../components/LeadFormSection";
 import FAQSection from "../components/FAQSection";
 import CtaSection from "../components/CtaSection";
@@ -25,6 +26,7 @@ export default function Home() {
         <SavingsCalculator />
         <CaliforniaNewsSection />
         <CaliforniaProgramsSection />
+        <ServiceAreasSection />
         <ProblemSection />
         <PartnersStrip />
         <ResultsSection />

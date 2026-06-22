@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Phone, Menu, X } from "lucide-react";
 
 const SEO_TITLE =
-  "G8 Solar | #1 Solar Panel Installation in California – Save Up to 90%";
+  "G8 Solar LLC | California Solar Installation & Battery Storage";
 const SEO_DESCRIPTION =
-  "G8 Solar LLC installs premium solar panels for homes and businesses across California. Get a free estimate today. Serving LA, Ventura, San Bernardino & more.";
+  "G8 Solar LLC designs and installs residential and commercial solar systems across California, including battery storage and incentive guidance.";
 
 function setMetaContent(selector, content) {
   const el = document.querySelector(selector);
@@ -18,9 +18,9 @@ export default function Layout({ children }) {
   useEffect(() => {
     document.title = SEO_TITLE;
     setMetaContent('meta[name="description"]', SEO_DESCRIPTION);
-    setMetaContent('meta[property="og:title"]', "G8 Solar | #1 Solar Panel Installation in California");
+    setMetaContent('meta[property="og:title"]', "G8 Solar LLC | California Solar Installation & Battery Storage");
     setMetaContent('meta[property="og:description"]', SEO_DESCRIPTION);
-    setMetaContent('meta[name="twitter:title"]', "G8 Solar | #1 Solar Panel Installation in California");
+    setMetaContent('meta[name="twitter:title"]', "G8 Solar LLC | California Solar Installation & Battery Storage");
     setMetaContent('meta[name="twitter:description"]', SEO_DESCRIPTION);
   }, []);
 
@@ -38,6 +38,7 @@ export default function Layout({ children }) {
   const navLinks = [
     { label: "About", id: "problem-section" },
     { label: "Services", id: "services-section" },
+    { label: "Areas", id: "areas-served" },
     { label: "Installations", id: "installation-portfolio" },
     { label: "Programs", id: "programs-incentives" },
     { label: "How It Works", id: "how-it-works" },

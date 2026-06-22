@@ -1,36 +1,21 @@
 import React, { useState } from "react";
 import { Calculator, Sun, DollarSign, Leaf, TrendingDown } from "lucide-react";
 
-const STATE_RATES = {
-  CA: { name: "California", rate: 0.29, sun: 5.5 },
-  TX: { name: "Texas", rate: 0.14, sun: 5.2 },
-  FL: { name: "Florida", rate: 0.13, sun: 5.7 },
-  AZ: { name: "Arizona", rate: 0.13, sun: 6.5 },
-  NY: { name: "New York", rate: 0.22, sun: 4.2 },
-  NV: { name: "Nevada", rate: 0.12, sun: 6.4 },
-  CO: { name: "Colorado", rate: 0.14, sun: 5.4 },
-  WA: { name: "Washington", rate: 0.10, sun: 3.8 },
-  OR: { name: "Oregon", rate: 0.11, sun: 4.0 },
-  NJ: { name: "New Jersey", rate: 0.18, sun: 4.3 },
-  MA: { name: "Massachusetts", rate: 0.25, sun: 4.0 },
-  HI: { name: "Hawaii", rate: 0.38, sun: 5.8 },
-  GA: { name: "Georgia", rate: 0.12, sun: 5.2 },
-  IL: { name: "Illinois", rate: 0.14, sun: 4.4 },
-  PA: { name: "Pennsylvania", rate: 0.14, sun: 4.2 },
-  OH: { name: "Ohio", rate: 0.13, sun: 4.2 },
-  NC: { name: "North Carolina", rate: 0.12, sun: 5.0 },
-  VA: { name: "Virginia", rate: 0.12, sun: 4.7 },
-  SC: { name: "South Carolina", rate: 0.13, sun: 5.2 },
-  MN: { name: "Minnesota", rate: 0.14, sun: 4.5 },
+const CALIFORNIA_UTILITIES = {
+  SCE: { name: "Southern California Edison (SCE)", rate: 0.31, sun: 5.7 },
+  PGE: { name: "PG&E", rate: 0.34, sun: 5.5 },
+  SDGE: { name: "San Diego Gas & Electric (SDG&E)", rate: 0.41, sun: 5.8 },
+  LADWP: { name: "Los Angeles DWP", rate: 0.26, sun: 5.6 },
+  SMUD: { name: "SMUD", rate: 0.19, sun: 5.5 },
 };
 
 export default function SavingsCalculator() {
   const [monthlyBill, setMonthlyBill] = useState(250);
-  const [state, setState] = useState("CA");
+  const [utility, setUtility] = useState("SCE");
   const [showResults, setShowResults] = useState(false);
 
   const calculate = () => {
-    const { rate, sun } = STATE_RATES[state];
+    const { rate, sun } = CALIFORNIA_UTILITIES[utility];
     const annualBill = monthlyBill * 12;
     const monthlyKwh = monthlyBill / rate;
     const systemSizeKw = monthlyKwh / (sun * 30);
@@ -67,25 +52,25 @@ export default function SavingsCalculator() {
             How Much Could You Save?
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto">
-            Get an instant estimate based on your location and current electric bill.
+            Get an instant estimate based on your California utility and current electric bill.
           </p>
         </div>
 
         <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 mb-8">
           <div className="grid sm:grid-cols-2 gap-6 mb-8">
             <div>
-              <label className="block text-sm font-semibold text-[#0b1528] mb-2">Your State</label>
+              <label className="block text-sm font-semibold text-[#0b1528] mb-2">Your Utility Provider</label>
               <select
-                value={state}
-                onChange={(e) => { setState(e.target.value); setShowResults(false); }}
+                value={utility}
+                onChange={(e) => { setUtility(e.target.value); setShowResults(false); }}
                 className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#d4af37] bg-white"
               >
-                {Object.entries(STATE_RATES).map(([code, { name }]) => (
+                {Object.entries(CALIFORNIA_UTILITIES).map(([code, { name }]) => (
                   <option key={code} value={code}>{name}</option>
                 ))}
               </select>
               <p className="text-xs text-gray-400 mt-1.5">
-                Avg rate: ${STATE_RATES[state].rate}/kWh · {STATE_RATES[state].sun} peak sun hrs/day
+                Est. rate: ${CALIFORNIA_UTILITIES[utility].rate}/kWh · {CALIFORNIA_UTILITIES[utility].sun} peak sun hrs/day
               </p>
             </div>
             <div>

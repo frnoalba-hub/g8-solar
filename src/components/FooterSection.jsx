@@ -16,6 +16,8 @@ export default function FooterSection() {
             <img
              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/c1a382000_Gemini_Generated_Image_5eixi75eixi75eix4.png"
              alt="G8 Solar LLC"
+             loading="lazy"
+             decoding="async"
              className="h-32 w-auto mb-4"
             />
             <p className="text-white/40 text-sm leading-relaxed max-w-xs">
@@ -59,7 +61,7 @@ export default function FooterSection() {
             <div>
               <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-4">Quick Links</h4>
               <div className="space-y-2">
-                {[["About", "problem-section"], ["Services", "services-section"], ["FAQ", "faq-section"]].map(([label, id]) => (
+                {[["About", "problem-section"], ["Services", "services-section"], ["Areas", "areas-served"], ["Programs", "programs-incentives"], ["FAQ", "faq-section"]].map(([label, id]) => (
                   <button key={id} onClick={() => scrollTo(id)} className="block text-white/40 hover:text-[#d4af37] text-sm transition-colors">
                     {label}
                   </button>
