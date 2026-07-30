@@ -18,25 +18,27 @@ import FAQSection from "../components/FAQSection";
 import CtaSection from "../components/CtaSection";
 import FooterSection from "../components/FooterSection";
 import StickyCallBar from "../components/StickyCallBar";
+
 export default function Home() {
   return (
     <div>
       <div className="font-sans">
+        {/* Ads landing path: hero → value → form early */}
         <HeroSection />
         <SavingsCalculator />
-        <CaliforniaNewsSection />
+        <LeadFormSection />
         <CaliforniaProgramsSection />
-        <ServiceAreasSection />
-        <ProblemSection />
-        <PartnersStrip />
-        <ResultsSection />
         <WhySolarSection />
         <ServicesSection />
         <HowItWorksSection />
+        <ResultsSection />
+        <PartnersStrip />
+        <ProblemSection />
+        <ServiceAreasSection />
         <PanelCleaningSection />
         <InstallationProcess />
         <InstallationGallery />
-        <LeadFormSection />
+        <CaliforniaNewsSection />
         <FAQSection />
         <CtaSection />
         <FooterSection />
