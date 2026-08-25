@@ -43,6 +43,12 @@ export default function PrivacyPolicy() {
               landed on, referring URL, and campaign parameters (for example UTM tags or ad click
               identifiers) to understand how visitors found our site.
             </p>
+            <p className="mt-3">
+              We use Google advertising measurement to record confirmed form submissions and may
+              use Google forwarding numbers to measure calls connected after an ad or website
+              visit, including call timing and duration. These signals help us evaluate advertising
+              performance and are not treated as proof that a caller became a customer.
+            </p>
           </section>
 
           <section>

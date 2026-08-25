@@ -8,7 +8,7 @@ const tabs = [
   { icon: DollarSign, label: "Incentive Review", content: "California and utility programs change over time. We review current programs and your eligibility before including an incentive in an estimate." },
   { icon: CreditCard, label: "Financing Options", content: "Flexible financing options may be available, including qualified zero-down offers. Approval, pricing, and terms vary by applicant and provider." },
   { icon: Sun, label: "Lower Bills", content: "A system designed around your usage, roof, utility, and rate plan can reduce grid purchases. Actual savings vary by property and energy habits." },
-  { icon: Battery, label: "Battery Backup", content: "Keep the lights on during outages with home battery storage. Store your solar energy and use it when you need it most." },
+  { icon: Battery, label: "Battery Backup", content: "Explore home battery storage for outages, evening use, and greater solar self-consumption. Available backup depends on the system design, selected loads, and stored energy." },
   { icon: Shield, label: "25-Year Warranty", content: "Our solar panels come with a 25-year performance warranty — 25+ years of reliable, clean energy with peace of mind." },
 ];
 

@@ -18,7 +18,7 @@ const services = [
   {
     num: "03",
     title: "Battery Storage",
-    desc: "Keep the lights on during outages. Pair solar with Tesla Powerwall or Enphase IQ Battery and qualify for SGIP rebates.",
+    desc: "Explore battery-backup options with Tesla Powerwall or Enphase IQ Battery. Backup capability depends on system design, and SGIP incentives may be available for qualifying projects.",
     tag: null,
   },
   {

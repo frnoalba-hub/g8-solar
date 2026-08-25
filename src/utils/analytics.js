@@ -11,8 +11,9 @@
  * Phone click events record intent to call — not a completed phone call.
  */
 
-const GOOGLE_ADS_ID = import.meta.env.VITE_GOOGLE_ADS_ID || "";
-const GOOGLE_ADS_CONVERSION_LABEL = import.meta.env.VITE_GOOGLE_ADS_CONVERSION_LABEL || "";
+const GOOGLE_ADS_ID = import.meta.env.VITE_GOOGLE_ADS_ID || "AW-18175802692";
+const GOOGLE_ADS_CONVERSION_LABEL =
+  import.meta.env.VITE_GOOGLE_ADS_CONVERSION_LABEL || "gqsaCI7dr-ccEMT68tpD";
 const GA4_MEASUREMENT_ID = import.meta.env.VITE_GA4_MEASUREMENT_ID || "";
 
 const LEAD_EVENT_SESSION_KEY = "g8_analytics_lead_fired";
@@ -108,6 +109,7 @@ export function trackLeadConversion({
   language = "en",
   serviceInterest = "",
   leadSource = "",
+  leadId = "",
 } = {}) {
   if (typeof sessionStorage !== "undefined" && sessionStorage.getItem(LEAD_EVENT_SESSION_KEY)) {
     return false;
@@ -120,6 +122,7 @@ export function trackLeadConversion({
     language,
     service_interest: serviceInterest || "general",
     lead_source: leadSource || "direct",
+    lead_id: leadId || "not_set",
     value: 1,
   };
 
@@ -130,6 +133,7 @@ export function trackLeadConversion({
       send_to: `${GOOGLE_ADS_ID}/${GOOGLE_ADS_CONVERSION_LABEL}`,
       value: 1.0,
       currency: "USD",
+      transaction_id: leadId,
     });
   }
 

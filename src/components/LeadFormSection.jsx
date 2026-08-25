@@ -25,6 +25,13 @@ function getServiceInterestFromUrl() {
   return new URLSearchParams(window.location.search).get("service") || "";
 }
 
+function createLeadId() {
+  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+    return crypto.randomUUID();
+  }
+  return `g8-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+}
+
 async function sendLeadEmail(data, document_url, attribution) {
   if (!WEB3FORMS_ACCESS_KEY) {
     throw new Error(
@@ -39,6 +46,7 @@ async function sendLeadEmail(data, document_url, attribution) {
       access_key: WEB3FORMS_ACCESS_KEY,
       subject: `New Solar Lead – ${data.full_name}`,
       from_name: "G8 Solar Website",
+      lead_id: data.lead_id,
       name: data.full_name,
       phone: data.phone,
       email: data.email,
@@ -111,6 +119,8 @@ export default function LeadFormSection() {
 
     try {
       const attribution = getAttributionFields();
+      const leadId = createLeadId();
+      const leadData = { ...data, lead_id: leadId };
       let document_url;
 
       if (file) {
@@ -126,14 +136,14 @@ export default function LeadFormSection() {
       let base44Saved = false;
 
       try {
-        await sendLeadEmail(data, document_url, attribution);
+        await sendLeadEmail(leadData, document_url, attribution);
         emailDelivered = true;
       } catch (emailError) {
         console.error("Web3Forms submission failed:", emailError);
       }
 
       try {
-        await saveLeadToBase44(data, document_url, attribution);
+        await saveLeadToBase44(leadData, document_url, attribution);
         base44Saved = true;
       } catch (base44Error) {
         console.warn("Base44 lead save failed:", base44Error);
@@ -150,6 +160,7 @@ export default function LeadFormSection() {
         language: document.documentElement.lang || "en",
         serviceInterest: getServiceInterestFromUrl(),
         leadSource: getLeadSourceLabel(),
+        leadId,
       });
 
       setSubmitted(true);
