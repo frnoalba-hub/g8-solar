@@ -1,8 +1,8 @@
 import React from "react";
 
 const stats = [
-  { value: "$0", label: "Down Financing Options" },
-  { value: "30%", label: "Federal ITC Support" },
+  { value: "Flexible", label: "Financing Options" },
+  { value: "Current", label: "Incentive Review" },
   { value: "25", label: "Year Equipment Warranties" },
   { value: "CA", label: "Focused Service Area" },
 ];

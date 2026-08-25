@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { Calculator, Sun, DollarSign, Leaf, TrendingDown } from "lucide-react";
+import {
+  trackCalculatorCompleted,
+  trackCalculatorStarted,
+} from "@/utils/analytics";
+import { navigateToLeadForm } from "@/utils/navigation";
 
 const CALIFORNIA_UTILITIES = {
   SCE: { name: "Southern California Edison (SCE)", rate: 0.31, sun: 5.7 },
@@ -14,28 +19,37 @@ export default function SavingsCalculator() {
   const [utility, setUtility] = useState("SCE");
   const [showResults, setShowResults] = useState(false);
 
+  const handleInteraction = () => {
+    trackCalculatorStarted();
+  };
+
   const calculate = () => {
     const { rate, sun } = CALIFORNIA_UTILITIES[utility];
     const annualBill = monthlyBill * 12;
     const monthlyKwh = monthlyBill / rate;
     const systemSizeKw = monthlyKwh / (sun * 30);
     const systemCostRaw = systemSizeKw * 3000;
-    const federalCredit = systemCostRaw * 0.30;
-    const netCost = systemCostRaw - federalCredit;
-    const annualSavings = annualBill * 0.85;
-    const paybackYears = (netCost / annualSavings).toFixed(1);
-    const lifetime25 = (annualSavings * 25 - netCost).toFixed(0);
+    const estimatedSystemCost = systemCostRaw;
+    const annualSavings = annualBill * 0.70;
+    const paybackYears = (estimatedSystemCost / annualSavings).toFixed(1);
+    const lifetime25 = (annualSavings * 25 - estimatedSystemCost).toFixed(0);
     const co2Annual = (monthlyKwh * 12 * 0.000386).toFixed(1);
 
     return {
       systemSizeKw: systemSizeKw.toFixed(2),
-      federalCredit: federalCredit.toFixed(0),
+      estimatedSystemCost: estimatedSystemCost.toFixed(0),
       annualSavings: annualSavings.toFixed(0),
       paybackYears,
       lifetime25,
       co2Annual,
       monthlySavings: (annualSavings / 12).toFixed(0),
     };
+  };
+
+  const handleCalculate = () => {
+    trackCalculatorStarted();
+    setShowResults(true);
+    trackCalculatorCompleted();
   };
 
   const results = showResults ? calculate() : null;
@@ -59,10 +73,16 @@ export default function SavingsCalculator() {
         <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 mb-8">
           <div className="grid sm:grid-cols-2 gap-6 mb-8">
             <div>
-              <label className="block text-sm font-semibold text-[#0b1528] mb-2">Your Utility Provider</label>
+              <label className="block text-sm font-semibold text-[#0b1528] mb-2">
+                Your Utility Provider
+              </label>
               <select
                 value={utility}
-                onChange={(e) => { setUtility(e.target.value); setShowResults(false); }}
+                onChange={(e) => {
+                  handleInteraction();
+                  setUtility(e.target.value);
+                  setShowResults(false);
+                }}
                 className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#d4af37] bg-white"
               >
                 {Object.entries(CALIFORNIA_UTILITIES).map(([code, { name }]) => (
@@ -70,7 +90,8 @@ export default function SavingsCalculator() {
                 ))}
               </select>
               <p className="text-xs text-gray-400 mt-1.5">
-                Est. rate: ${CALIFORNIA_UTILITIES[utility].rate}/kWh · {CALIFORNIA_UTILITIES[utility].sun} peak sun hrs/day
+                Est. rate: ${CALIFORNIA_UTILITIES[utility].rate}/kWh ·{" "}
+                {CALIFORNIA_UTILITIES[utility].sun} peak sun hrs/day
               </p>
             </div>
             <div>
@@ -83,7 +104,11 @@ export default function SavingsCalculator() {
                 max={1000}
                 step={10}
                 value={monthlyBill}
-                onChange={(e) => { setMonthlyBill(Number(e.target.value)); setShowResults(false); }}
+                onChange={(e) => {
+                  handleInteraction();
+                  setMonthlyBill(Number(e.target.value));
+                  setShowResults(false);
+                }}
                 className="w-full accent-[#d4af37] mt-3"
               />
               <div className="flex justify-between text-xs text-gray-400 mt-1">
@@ -93,7 +118,7 @@ export default function SavingsCalculator() {
           </div>
 
           <button
-            onClick={() => setShowResults(true)}
+            onClick={handleCalculate}
             className="w-full bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-bold text-lg py-4 rounded-xl transition-all"
           >
             Calculate My Savings →
@@ -106,7 +131,7 @@ export default function SavingsCalculator() {
               {[
                 { icon: DollarSign, label: "Monthly Savings", value: `$${results.monthlySavings}`, sub: "Est. after solar", color: "text-green-500" },
                 { icon: TrendingDown, label: "Annual Savings", value: `$${Number(results.annualSavings).toLocaleString()}`, sub: "Per year", color: "text-blue-500" },
-                { icon: Sun, label: "25-Year Gain", value: `$${Number(results.lifetime25).toLocaleString()}`, sub: "Net lifetime", color: "text-[#d4af37]" },
+                { icon: Sun, label: "25-Year Estimate", value: `$${Number(results.lifetime25).toLocaleString()}`, sub: "Illustrative net", color: "text-[#d4af37]" },
                 { icon: Leaf, label: "CO₂ Offset", value: `${results.co2Annual} tons`, sub: "Per year", color: "text-emerald-500" },
               ].map(({ icon: Icon, label, value, sub, color }) => (
                 <div key={label} className="bg-white rounded-2xl p-6 text-center border border-gray-100">
@@ -125,8 +150,10 @@ export default function SavingsCalculator() {
                   <div className="text-2xl font-bold text-[#d4af37]">{results.systemSizeKw} kW</div>
                 </div>
                 <div>
-                  <div className="text-white/50 text-sm mb-1">Federal Credit (30%)</div>
-                  <div className="text-2xl font-bold text-green-400">-${Number(results.federalCredit).toLocaleString()}</div>
+                  <div className="text-white/50 text-sm mb-1">Estimated System Cost</div>
+                  <div className="text-2xl font-bold text-green-400">
+                    ${Number(results.estimatedSystemCost).toLocaleString()}
+                  </div>
                 </div>
                 <div>
                   <div className="text-white/50 text-sm mb-1">Payback Period</div>
@@ -134,11 +161,11 @@ export default function SavingsCalculator() {
                 </div>
               </div>
               <p className="text-center text-white/40 text-xs mb-4">
-                *Estimates based on EIA rates, 30% ITC, and 85% bill offset. Actual savings vary.
+                *Illustration uses the selected rate, estimated production, a 70% bill offset, and a $3.00/W system-cost assumption. It excludes incentives, financing costs, rate escalation, maintenance, and taxes. Actual proposals and savings vary.
               </p>
               <div className="text-center">
                 <button
-                  onClick={() => document.getElementById("savings-form")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() => navigateToLeadForm("calculator_results", "calculator_to_form")}
                   className="bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-bold px-8 py-3 rounded-full transition-all"
                 >
                   Get My Personalized Quote →

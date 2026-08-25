@@ -1,5 +1,7 @@
 import React from "react";
 import { MapPin } from "lucide-react";
+import PhoneLink from "@/components/PhoneLink";
+import { PRIMARY_PHONE, PRIMARY_PHONE_DISPLAY } from "@/constants/brand";
 
 const serviceAreas = [
   "Los Angeles",
@@ -27,13 +29,15 @@ export default function ServiceAreasSection() {
     <section id="areas-served" className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div className="text-center mb-12">
-          <span className="text-[#d4af37] font-semibold text-xs tracking-widest uppercase mb-3 block">Local Coverage</span>
+          <span className="text-[#d4af37] font-semibold text-xs tracking-widest uppercase mb-3 block">
+            Local Coverage
+          </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0b1528] mb-4">
             Areas We Serve in California
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
             G8 Solar serves homeowners and businesses across Southern and Central California with
-            residential solar, commercial solar, and battery storage installations.
+            residential solar, commercial solar, and battery storage project coordination.
           </p>
         </div>
 
@@ -51,9 +55,12 @@ export default function ServiceAreasSection() {
 
         <p className="text-center text-gray-500 text-sm mt-8">
           Don&apos;t see your city listed? Call{" "}
-          <a href="tel:6264049357" className="text-[#0b1528] font-semibold underline">
-            (626) 404-9357
-          </a>{" "}
+          <PhoneLink
+            phone={PRIMARY_PHONE}
+            display={PRIMARY_PHONE_DISPLAY}
+            placement="service_areas"
+            className="text-[#0b1528] font-semibold underline"
+          />{" "}
           and we&apos;ll confirm coverage.
         </p>
       </div>

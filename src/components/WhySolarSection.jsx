@@ -1,17 +1,17 @@
 import React from "react";
 
 const stats = [
-  { number: "90%", label: "Average bill reduction for CA homeowners", sup: "up to" },
-  { number: "$10k+", label: "Added home resale value with solar", sup: "avg." },
-  { number: "30%", label: "Federal tax credit — available through 2032", sup: "ITC" },
-  { number: "10yr", label: "Panel performance warranty, guaranteed", sup: "" },
+  { number: "Custom", label: "System design based on your usage and property", sup: "fit" },
+  { number: "Current", label: "Utility-rate and incentive review", sup: "2026" },
+  { number: "Local", label: "California project coordination", sup: "focus" },
+  { number: "25yr", label: "Panel performance warranties may be available; terms vary", sup: "up to" },
 ];
 
 const secondaryPoints = [
-  { label: "Rate Protection", desc: "Utility rates rise 5%+ yearly. Solar locks in your cost." },
+  { label: "Rate Exposure", desc: "Solar can reduce the amount of electricity you purchase from the grid." },
   { label: "Energy Independence", desc: "Battery backup keeps you running during outages." },
-  { label: "Go Green", desc: "Offset 3–4 tons of CO₂ per year — like 100 trees." },
-  { label: "$0 Down", desc: "Start saving from day one with no upfront costs." },
+  { label: "Go Green", desc: "Generate clean energy at your property and reduce grid dependence." },
+  { label: "Flexible Options", desc: "Compare cash and financing paths based on qualified terms." },
 ];
 
 export default function WhySolarSection() {

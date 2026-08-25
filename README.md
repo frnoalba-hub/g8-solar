@@ -1,39 +1,55 @@
-**Welcome to your Base44 project** 
+# G8 Solar website
 
-**About**
+Production marketing site for [g8solarenergy.com](https://g8solarenergy.com/).
 
-View and Edit  your app on [Base44.com](http://Base44.com) 
+## Source of truth
 
-This project contains everything you need to run your app locally.
+GitHub is the code, review, and release authority for this site:
 
-**Edit the code in your local development environment**
+- Repository: `https://github.com/frnoalba-hub/g8-solar`
+- Production branch: `main`
+- Make and review changes locally, then commit and push them to GitHub.
+- Do not edit production code in a downstream visual builder. A hosting platform may consume the repository, but it is not the source of truth.
 
-Any change pushed to the repo will also be reflected in the Base44 Builder.
+## Local development
 
-**Prerequisites:** 
+Requirements: Node.js 20 or newer and npm.
 
-1. Clone the repository using the project's Git URL 
-2. Navigate to the project directory
-3. Install dependencies: `npm install`
-4. Create an `.env.local` file and set the right environment variables
-
-```
-VITE_BASE44_APP_ID=your_app_id
-VITE_BASE44_APP_BASE_URL=your_backend_url
-
-e.g.
-VITE_BASE44_APP_ID=cbef744a8545c389ef439ea6
-VITE_BASE44_APP_BASE_URL=https://my-to-do-list-81bfaad7.base44.app
+```bash
+npm ci
+copy .env.example .env.local
+npm run dev
 ```
 
-Run the app: `npm run dev`
+Before release:
 
-**Publish your changes**
+```bash
+npm run lint
+npm run typecheck
+npm run build
+```
 
-Open [Base44.com](http://Base44.com) and click on Publish.
+Never commit `.env.local` or live credentials.
 
-**Docs & Support**
+## Environment variables
 
-Documentation: [https://docs.base44.com/Integrations/Using-GitHub](https://docs.base44.com/Integrations/Using-GitHub)
+- `VITE_WEB3FORMS_ACCESS_KEY`: primary lead-email delivery
+- `VITE_GOOGLE_ADS_ID`: Google Ads account ID
+- `VITE_GOOGLE_ADS_CONVERSION_LABEL`: conversion action label
+- `VITE_BASE44_APP_ID`, `VITE_BASE44_APP_BASE_URL`, `VITE_BASE44_FUNCTIONS_VERSION`: optional legacy lead-record fallback only
 
-Support: [https://app.base44.com/support](https://app.base44.com/support)
+The public site no longer requires Base44 authentication or its Vite editor plugin to render. The SDK remains as a guarded lead-storage fallback until a GitHub-controlled CRM replacement is configured and verified.
+
+## Release
+
+1. Validate lint, typecheck, and production build.
+2. Commit the complete reviewed change set.
+3. Push `main` to GitHub.
+4. Let the connected production host build from `main`.
+5. Verify the canonical domain, lead form, mobile navigation, metadata, `robots.txt`, sitemap, and `llms.txt`.
+
+Live deployment secrets belong in the hosting provider's environment settings, never in Git.
+
+## SEO and AI discoverability
+
+The site uses visible service content, canonical metadata, Organization/Service and FAQ structured data, `robots.txt`, `sitemap.xml`, and `llms.txt`. Structured data and machine-readable summaries must match visible, current claims. Incentives and utility policies should be checked against official sources before publication.

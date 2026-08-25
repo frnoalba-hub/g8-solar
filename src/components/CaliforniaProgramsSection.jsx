@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { DollarSign, Home, Battery, Leaf, ChevronDown, ExternalLink } from "lucide-react";
+import { navigateToLeadForm } from "@/utils/navigation";
 
 const programs = [
-  { icon: DollarSign, color: "text-green-500 bg-green-50", name: "Federal Investment Tax Credit (ITC)", tag: "Federal", tagColor: "text-blue-600 bg-blue-50", value: "Save 30% off total system cost", desc: "Claim 30% of your total solar installation cost as a federal tax credit. Available through 2032. A $20,000 system becomes $14,000.", link: "https://www.energy.gov/eere/solar/homeowners-guide-federal-tax-credit-solar-photovoltaics", eligible: "Homeowners who owe federal income taxes" },
-  { icon: Battery, color: "text-purple-500 bg-purple-50", name: "SGIP — Self-Generation Incentive", tag: "California", tagColor: "text-amber-600 bg-amber-50", value: "Up to $1,000/kWh for battery storage", desc: "California's SGIP provides rebates for solar + battery storage. Enhanced rebates for low-income or high wildfire zone customers.", link: "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program", eligible: "PG&E, SCE, SoCalGas & SDG&E customers" },
-  { icon: Home, color: "text-orange-500 bg-orange-50", name: "Net Energy Metering (NEM 3.0)", tag: "California", tagColor: "text-amber-600 bg-amber-50", value: "Get paid for excess solar power", desc: "Send extra energy to the grid and receive bill credits. Battery storage maximizes value by shifting exports to peak rates.", link: "https://www.cpuc.ca.gov/nem", eligible: "All California IOUs (PG&E, SCE, SDG&E)" },
-  { icon: Leaf, color: "text-teal-500 bg-teal-50", name: "PACE Financing", tag: "California", tagColor: "text-amber-600 bg-amber-50", value: "$0 upfront, repaid via property tax", desc: "Finance solar with no money down, repaying through your property tax bill over 5–25 years.", link: "https://www.energy.ca.gov/programs-and-topics/programs/property-assessed-clean-energy-financing", eligible: "California homeowners with sufficient equity" },
-  { icon: DollarSign, color: "text-rose-500 bg-rose-50", name: "DAC-SASH (Low-Income Solar)", tag: "California", tagColor: "text-amber-600 bg-amber-50", value: "Up to $3/watt for qualifying households", desc: "Substantial upfront rebates for low-income customers in disadvantaged communities, making solar accessible to all.", link: "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/california-solar-initiative/dac-sash", eligible: "CARE program participants in IOU territories" },
+  { icon: DollarSign, color: "text-green-500 bg-green-50", name: "2026 Federal Credit Update", tag: "Federal", tagColor: "text-blue-600 bg-blue-50", value: "Residential federal credit ended after 2025", desc: "The federal Residential Clean Energy Credit cannot be claimed for expenditures made after December 31, 2025. Business and project incentives follow separate rules; consult a qualified tax professional.", link: "https://www.irs.gov/credits-deductions/residential-clean-energy-credit", eligible: "Project-specific review recommended before relying on any tax benefit" },
+  { icon: Battery, color: "text-purple-500 bg-purple-50", name: "SGIP — Self-Generation Incentive", tag: "California", tagColor: "text-amber-600 bg-amber-50", value: "Battery incentives may be available", desc: "SGIP support varies by budget category, utility territory, customer eligibility, and project requirements. Enhanced equity and resiliency incentives may apply to qualifying customers.", link: "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program", eligible: "Eligibility and incentive amounts must be confirmed for each project" },
+  { icon: Home, color: "text-orange-500 bg-orange-50", name: "Net Billing Tariff (NEM 3.0)", tag: "California", tagColor: "text-amber-600 bg-amber-50", value: "Bill credits for eligible exported energy", desc: "California's net billing rules value exports differently by time and utility. Storage can help shift energy use and exports, but results depend on the system and rate plan.", link: "https://www.cpuc.ca.gov/nem", eligible: "Rules vary by utility, tariff, and interconnection date" },
+  { icon: Leaf, color: "text-teal-500 bg-teal-50", name: "PACE Financing", tag: "California", tagColor: "text-amber-600 bg-amber-50", value: "Property-assessed financing where available", desc: "PACE may finance eligible energy improvements through a property assessment. Availability, underwriting, costs, terms, and consumer protections vary by program.", link: "https://www.energy.ca.gov/programs-and-topics/programs/property-assessed-clean-energy-financing", eligible: "Property and program requirements apply" },
+  { icon: DollarSign, color: "text-rose-500 bg-rose-50", name: "DAC-SASH (Low-Income Solar)", tag: "California", tagColor: "text-amber-600 bg-amber-50", value: "Support for qualifying households", desc: "DAC-SASH provides solar assistance to qualifying low-income homeowners in designated disadvantaged communities, subject to current program rules and funding.", link: "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/california-solar-initiative/dac-sash", eligible: "Income, location, utility, and program requirements apply" },
 ];
 
 export default function CaliforniaProgramsSection() {
@@ -21,7 +22,7 @@ export default function CaliforniaProgramsSection() {
             Programs & Incentives
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto">
-            California homeowners have access to some of the best solar incentives in the nation.
+            Current California programs vary by utility, property, funding, and customer eligibility.
           </p>
         </div>
 
@@ -67,7 +68,7 @@ export default function CaliforniaProgramsSection() {
         <div className="text-center mt-12">
           <p className="text-gray-500 text-sm mb-4">Not sure which programs you qualify for?</p>
           <button
-            onClick={() => document.getElementById("savings-form")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => navigateToLeadForm("programs_incentives", "quote")}
             className="bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-semibold px-8 py-3 rounded-full transition-all"
           >
             Get a Free Incentive Analysis →

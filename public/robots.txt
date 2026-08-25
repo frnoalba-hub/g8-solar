@@ -1,5 +1,5 @@
 # G8 Solar LLC - robots.txt
-# Last updated: 2026-06-22
+# Last updated: 2026-08-24
 # Allow all search engines and AI crawlers
 
 User-agent: *
@@ -39,11 +39,7 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-# LLM instruction file
-LLMs: https://g8solarenergy.com/llms.txt
+# AI information file: https://g8solarenergy.com/llms.txt
 
 # Sitemap
 Sitemap: https://g8solarenergy.com/sitemap.xml
-
-# Preferred host
-Host: https://g8solarenergy.com

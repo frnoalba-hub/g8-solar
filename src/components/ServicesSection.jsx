@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
+import { navigateToLeadForm } from "@/utils/navigation";
 
 const services = [
   {
@@ -29,7 +30,7 @@ const services = [
 ];
 
 export default function ServicesSection() {
-  const scrollToForm = () => document.getElementById("savings-form")?.scrollIntoView({ behavior: "smooth" });
+  const scrollToForm = () => navigateToLeadForm("services_section", "quote");
 
   return (
     <section id="services-section" className="py-24 bg-[#0f1a2e]">

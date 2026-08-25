@@ -1,4 +1,5 @@
 import React from "react";
+import { navigateToLeadForm } from "@/utils/navigation";
 
 const steps = [
   {
@@ -10,7 +11,7 @@ const steps = [
   {
     num: "2",
     title: "Custom Design & Financing",
-    desc: "Get a tailored system design with a full financial breakdown. $0 down options so your savings start immediately.",
+    desc: "Get a tailored system design and written financial breakdown. Qualified financing options may be available; approval and terms vary.",
     detail: "Approval in 24–48 hrs",
   },
   {
@@ -53,7 +54,7 @@ export default function HowItWorksSection() {
         <div className="mt-14 flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-10 border-t border-[#0b1528]/10">
           <p className="text-gray-400 text-sm">Ready to see your numbers?</p>
           <button
-            onClick={() => document.getElementById("savings-form")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => navigateToLeadForm("how_it_works", "quote")}
             className="bg-[#0b1528] hover:bg-[#d4af37] text-white hover:text-[#0b1528] font-semibold px-6 py-2.5 rounded-full transition-all text-sm"
           >
             Get a Free Estimate →

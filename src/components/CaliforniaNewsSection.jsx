@@ -4,9 +4,9 @@ import { ExternalLink, Sun, TrendingUp, Award } from "lucide-react";
 const news = [
   {
     icon: TrendingUp,
-    tag: "Federal Incentive",
-    title: "30% Federal Solar Tax Credit Active Through 2032",
-    summary: "The Residential Clean Energy Credit remains one of the biggest savings levers for California homeowners going solar.",
+    tag: "Federal Update",
+    title: "Residential Clean Energy Credit Ended After 2025",
+    summary: "The IRS states that residential expenditures made after December 31, 2025 are not eligible for this federal credit. Business incentives follow separate rules.",
     color: "text-emerald-400 bg-emerald-500/10",
     link: "https://www.irs.gov/credits-deductions/residential-clean-energy-credit",
   },
@@ -38,7 +38,7 @@ export default function CaliforniaNewsSection() {
             California Solar News
           </h2>
           <p className="text-white/40 max-w-xl mx-auto">
-            Programs and policies making solar smarter in the Golden State.
+            Official program and policy updates for California solar shoppers.
           </p>
         </div>
 

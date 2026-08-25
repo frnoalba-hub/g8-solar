@@ -4,6 +4,10 @@ import { CheckCircle, Shield, UploadCloud } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import PhoneLink from "@/components/PhoneLink";
+import { PRIMARY_PHONE, PRIMARY_PHONE_DISPLAY } from "@/constants/brand";
+import { getAttributionFields, getLeadSourceLabel } from "@/utils/attribution";
+import { trackLeadConversion } from "@/utils/analytics";
 
 const formSchema = z.object({
   full_name: z.string().min(2, "Full name is required"),
@@ -14,10 +18,20 @@ const formSchema = z.object({
   message: z.string().optional(),
 });
 
-const WEB3FORMS_ACCESS_KEY =
-  import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "f094b447-8ba6-4179-b547-a3e7f94101f7";
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
-async function sendLeadEmail(data, document_url) {
+function getServiceInterestFromUrl() {
+  if (typeof window === "undefined") return "";
+  return new URLSearchParams(window.location.search).get("service") || "";
+}
+
+async function sendLeadEmail(data, document_url, attribution) {
+  if (!WEB3FORMS_ACCESS_KEY) {
+    throw new Error(
+      "Form email delivery is not configured. Please call us at " + PRIMARY_PHONE_DISPLAY + ".",
+    );
+  }
+
   const response = await fetch("https://api.web3forms.com/submit", {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -32,26 +46,39 @@ async function sendLeadEmail(data, document_url) {
       monthly_bill: data.monthly_bill,
       message: data.message || "No message provided",
       document_url: document_url || "None uploaded",
+      utm_source: attribution.utm_source,
+      utm_medium: attribution.utm_medium,
+      utm_campaign: attribution.utm_campaign,
+      utm_term: attribution.utm_term,
+      utm_content: attribution.utm_content,
+      gclid: attribution.gclid,
+      gbraid: attribution.gbraid,
+      wbraid: attribution.wbraid,
+      landing_page_url: attribution.landing_page_url,
+      referrer_url: attribution.referrer_url,
     }),
   });
 
   const result = await response.json().catch(() => ({}));
   if (!response.ok || !result.success) {
-    throw new Error(result.message || "Email delivery failed. Please call us at 626-404-9357.");
+    throw new Error(
+      result.message || "Email delivery failed. Please call us at " + PRIMARY_PHONE_DISPLAY + ".",
+    );
   }
 }
 
-async function saveLeadToBase44(data, document_url) {
-  try {
-    await base44.entities.Lead.create({ ...data, document_url });
-  } catch (error) {
-    console.warn("Base44 lead save failed (email already sent):", error);
-  }
+async function saveLeadToBase44(data, document_url, attribution) {
+  await base44.entities.Lead.create({
+    ...data,
+    document_url,
+    ...attribution,
+  });
 }
 
 export default function LeadFormSection() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [file, setFile] = useState(null);
   const [uploadError, setUploadError] = useState("");
 
@@ -77,34 +104,60 @@ export default function LeadFormSection() {
   };
 
   const onSubmit = async (data) => {
+    if (loading || submitted) return;
+
+    setSubmitError("");
     setLoading(true);
+
     try {
+      const attribution = getAttributionFields();
       let document_url;
+
       if (file) {
         try {
           const res = await base44.integrations.Core.UploadFile({ file });
           document_url = res.file_url;
-        } catch (uploadError) {
-          console.warn("File upload failed; submitting lead without attachment:", uploadError);
+        } catch (uploadErr) {
+          console.warn("File upload failed; submitting lead without attachment:", uploadErr);
         }
       }
 
-      await sendLeadEmail(data, document_url);
-      await saveLeadToBase44(data, document_url);
+      let emailDelivered = false;
+      let base44Saved = false;
 
-      if (typeof window.gtag === "function") {
-        window.gtag("event", "generate_lead", {
-          event_category: "conversion",
-          value: 1,
-        });
+      try {
+        await sendLeadEmail(data, document_url, attribution);
+        emailDelivered = true;
+      } catch (emailError) {
+        console.error("Web3Forms submission failed:", emailError);
       }
+
+      try {
+        await saveLeadToBase44(data, document_url, attribution);
+        base44Saved = true;
+      } catch (base44Error) {
+        console.warn("Base44 lead save failed:", base44Error);
+      }
+
+      if (!emailDelivered && !base44Saved) {
+        throw new Error(
+          "We could not save your request. Please try again or call " + PRIMARY_PHONE_DISPLAY + ".",
+        );
+      }
+
+      trackLeadConversion({
+        formName: "savings_estimate",
+        language: document.documentElement.lang || "en",
+        serviceInterest: getServiceInterestFromUrl(),
+        leadSource: getLeadSourceLabel(),
+      });
 
       setSubmitted(true);
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert(
+      setSubmitError(
         error?.message ||
-          "An error occurred while submitting. Please try again or call 626-404-9357.",
+          "An error occurred while submitting. Please try again or call " + PRIMARY_PHONE_DISPLAY + ".",
       );
     } finally {
       setLoading(false);
@@ -133,22 +186,29 @@ export default function LeadFormSection() {
           {submitted ? (
             <div className="text-center py-10">
               <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-[#0b1528] mb-2">
-                You're All Set!
-              </h3>
+              <h3 className="text-2xl font-bold text-[#0b1528] mb-2">You're All Set!</h3>
               <p className="text-gray-500">
                 We'll be in touch shortly. Call us at{" "}
-                <a
-                  href="tel:6264049357"
+                <PhoneLink
+                  phone={PRIMARY_PHONE}
+                  display={PRIMARY_PHONE_DISPLAY}
+                  placement="lead_form_success"
                   className="text-[#0b1528] font-bold underline"
-                >
-                  626-404-9357
-                </a>
+                />
                 .
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
+              {submitError && (
+                <div
+                  role="alert"
+                  className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
+                >
+                  {submitError}
+                </div>
+              )}
+
               <div>
                 <label className="block text-sm font-semibold text-[#0b1528] mb-1.5">
                   Full Name *
@@ -160,9 +220,7 @@ export default function LeadFormSection() {
                   className={`w-full border rounded-xl px-4 py-3.5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-transparent transition-all ${errors.full_name ? "border-red-500" : "border-gray-200"}`}
                 />
                 {errors.full_name && (
-                  <p className="text-red-500 text-xs mt-1">
-                    {errors.full_name.message}
-                  </p>
+                  <p className="text-red-500 text-xs mt-1">{errors.full_name.message}</p>
                 )}
               </div>
 
@@ -178,9 +236,7 @@ export default function LeadFormSection() {
                     className={`w-full border rounded-xl px-4 py-3.5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-transparent transition-all ${errors.phone ? "border-red-500" : "border-gray-200"}`}
                   />
                   {errors.phone && (
-                    <p className="text-red-500 text-xs mt-1">
-                      {errors.phone.message}
-                    </p>
+                    <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>
                   )}
                 </div>
                 <div>
@@ -194,9 +250,7 @@ export default function LeadFormSection() {
                     className={`w-full border rounded-xl px-4 py-3.5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-transparent transition-all ${errors.zip_code ? "border-red-500" : "border-gray-200"}`}
                   />
                   {errors.zip_code && (
-                    <p className="text-red-500 text-xs mt-1">
-                      {errors.zip_code.message}
-                    </p>
+                    <p className="text-red-500 text-xs mt-1">{errors.zip_code.message}</p>
                   )}
                 </div>
               </div>
@@ -212,9 +266,7 @@ export default function LeadFormSection() {
                   className={`w-full border rounded-xl px-4 py-3.5 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-transparent transition-all ${errors.email ? "border-red-500" : "border-gray-200"}`}
                 />
                 {errors.email && (
-                  <p className="text-red-500 text-xs mt-1">
-                    {errors.email.message}
-                  </p>
+                  <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
                 )}
               </div>
 
@@ -233,9 +285,7 @@ export default function LeadFormSection() {
                   <option value="Over $500">Over $500</option>
                 </select>
                 {errors.monthly_bill && (
-                  <p className="text-red-500 text-xs mt-1">
-                    {errors.monthly_bill.message}
-                  </p>
+                  <p className="text-red-500 text-xs mt-1">{errors.monthly_bill.message}</p>
                 )}
               </div>
 
@@ -269,12 +319,8 @@ export default function LeadFormSection() {
                     />
                   </label>
                 </div>
-                {uploadError && (
-                  <p className="text-red-500 text-xs mt-1">{uploadError}</p>
-                )}
-                <p className="text-xs text-gray-400 mt-1.5">
-                  Max size 10MB. Images or PDF.
-                </p>
+                {uploadError && <p className="text-red-500 text-xs mt-1">{uploadError}</p>}
+                <p className="text-xs text-gray-400 mt-1.5">Max size 10MB. Images or PDF.</p>
               </div>
 
               <button
@@ -291,6 +337,15 @@ export default function LeadFormSection() {
                   "Get My Free Estimate →"
                 )}
               </button>
+
+              <p className="text-xs text-gray-500 text-center leading-relaxed">
+                By submitting this form, you agree that G8 Solar LLC may use your information to
+                respond to your request. See our{" "}
+                <a href="/PrivacyPolicy" className="text-[#0b1528] font-semibold underline">
+                  Privacy Policy
+                </a>
+                .
+              </p>
 
               <div className="flex items-center justify-center gap-2 text-gray-400 text-sm">
                 <Shield className="w-4 h-4" />

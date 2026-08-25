@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
+import { navigateToLeadForm } from "@/utils/navigation";
 
 const scenarios = [
   {
@@ -94,9 +95,7 @@ export default function ResultsSection() {
             Your home is next. Get a personalized savings estimate — no obligation.
           </p>
           <button
-            onClick={() =>
-              document.getElementById("savings-form")?.scrollIntoView({ behavior: "smooth" })
-            }
+            onClick={() => navigateToLeadForm("results_section", "quote")}
             className="inline-flex items-center gap-2 bg-[#0b1528] hover:bg-[#d4af37] text-white hover:text-[#0b1528] font-semibold px-6 py-3 rounded-full transition-all text-sm"
           >
             See my numbers <ArrowUpRight className="w-4 h-4" />
