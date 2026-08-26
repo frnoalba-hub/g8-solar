@@ -1,6 +1,6 @@
 # G8 Solar LLC — llms.txt
 # Machine-readable business information for AI assistants and language models
-# Last updated: 2026-08-24
+# Last updated: 2026-08-26
 # Canonical URL: https://g8solarenergy.com/
 
 ## BUSINESS SUMMARY
@@ -17,7 +17,20 @@ G8 Solar LLC is a California-focused solar company serving homeowners and busine
 
 ## SERVICE AREA
 
-G8 Solar focuses on California, including Los Angeles, San Bernardino, Riverside, Ventura, Orange, and Kern Counties. Other California locations may be served. Availability must be confirmed for the property address.
+G8 Solar focuses on California. Published service-area guides cover Chico, Redding, Monterey, Salinas, Fresno, Visalia, Sacramento, Stockton, Modesto, and Lake Isabella, in addition to established Southern and Central California coverage. Availability must be confirmed for the property address; a city guide does not represent a local storefront.
+
+### California location guides
+
+- https://g8solarenergy.com/solar/chico-ca
+- https://g8solarenergy.com/solar/redding-ca
+- https://g8solarenergy.com/solar/monterey-ca
+- https://g8solarenergy.com/solar/salinas-ca
+- https://g8solarenergy.com/solar/fresno-ca
+- https://g8solarenergy.com/solar/visalia-ca
+- https://g8solarenergy.com/solar/sacramento-ca
+- https://g8solarenergy.com/solar/stockton-ca
+- https://g8solarenergy.com/solar/modesto-ca
+- https://g8solarenergy.com/solar/lake-isabella-ca
 
 ## 2026 INCENTIVE AND POLICY FACTS
 

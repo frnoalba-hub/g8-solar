@@ -1,7 +1,9 @@
 import React from "react";
-import { MapPin } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import PhoneLink from "@/components/PhoneLink";
 import { PRIMARY_PHONE, PRIMARY_PHONE_DISPLAY } from "@/constants/brand";
+import { locations } from "@/data/locations";
 
 const serviceAreas = [
   "Los Angeles",
@@ -36,12 +38,34 @@ export default function ServiceAreasSection() {
             Areas We Serve in California
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            G8 Solar serves homeowners and businesses across Southern and Central California with
-            residential solar, commercial solar, and battery storage project coordination.
+            Explore property-specific solar and battery guidance for California markets where G8
+            can coordinate eligible projects with licensed installation partners.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+          {locations.map((location) => (
+            <Link
+              key={location.slug}
+              to={`/solar/${location.slug}`}
+              className="group rounded-2xl border border-gray-200 bg-[#f9fafb] p-4 transition hover:-translate-y-0.5 hover:border-[#d4af37] hover:shadow-md"
+            >
+              <div className="flex items-start justify-between gap-3">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#d4af37]" />
+                <ArrowRight className="h-4 w-4 text-gray-300 transition group-hover:text-[#d4af37]" />
+              </div>
+              <span className="mt-3 block font-bold text-[#0b1528]">
+                {location.city}, {location.state}
+              </span>
+              <span className="mt-1 block text-xs text-gray-500">Solar & battery guide</span>
+            </Link>
+          ))}
+        </div>
+
+        <h3 className="mb-4 mt-12 text-center text-sm font-bold uppercase tracking-widest text-[#0b1528]">
+          Additional California coverage
+        </h3>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {serviceAreas.map((city) => (
             <div
               key={city}
