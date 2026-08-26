@@ -2,6 +2,7 @@ import { Toaster } from "@/components/ui/toaster"
 import { pagesConfig } from './pages.config'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
+import LocationPage from './pages/LocationPage';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -30,6 +31,14 @@ const SiteRoutes = () => {
           }
         />
       ))}
+      <Route
+        path="/solar/:slug"
+        element={
+          <LayoutWrapper currentPageName="LocationPage">
+            <LocationPage />
+          </LayoutWrapper>
+        }
+      />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

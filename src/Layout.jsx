@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Phone, Menu, X } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import PhoneLink from "@/components/PhoneLink";
 import StructuredDataFAQ from "@/components/StructuredDataFAQ";
 import { G8_LOGO_URL, PRIMARY_PHONE, PRIMARY_PHONE_DISPLAY } from "@/constants/brand";
+import { getLocationBySlug } from "@/data/locations";
 import { navigateToLeadForm } from "@/utils/navigation";
 import { trackCtaClick } from "@/utils/analytics";
 
@@ -18,8 +20,8 @@ function setMetaContent(selector, content) {
 
 function NavLogo({ scrolled, compact = false }) {
   return (
-    <button
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+    <Link
+      to="/"
       className={`flex items-center group transition-all duration-300 ${
         scrolled ? "rounded-lg bg-[#0b1528] px-2 py-1 shadow-sm" : ""
       }`}
@@ -28,7 +30,7 @@ function NavLogo({ scrolled, compact = false }) {
       <img
         src={G8_LOGO_URL}
         alt="G8 Solar LLC"
-        fetchPriority="high"
+        {...{ fetchpriority: "high" }}
         decoding="async"
         className={`w-auto object-contain transition-all duration-500 ease-out origin-left ${
           scrolled
@@ -38,33 +40,58 @@ function NavLogo({ scrolled, compact = false }) {
             : "h-[5.9375rem] sm:h-[6.25rem] max-w-[18.75rem] sm:max-w-[21.25rem] drop-shadow-md brightness-110"
         }`}
       />
-    </button>
+    </Link>
   );
 }
 
 export default function Layout({ children, currentPageName }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const routerLocation = useLocation();
+  const navigate = useNavigate();
+  const locationSlug = routerLocation.pathname.match(/^\/solar\/([^/]+)\/?$/)?.[1];
+  const serviceLocation = locationSlug ? getLocationBySlug(locationSlug) : null;
 
   useEffect(() => {
-    document.title = SEO_TITLE;
-    setMetaContent('meta[name="description"]', SEO_DESCRIPTION);
-    setMetaContent('meta[property="og:title"]', SEO_TITLE);
-    setMetaContent('meta[property="og:description"]', SEO_DESCRIPTION);
-    setMetaContent('meta[name="twitter:title"]', SEO_TITLE);
-    setMetaContent('meta[name="twitter:description"]', SEO_DESCRIPTION);
+    let pageTitle = SEO_TITLE;
+    let pageDescription = SEO_DESCRIPTION;
+    let canonicalUrl = "https://g8solarenergy.com/";
+    let robotsContent = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
+
+    if (serviceLocation) {
+      pageTitle = serviceLocation.title;
+      pageDescription = serviceLocation.description;
+      canonicalUrl = `https://g8solarenergy.com/solar/${serviceLocation.slug}`;
+    } else if (currentPageName === "PrivacyPolicy") {
+      pageTitle = "Privacy Policy | G8 Solar LLC";
+      pageDescription = "How G8 Solar LLC handles information submitted through its website.";
+      canonicalUrl = "https://g8solarenergy.com/PrivacyPolicy";
+      robotsContent = "noindex,follow";
+    }
+
+    document.title = pageTitle;
+    setMetaContent('meta[name="description"]', pageDescription);
+    setMetaContent('meta[property="og:title"]', pageTitle);
+    setMetaContent('meta[property="og:description"]', pageDescription);
+    setMetaContent('meta[property="og:url"]', canonicalUrl);
+    setMetaContent('meta[name="twitter:title"]', pageTitle);
+    setMetaContent('meta[name="twitter:description"]', pageDescription);
     const canonical = document.querySelector('link[rel="canonical"]');
     const robots = document.querySelector('meta[name="robots"]');
-    if (currentPageName === "PrivacyPolicy") {
-      document.title = "Privacy Policy | G8 Solar LLC";
-      setMetaContent('meta[name="description"]', "How G8 Solar LLC handles information submitted through its website.");
-      canonical?.setAttribute("href", "https://g8solarenergy.com/PrivacyPolicy");
-      robots?.setAttribute("content", "noindex,follow");
+    canonical?.setAttribute("href", canonicalUrl);
+    robots?.setAttribute("content", robotsContent);
+  }, [currentPageName, serviceLocation]);
+
+  useEffect(() => {
+    setMobileOpen(false);
+    if (routerLocation.hash) {
+      window.requestAnimationFrame(() => {
+        document.getElementById(routerLocation.hash.slice(1))?.scrollIntoView();
+      });
     } else {
-      canonical?.setAttribute("href", "https://g8solarenergy.com/");
-      robots?.setAttribute("content", "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1");
+      window.scrollTo({ top: 0 });
     }
-  }, [currentPageName]);
+  }, [routerLocation.pathname, routerLocation.hash]);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 40);
@@ -76,7 +103,21 @@ export default function Layout({ children, currentPageName }) {
   const scrollTo = (id, label) => {
     setMobileOpen(false);
     trackCtaClick({ ctaType: "nav", placement: `nav_${label.toLowerCase().replace(/\s+/g, "_")}` });
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate(`/#${id}`);
+    }
+  };
+
+  const openLeadForm = () => {
+    if (document.getElementById("savings-form")) {
+      navigateToLeadForm("navbar_quote", "quote");
+    } else {
+      trackCtaClick({ ctaType: "quote", placement: "navbar_quote" });
+      navigate("/#savings-form");
+    }
   };
 
   const navLinks = [
@@ -92,7 +133,7 @@ export default function Layout({ children, currentPageName }) {
 
   return (
     <div className="min-h-screen bg-white">
-      <StructuredDataFAQ />
+      {currentPageName === "Home" && <StructuredDataFAQ />}
       <style>{`
         * { box-sizing: border-box; }
         body { margin: 0; padding: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; overflow-x: hidden; scrollbar-width: none; -ms-overflow-style: none; }
@@ -144,7 +185,7 @@ export default function Layout({ children, currentPageName }) {
               {PRIMARY_PHONE_DISPLAY}
             </PhoneLink>
             <button
-              onClick={() => navigateToLeadForm("navbar_quote", "quote")}
+              onClick={openLeadForm}
               className="bg-[#d4af37] hover:bg-[#c4a030] text-[#0b1528] font-bold text-xs sm:text-sm px-4 sm:px-7 py-2.5 sm:py-3 rounded-full transition-all whitespace-nowrap"
             >
               Get a Quote

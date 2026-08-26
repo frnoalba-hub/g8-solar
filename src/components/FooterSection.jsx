@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Phone, Mail, Instagram, Facebook } from "lucide-react";
 import PhoneLink from "@/components/PhoneLink";
 import {
@@ -12,9 +12,17 @@ import {
 import { trackCtaClick } from "@/utils/analytics";
 
 export default function FooterSection() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const scrollTo = (id, label) => {
     trackCtaClick({ ctaType: "nav", placement: `footer_${label.toLowerCase()}` });
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    } else if (location.pathname !== "/") {
+      navigate(`/#${id}`);
+    }
   };
 
   return (

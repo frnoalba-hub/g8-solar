@@ -30,7 +30,7 @@ export default function HeroSection() {
         <img
           src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a537c21eb5bc0a1e508288/c1a382000_Gemini_Generated_Image_5eixi75eixi75eix4.png"
           alt="G8 Solar LLC"
-          fetchPriority="high"
+          {...{ fetchpriority: "high" }}
           decoding="async"
           className="hidden lg:block w-[90vw] max-w-[52.5rem] -mb-60"
         />
