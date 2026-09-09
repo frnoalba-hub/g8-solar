@@ -1,6 +1,7 @@
 import { localLocations } from "@/data/localLocations";
+import { whySolarBySlug } from "@/data/locationSeoContent";
 
-export const locations = [
+const rawLocations = [
   {
     slug: "chico-ca",
     city: "Chico",
@@ -277,7 +278,15 @@ export const locations = [
   ...localLocations,
 ];
 
+export const locations = rawLocations.map((location) => ({
+  ...location,
+  whySolar: whySolarBySlug[location.slug],
+}));
+
 export const getLocationBySlug = (slug) => locations.find((location) => location.slug === slug);
+
+export const getLocationByCity = (city) =>
+  locations.find((location) => location.city.toLowerCase() === city.toLowerCase());
 
 export const getRelatedLocations = (location) =>
   location.related

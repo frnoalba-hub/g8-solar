@@ -17,10 +17,15 @@ import PhoneLink from "@/components/PhoneLink";
 import StickyCallBar from "@/components/StickyCallBar";
 import { PRIMARY_PHONE, PRIMARY_PHONE_DISPLAY } from "@/constants/brand";
 import {
+  getLocationByCity,
   getLocationBySlug,
   getRelatedLocations,
   locationPath,
 } from "@/data/locations";
+import {
+  getRegionDecisionCards,
+  LOCATION_IMAGE_URL,
+} from "@/data/locationSeoContent";
 import { navigateToLeadForm } from "@/utils/navigation";
 
 const SCHEMA_ID = "g8-location-structured-data";
@@ -140,6 +145,21 @@ function DecisionCard({ icon: Icon, title, children }) {
   );
 }
 
+function NearbyAreaTag({ area }) {
+  const linkedLocation = getLocationByCity(area);
+  const className = "rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700";
+
+  return linkedLocation ? (
+    <Link to={locationPath(linkedLocation)} className={`${className} transition hover:border-[#d4af37] hover:text-[#0b1528]`}>
+      {area}
+    </Link>
+  ) : (
+    <span className={className}>{area}</span>
+  );
+}
+
+const decisionIcons = [Sun, Zap, BatteryCharging, ShieldCheck];
+
 export default function LocationPage() {
   const { slug } = useParams();
   const location = getLocationBySlug(slug);
@@ -147,6 +167,7 @@ export default function LocationPage() {
   if (!location) return <Navigate to="/" replace />;
 
   const relatedLocations = getRelatedLocations(location);
+  const decisionCards = getRegionDecisionCards(location.region);
   const faqs = getLocationFaqs(location);
 
   return (
@@ -247,6 +268,13 @@ export default function LocationPage() {
                 >
                   Check the referenced utility information <ExternalLink className="h-4 w-4" />
                 </a>
+                <img
+                  src={LOCATION_IMAGE_URL}
+                  alt={`Residential rooftop solar installation serving ${location.city}, California homeowners`}
+                  loading="lazy"
+                  decoding="async"
+                  className="mt-8 aspect-[4/3] w-full rounded-2xl border border-slate-200 object-cover shadow-sm"
+                />
               </div>
               <div>
                 <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#b28a08]">
@@ -260,6 +288,12 @@ export default function LocationPage() {
                   The written proposal should identify the equipment, expected production, battery assumptions, project scope, financing terms, and warranties. Savings and timelines vary by property and are not guaranteed.
                 </p>
               </div>
+            </div>
+            <div className="mt-12 border-t border-slate-200 pt-10">
+              <h2 className="text-2xl font-black text-[#0b1528] sm:text-3xl">
+                Why homeowners in {location.city} consider solar
+              </h2>
+              <p className="mt-4 max-w-4xl leading-7 text-slate-600">{location.whySolar}</p>
             </div>
           </div>
         </section>
@@ -275,18 +309,11 @@ export default function LocationPage() {
               </h2>
             </div>
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              <DecisionCard icon={Sun} title="Production fit">
-                How roof exposure, system size, and equipment translate into a property-specific production estimate.
-              </DecisionCard>
-              <DecisionCard icon={Zap} title="Utility fit">
-                How the current rate plan, load timing, and export assumptions affect the comparison.
-              </DecisionCard>
-              <DecisionCard icon={BatteryCharging} title="Storage fit">
-                Whether storage is for self-consumption, outage backup, or both—and which loads it is designed to support.
-              </DecisionCard>
-              <DecisionCard icon={ShieldCheck} title="Contract fit">
-                Equipment models, project scope, financing details, warranties, and installation responsibilities in writing.
-              </DecisionCard>
+              {decisionCards.map((card, index) => (
+                <DecisionCard key={card.title} icon={decisionIcons[index]} title={card.title}>
+                  {card.text}
+                </DecisionCard>
+              ))}
             </div>
           </div>
         </section>
@@ -303,9 +330,7 @@ export default function LocationPage() {
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {location.nearbyAreas.map((area) => (
-                  <span key={area} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700">
-                    {area}
-                  </span>
+                  <NearbyAreaTag key={area} area={area} />
                 ))}
               </div>
 
