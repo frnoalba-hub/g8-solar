@@ -66,7 +66,6 @@ export default function Layout({ children, currentPageName }) {
       pageTitle = "Privacy Policy | G8 Solar LLC";
       pageDescription = "How G8 Solar LLC handles information submitted through its website.";
       canonicalUrl = "https://g8solarenergy.com/PrivacyPolicy";
-      robotsContent = "noindex,follow";
     }
 
     document.title = pageTitle;

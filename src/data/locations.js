@@ -1,3 +1,5 @@
+import { localLocations } from "@/data/localLocations";
+
 export const locations = [
   {
     slug: "chico-ca",
@@ -272,18 +274,14 @@ export const locations = [
     ],
     related: ["bakersfield-ca", "visalia-ca", "redding-ca"],
   },
+  ...localLocations,
 ];
-
-// Existing-market route used for internal linking while its dedicated page is prepared.
-const existingMarketFallbacks = {
-  "bakersfield-ca": { city: "Bakersfield", slug: null },
-};
 
 export const getLocationBySlug = (slug) => locations.find((location) => location.slug === slug);
 
 export const getRelatedLocations = (location) =>
   location.related
-    .map((slug) => getLocationBySlug(slug) || existingMarketFallbacks[slug])
+    .map((slug) => getLocationBySlug(slug))
     .filter(Boolean);
 
 export const locationPath = (location) =>
